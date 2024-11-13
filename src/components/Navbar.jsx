@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo_nav from '../assets/logos/logo_nav.png';
+import logo_nav from '../assets/logos/logoCompleto.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
