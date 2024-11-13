@@ -98,6 +98,12 @@ const Navbar = () => {
             <a href="#" className="text-gray-800 hover:text-purple-700">
               PROMOCIONES
             </a>
+            <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white">
+              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-xs bg-red-400 text-white px-2 py-0.5 rounded-md">
+                Últimos días disponibles
+              </span>
+              PAMPEANA ONLINE
+            </div>
             {/* Botón Autogestión */}
             <button className="bg-purple-600 text-white py-2 px-6 rounded-md hover:bg-purple-700 transition">
               Autogestión
