@@ -95,7 +95,9 @@ const Navbar = () => {
               CENTROS DE ATENCIÓN
             </Link>
             {/* Promociones */}
-            <Link to="/promociones" className="text-gray-800 hover:text-purple-700"></Link>
+            <Link to="/promociones" className="text-gray-800 hover:text-purple-700">
+              PROMOCIONES
+            </Link>
             <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white">
               <span className="absolute top-0 right-0 -mt-3 -mr-3 text-sm bg-red-400 text-white px-2 py-0.5 rounded-md">
                 Últimos días disponibles
