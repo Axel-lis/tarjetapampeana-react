@@ -1,0 +1,12 @@
+/* carousel.css */
+.slick-dots {
+  bottom: 10px; /* Ajusta la posición de los puntos */
+}
+
+.slick-dots li button:before {
+  color: #ccc; /* Color de los puntos inactivos */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #6b46c1; /* Color de los puntos activos */
+}
