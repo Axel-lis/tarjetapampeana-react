@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo_nav from '../assets/logos/logoCompleto.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -37,29 +38,29 @@ const Navbar = () => {
             </button>{' '}
             {/* Para Vos */}
             <div className="relative" onMouseEnter={() => handleMouseEnter('paraVos')} onMouseLeave={handleMouseLeave}>
-              <a href="#" className="text-gray-800 hover:text-purple-700">
+              <Link to="/para-vos" className="text-gray-800 hover:text-purple-700">
                 PARA VOS
-              </a>
+              </Link>
               {activeDropdown === 'paraVos' && (
                 <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col lg:flex-row h-16 whitespace-nowrap px-5 gap-4 dropNAV">
-                  <a href="#" className="hover:text-orange-300">
+                  <Link to="/para-vos" className="hover:text-orange-300">
                     Para Vos
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/pampacash" className="hover:text-orange-300">
                     PampaCash
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/donde-comprar" className="hover:text-orange-300">
                     Dónde comprar
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/costos" className="hover:text-orange-300">
                     Costos
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/medios-de-pago" className="hover:text-orange-300">
                     Medios de pago
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/ahorra-mas" className="hover:text-orange-300">
                     Ahorrá Más
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
@@ -69,36 +70,34 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter('paraTuComercio')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#" className="text-gray-800 hover:text-purple-700">
+              <Link to="/para-tu-comercio" className="text-gray-800 hover:text-purple-700">
                 PARA TU COMERCIO
-              </a>
+              </Link>
               {activeDropdown === 'paraTuComercio' && (
                 <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col h-max lg:flex-row lg:h-16 max-h-64 lg:max-h-none overflow-y-auto whitespace-nowrap px-5 gap-4 dropNAV">
-                  <a href="#" className="hover:text-orange-300">
+                  <Link to="/servicios" className="hover:text-orange-300">
                     Servicios
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/beneficios" className="hover:text-orange-300">
                     Beneficios
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/adhesion" className="hover:text-orange-300">
                     Adhesión
-                  </a>
-                  <a href="#" className="hover:text-orange-300">
+                  </Link>
+                  <Link to="/requisitos" className="hover:text-orange-300">
                     Requisitos
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
             {/* Centros de Atención */}
-            <a href="#" className="text-gray-800 hover:text-purple-700">
+            <Link to="/centros-atencion" className="text-gray-800 hover:text-purple-700">
               CENTROS DE ATENCIÓN
-            </a>
+            </Link>
             {/* Promociones */}
-            <a href="#" className="text-gray-800 hover:text-purple-700">
-              PROMOCIONES
-            </a>
+            <Link to="/promociones" className="text-gray-800 hover:text-purple-700"></Link>
             <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white">
-              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-xs bg-red-400 text-white px-2 py-0.5 rounded-md">
+              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-sm bg-red-400 text-white px-2 py-0.5 rounded-md">
                 Últimos días disponibles
               </span>
               PAMPEANA ONLINE
