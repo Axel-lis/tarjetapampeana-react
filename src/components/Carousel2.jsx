@@ -25,9 +25,23 @@ const Carousel2 = ({ tiempoCarga = 2000 }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 6, // Mostrar 7 imágenes por slide
+    slidesToShow: 6, // Mostrar 6 imágenes por slide en escritorio por defecto
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024, // Pantallas menores a 1024px (tablets y móviles grandes)
+        settings: {
+          slidesToShow: 3, // Mostrar 3 imágenes por slide
+        },
+      },
+      {
+        breakpoint: 768, // Pantallas menores a 768px (teléfonos)
+        settings: {
+          slidesToShow: 1, // Mostrar 1 imagen por slide
+        },
+      },
+    ],
   };
 
   const slides = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
