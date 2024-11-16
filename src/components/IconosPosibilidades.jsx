@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; // Importamos PropTypes
-import { FaCreditCard, FaHandHoldingUsd, FaFileInvoice, FaPiggyBank, FaChartBar } from 'react-icons/fa';
+import {
+  FaCreditCard,
+  FaHandHoldingUsd,
+  FaFileInvoice,
+  FaPiggyBank,
+  FaMobileAlt,
+  FaMapMarkerAlt,
+} from 'react-icons/fa';
 
 const SkeletonIconos = () => {
   return (
@@ -19,7 +26,8 @@ const IconosPosibilidades = ({ tiempoCarga = 1000 }) => {
     { icono: <FaHandHoldingUsd className="text-purple-500" />, texto: 'Pedí un préstamo' },
     { icono: <FaFileInvoice className="text-purple-500" />, texto: 'Pagar mi resumen' },
     { icono: <FaPiggyBank className="text-purple-500" />, texto: 'Abrir una cuenta gratis' },
-    { icono: <FaChartBar className="text-purple-500" />, texto: 'Simular frascos' },
+    { icono: <FaMapMarkerAlt className="text-purple-500" />, texto: 'Conocé nuestros comercios adheridos' },
+    { icono: <FaMobileAlt className="text-purple-500" />, texto: 'Conocé nuestra app' },
   ];
 
   useEffect(() => {
@@ -29,9 +37,9 @@ const IconosPosibilidades = ({ tiempoCarga = 1000 }) => {
 
   return (
     <div className="bg-purple-50 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto px-4">
         {loading
-          ? Array(5)
+          ? Array(6)
               .fill(null)
               .map((_, index) => <SkeletonIconos key={index} />)
           : posibilidades.map((item, index) => (

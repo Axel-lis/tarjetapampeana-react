@@ -25,7 +25,7 @@ const Carousel2 = ({ tiempoCarga = 2000 }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 7, // Mostrar 7 imágenes por slide
+    slidesToShow: 6, // Mostrar 7 imágenes por slide
     slidesToScroll: 1,
     autoplay: true,
   };
@@ -47,8 +47,6 @@ const Carousel2 = ({ tiempoCarga = 2000 }) => {
         <Skeleton />
         <Skeleton />
         <Skeleton />
-        <Skeleton />
-        <Skeleton />
       </div>
     );
   }
@@ -57,7 +55,7 @@ const Carousel2 = ({ tiempoCarga = 2000 }) => {
     <div className="w-full h-4/6">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="flex items-center justify-center">
+          <div key={index} className="flex items-center justify-center px-2">
             <img src={slide} alt={`Slide ${index + 1}`} className="h-25 object-contain" />
           </div>
         ))}
