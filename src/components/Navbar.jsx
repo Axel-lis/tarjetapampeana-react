@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo_nav from '../assets/logos/logoCompleto.png';
+import logo_nav from '../assets/logos/logo violeta.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {

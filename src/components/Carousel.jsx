@@ -31,7 +31,7 @@ const Carousel = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full h-4/6">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex flex-row">
