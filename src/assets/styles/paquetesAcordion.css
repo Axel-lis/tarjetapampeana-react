@@ -1,3 +1,8 @@
+.contenedor__ambasTarjetas{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+} 
+ 
  .accordion-container {
         width: 76% !important;
         max-width: 100% !important;
