@@ -1,0 +1,159 @@
+ .accordion-container {
+        width: 76% !important;
+        max-width: 100% !important;
+    }
+
+    .accordion-item {
+        background-color: #FFFFFF;
+        /* White background for items */
+        border: 1px solid #E0E0E0;
+        /* Light border */
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Softer shadow */
+    }
+
+    .accordion-header {
+        background-color: #6C63FF;
+        /* Soft purple */
+        color: #FFFFFF;
+        /* White text */
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+        background-color: #5753C9;
+        /* Darker shade of purple */
+    }
+
+    .accordion-content {
+        background-color: #FAFAFA;
+        /* Very light grey for content */
+        overflow: hidden;
+        padding: 0 15px;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+    }
+    .accordion-content.open {
+    max-height: 100%; /* Un valor lo suficientemente grande para mostrar todo el contenido */
+    transition: max-height 0.3s ease-in;
+    }
+    .accordion-content p {
+        margin: 15px 0;
+        line-height: 1.5;
+    }
+
+    .icon {
+        transition: transform 0.3s ease;
+    }
+
+    .active .icon {
+        transform: rotate(45deg);
+    }
+
+    .excel-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .excel-table th,
+    .excel-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        width: 300px;
+        text-align: center;
+    }
+    .excel-table td.header-highlight {
+        background-color: #e2bcea;
+    }
+.div__containerBeneficiosPampaGold {
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+        padding: 0 40px;
+        margin-right: 100px;
+    }
+
+    #tarjeta-container {
+        background-color: #fff;
+        height: 300px;
+        margin-top: -200px;
+    }
+
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 250px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text */
+        position: absolute;
+        z-index: 1;
+        bottom: 105%;
+        left: 100%;
+        margin-left: -60px;
+
+        /* Fade in tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    /* Tooltip arrow */
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .div__containerPampaOro::before {
+        display: none;
+    }
+      @media screen and (max-width: 600px) {
+
+        .accordion-container {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .excel-table {
+            overflow-x: scroll;
+        }
+
+        .accordion-content {
+            overflow: scroll !important;
+        }
+    }
