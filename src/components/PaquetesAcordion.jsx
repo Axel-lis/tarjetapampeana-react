@@ -76,7 +76,7 @@ export const PaquetesAcordion = () => {
 
   return (
     <div>
-      <article className="contenedor__ambasTarjetas flex justify-center">
+      <article className="contenedor__ambasTarjetas flex justify-center bg-purple-50 py-8">
         <div className="accordion-container">
           {['PAQUETE CORPORATIVO', 'PAQUETE CLÁSICO', 'PAQUETE PREMIUM', 'PAQUETE NACIONAL GOLD'].map(
             (title, index) => (
