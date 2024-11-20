@@ -33,7 +33,7 @@ const Carousel = ({ tiempoCarga = 2000 }) => {
       title: 'Con tu ¡Paquete Pampeana disfrutás de los mejores beneficios al mejor precio!',
       description:
         'Acceso a Préstamos Personales PampaCa$h .Con tu Paquete Gold tenes bonificado el 100% del costo de tu Renovación Anual e importantes descuentos todos los días de la semana.',
-      buttonText: 'Tener razon',
+      buttonText: 'Ver Paquetes',
       imgSrc: carousel2,
     },
   ];
