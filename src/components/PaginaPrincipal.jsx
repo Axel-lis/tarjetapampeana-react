@@ -3,6 +3,7 @@ import Carousel2 from './Carousel2';
 import PaquetePampeana from './PaquetePampeana';
 import PaquetesAcordion from './PaquetesAcordion';
 import IconosPosiblidades from './IconosPosibilidades';
+import PreguntasFrecuentes from './PreguntasFrecuentes';
 import Footer from './Footer';
 const PaginaPrincipal = () => {
   return (
@@ -12,6 +13,7 @@ const PaginaPrincipal = () => {
       <Carousel2 tiempoCarga={1500} />
       <PaquetePampeana />
       <PaquetesAcordion />
+      <PreguntasFrecuentes />
       <Footer />
     </div>
   );

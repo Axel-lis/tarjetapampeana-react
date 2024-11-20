@@ -3,7 +3,7 @@ import datafiscal from '../assets/logos/data-fiscal.png';
 import certacyc from '../assets/logos/CERTACYC-img.png';
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-700 py-8 border-t">
+    <footer className="bg-purple-50  text-gray-700 py-8 border-t">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Logo y redes sociales */}
@@ -55,7 +55,7 @@ const Footer = () => {
 
             {/* Nosotros */}
             <div>
-              <h3 className="text-lg font-bold md:my-12 pt-8">Nosotros</h3>
+              <h3 className="text-lg font-bold md:my-12 pt-6">Nosotros</h3>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a href="#" className="text-sm hover:text-purple-600">
