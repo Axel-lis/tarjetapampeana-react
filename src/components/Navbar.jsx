@@ -26,7 +26,7 @@ const Navbar = () => {
         <div
           className={`${
             isMobileMenuOpen ? 'block' : 'hidden'
-          } md:flex md:space-x-8 text-lg font-regular absolute md:relative top-0 left-0 w-full md:w-auto bg-white md:bg-transparent transition-all duration-300 ease-in-out sm:border-indigo-600 md:border-b-0 border-b-4 border-indigo-200`}
+          } md:flex md:space-x-8 text-base font-regular absolute md:relative top-0 left-0 w-full md:w-auto bg-white md:bg-transparent transition-all duration-300 ease-in-out sm:border-indigo-600 md:border-b-0 border-b-4 border-indigo-200`}
         >
           <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 py-8 md:py-0 md:space-x-8 ">
             {/* Ícono para cerrar en el menú móvil */}
