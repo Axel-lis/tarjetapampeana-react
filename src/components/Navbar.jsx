@@ -14,7 +14,9 @@ const Navbar = () => {
     <nav className="bg-white shadow-md fixed w-full z-10">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
-        <img src={logo_nav} alt="Tarjeta Pampeana" height={200} width={200} />
+        <Link to="/" aria-label="Ir a la página principal">
+          <img src={logo_nav} alt="Tarjeta Pampeana" height={200} width={200} />
+        </Link>
         {/* Botón para abrir/cerrar menú móvil */}
         <div className="md:hidden">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-purple-600 focus:outline-none">

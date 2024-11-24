@@ -1,9 +1,10 @@
 import bcra from '../assets/logos/bcra.png';
 import datafiscal from '../assets/logos/data-fiscal.png';
 import certacyc from '../assets/logos/CERTACYC-img.png';
+import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
 const Footer = () => {
   return (
-    <footer className="bg-purple-50  text-gray-700 py-8 border-t">
+    <footer className="bg-white-50  text-gray-700 py-8 border-t">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Logo y redes sociales */}
@@ -12,14 +13,26 @@ const Footer = () => {
             <p className="text-sm">Copyright Tarjeta Pampeana S.A.© Todos los derechos reservados.</p>
             <div className="flex space-x-4 mt-4">
               {/* Icons (puedes usar librerías como react-icons para estos) */}
-              <a href="#" className="text-blue-500">
-                <i className="fab fa-facebook text-2xl"></i>
+              <a
+                href="https://www.facebook.com/PampeanaOficial"
+                target="_blank"
+                className="text-blue-500 hover:text-blue-600"
+              >
+                <FaFacebook />
               </a>
-              <a href="#" className="text-red-500">
-                <i className="fab fa-youtube text-2xl"></i>
+              <a
+                href="https://www.youtube.com/@TarjetaPampeana"
+                target="_blank"
+                className="text-red-500 hover:text-red-600"
+              >
+                <FaYoutube />
               </a>
-              <a href="#" className="text-pink-500">
-                <i className="fab fa-instagram text-2xl"></i>
+              <a
+                href="https://www.instagram.com/tarjetapampeana/"
+                target="_blank"
+                className="text-pink-500 hover:text-pink-600"
+              >
+                <FaInstagram />
               </a>
             </div>
           </div>
