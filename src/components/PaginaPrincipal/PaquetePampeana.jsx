@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import paquetePampeana from '../assets/banners/carousel1/carousel1.png';
+import paquetePampeana from '../../assets/banners/carousel1/carousel1.png';
 import { motion } from 'framer-motion';
-import Skeleton from './Skeleton';
+import Skeleton from '../Common/Skeleton';
 import { useEffect } from 'react';
 
 const PaquetePampeana = () => {

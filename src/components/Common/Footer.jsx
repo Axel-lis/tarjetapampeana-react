@@ -1,6 +1,6 @@
-import bcra from '../assets/logos/bcra.png';
-import datafiscal from '../assets/logos/data-fiscal.png';
-import certacyc from '../assets/logos/CERTACYC-img.png';
+import bcra from '../../assets/logos/bcra.png';
+import datafiscal from '../../assets/logos/data-fiscal.png';
+import certacyc from '../../assets/logos/CERTACYC-img.png';
 import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
 const Footer = () => {
   return (

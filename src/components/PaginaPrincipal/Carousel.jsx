@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../assets/styles/carousel.css';
+import '../../assets/styles/carousel.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import carousel1 from '../assets/banners/carousel1/carousel1.png';
-import carousel2 from '../assets/banners/carousel1/carousel2.png';
+import carousel1 from '../../assets/banners/carousel1/carousel1.png';
+import carousel2 from '../../assets/banners/carousel1/carousel2.png';
 
-import Skeleton from './Skeleton';
+import Skeleton from '../Common/Skeleton';
 
 const Carousel = ({ tiempoCarga = 2000 }) => {
   //hook useState para controlar el estado de la carga

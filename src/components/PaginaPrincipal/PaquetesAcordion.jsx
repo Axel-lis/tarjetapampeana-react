@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../assets/styles/paquetesAcordion.css';
+import '../../assets/styles/paquetesAcordion.css';
 export const PaquetesAcordion = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
 

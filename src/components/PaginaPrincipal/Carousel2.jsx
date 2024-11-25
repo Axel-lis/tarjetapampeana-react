@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../assets/styles/carousel.css';
+import '../../assets/styles/carousel.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // Imágenes del carousel
-import img1 from '../assets/banners/carousel2/DOM.jpg';
-import img2 from '../assets/banners/carousel2/LUN.jpg';
-import img3 from '../assets/banners/carousel2/MAR.jpg';
-import img4 from '../assets/banners/carousel2/MIE.jpg';
-import img5 from '../assets/banners/carousel2/JUE.jpg';
-import img6 from '../assets/banners/carousel2/VIE.jpg';
-import img7 from '../assets/banners/carousel2/SAB.jpg';
-import img8 from '../assets/banners/carousel2/ELECTROHOG.jpg';
-import img9 from '../assets/banners/carousel2/RESTAURANT.jpg';
+import img1 from '../../assets/banners/carousel2/DOM.jpg';
+import img2 from '../../assets/banners/carousel2/LUN.jpg';
+import img3 from '../../assets/banners/carousel2/MAR.jpg';
+import img4 from '../../assets/banners/carousel2/MIE.jpg';
+import img5 from '../../assets/banners/carousel2/JUE.jpg';
+import img6 from '../../assets/banners/carousel2/VIE.jpg';
+import img7 from '../../assets/banners/carousel2/SAB.jpg';
+import img8 from '../../assets/banners/carousel2/ELECTROHOG.jpg';
+import img9 from '../../assets/banners/carousel2/RESTAURANT.jpg';
 
-import Skeleton from './Skeleton';
+import Skeleton from '../Common/Skeleton';
 
 const Carousel2 = ({ tiempoCarga = 2000 }) => {
   //hook useState para controlar el estado de la carga

@@ -2,12 +2,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import PaginaPrincipal from './components/PaginaPrincipal';
-import ParaVos from './components/ParaVos';
-import ParaTuComercio from './components/ParaTuComercio';
-import CentrosAtencion from './components/CentrosAtencion';
-import Promociones from './components/Promociones';
+import Navbar from './components/Common/Navbar';
+import PaginaPrincipal from './components/PaginaPrincipal/PaginaPrincipal';
+import ParaVos from './components/ParaVos/ParaVos';
+import ParaTuComercio from './components/ParaTuComercio/ParaTuComercio';
+import CentrosAtencion from './components/CentroAtencion/CentrosAtencion';
+import Promociones from './components/Promociones/Promociones';
 
 function App() {
   return (

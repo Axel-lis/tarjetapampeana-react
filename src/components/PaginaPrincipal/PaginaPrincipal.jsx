@@ -3,8 +3,8 @@ import Carousel2 from './Carousel2';
 import PaquetePampeana from './PaquetePampeana';
 import PaquetesAcordion from './PaquetesAcordion';
 import IconosPosiblidades from './IconosPosibilidades';
-import PreguntasFrecuentes from './PreguntasFrecuentes';
-import Footer from './Footer';
+import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
+import Footer from '../Common/Footer';
 const PaginaPrincipal = () => {
   return (
     <div>
