@@ -4,6 +4,23 @@ import logo_nav from '../../assets/logos/logo violeta.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
+  const stylePampeanaOld = {
+    lineHeight: '12px',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    color: '#00096E',
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    fontSize: '11px',
+    backgroundColor: '#F9BC3D',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'left',
+    backgroundSize: 'auto',
+    padding: '12px 16px 12px 2.2rem',
+    borderRadius: '8px',
+    whiteSpace: 'nowrap',
+  };
+
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -44,7 +61,7 @@ const Navbar = () => {
                 PARA VOS
               </Link>
               {activeDropdown === 'paraVos' && (
-                <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col lg:flex-row h-16 whitespace-nowrap px-5 gap-4 dropNAV">
+                <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col lg:flex-row h-16 whitespace-nowrap px-5 gap-4 h-fit z-40">
                   <Link to="/para-vos" className="hover:text-orange-300">
                     Para Vos
                   </Link>
@@ -76,7 +93,7 @@ const Navbar = () => {
                 PARA TU COMERCIO
               </Link>
               {activeDropdown === 'paraTuComercio' && (
-                <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col h-max lg:flex-row lg:h-16 max-h-64 lg:max-h-none overflow-y-auto whitespace-nowrap px-5 gap-4 dropNAV">
+                <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col h-max lg:flex-row lg:h-16 max-h-64 lg:max-h-none overflow-y-auto whitespace-nowrap px-5 gap-4 h-fit z-40">
                   <Link to="/servicios" className="hover:text-orange-300">
                     Servicios
                   </Link>
@@ -100,8 +117,11 @@ const Navbar = () => {
             <Link to="/promociones" className="text-gray-800 hover:text-purple-700">
               PROMOCIONES
             </Link>
-            <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white">
-              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-sm bg-red-400 text-white px-2 py-0.5 rounded-md">
+            <div
+              style={stylePampeanaOld}
+              className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white"
+            >
+              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-xs	 bg-red-400 text-white px-2 py-0.5 rounded-md">
                 Últimos días disponibles
               </span>
               PAMPEANA ONLINE
