@@ -127,9 +127,11 @@ const Navbar = () => {
               PAMPEANA ONLINE
             </div>
             {/* Botón Autogestión */}
-            <button className="bg-purple-600 text-white py-2 px-6 rounded-md hover:bg-purple-700 transition">
-              Autogestión
-            </button>
+            <a href="https://online.pampeana.com.ar/" target="_blank" rel="noopener noreferrer">
+              <button className="bg-purple-600 text-white py-2 px-6 rounded-md hover:bg-purple-700 transition">
+                Autogestión
+              </button>
+            </a>
           </div>
         </div>
       </div>
