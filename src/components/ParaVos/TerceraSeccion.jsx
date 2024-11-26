@@ -28,7 +28,7 @@ const TerceraSeccion = () => {
 
       {/* Columna de Texto */}
       <motion.div
-        className=""
+        className="w-full "
         initial={{ x: '100vw', opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 60, damping: 15 }}

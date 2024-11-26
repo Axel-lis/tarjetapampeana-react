@@ -5,6 +5,8 @@ import PaquetesAcordion from './PaquetesAcordion';
 import IconosPosiblidades from '../Common/IconosPosibilidades';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
 import Footer from '../Common/Footer';
+import { preguntas } from '../constants/index.js';
+
 import {
   FaCreditCard,
   FaHandHoldingUsd,
@@ -31,7 +33,7 @@ const PaginaPrincipal = () => {
       <Carousel2 tiempoCarga={1500} />
       <PaquetePampeana />
       <PaquetesAcordion />
-      <PreguntasFrecuentes />
+      <PreguntasFrecuentes preguntas={preguntas} />
       <Footer />
     </div>
   );
