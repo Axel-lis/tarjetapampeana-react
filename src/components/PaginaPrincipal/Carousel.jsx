@@ -55,14 +55,14 @@ const Carousel = ({ tiempoCarga = 2000 }) => {
   }
 
   return (
-    <div className="w-full h-4/6">
+    <div className="w-full ">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex flex-row">
-            <div className="w-full flex flex-col justify-center md:flex-row">
+            <div className="w-full  flex flex-col justify-center md:flex-row">
               {/* Imagen */}
               <div className="w-full md:w-2/4 flex items-center justify-center order-1 md:order-2">
-                <img src={slide.imgSrc} alt={slide.title} className="w-full h-3/4 object-contain mt-6" />
+                <img src={slide.imgSrc} alt={slide.title} className="w-full h-4/6 object-contain mt-2" />
               </div>
               {/* Texto */}
               <div className="w-full md:w-1/4 p-6 flex flex-col justify-center order-2 md:order-1">

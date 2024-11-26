@@ -13,8 +13,8 @@ const PrimeraSeccion = ({ tiempoCarga = 1100 }) => {
   }, [tiempoCarga]);
 
   return (
-    <div className="container">
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 pt-16">
+    <div className="container w-full">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-16">
         {/* Bloque de texto */}
         <div className="flex flex-auto md:flex-1">
           <blockquote className="text-xl md:text-2xl py-10 mx-10 font-semibold italic text-center text-slate-900">

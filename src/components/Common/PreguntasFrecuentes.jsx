@@ -45,7 +45,7 @@ const PreguntasFrecuentes = () => {
           <div className="items-start" style={faqStyle.question} key={index} onClick={() => toggleFaq(index)}>
             <h3 style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
               {pregunta.titulo}
-              <i
+              <div
                 className={FaPlus}
                 style={{
                   ...faqStyle.icon,

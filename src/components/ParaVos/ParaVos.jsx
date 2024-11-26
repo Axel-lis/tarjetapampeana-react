@@ -1,5 +1,7 @@
 import PrimeraSeccion from './PrimeraSeccion';
 import IconosPosiblidades from '../Common/IconosPosibilidades';
+import SegundaSeccion from './SegundaSeccion';
+import TerceraSeccion from './TerceraSeccion';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
 import Footer from '../Common/Footer';
 import { FaCreditCard, FaHandHoldingUsd, FaMailBulk, FaGift, FaChartLine, FaComment } from 'react-icons/fa';
@@ -17,6 +19,8 @@ export const ParaVos = () => {
     <div>
       <PrimeraSeccion tiempoCarga={1100} />
       <IconosPosiblidades posibilidades={iconosParaVos} />
+      <SegundaSeccion />
+      <TerceraSeccion />
       <PreguntasFrecuentes />
       <Footer />
     </div>
