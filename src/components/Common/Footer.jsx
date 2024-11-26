@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
 
           {/* Información */}
-          <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
+          <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-5">
             {/* Sobre tu tarjeta */}
             <div>
               <div className="flex flex-row items-center flex-nowrap">
@@ -60,7 +60,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#" className="text-sm hover:text-purple-600">
-                    RESUMEN DEL CONTRATO PARA INFORMAR AL CLIENTE.
+                    RESUMEN DEL CONTRATO.
                   </a>
                 </li>
               </ul>
@@ -68,8 +68,8 @@ const Footer = () => {
 
             {/* Nosotros */}
             <div>
-              <h3 className="text-lg font-bold md:my-12 pt-6">Nosotros</h3>
-              <ul className="mt-2 space-y-2">
+              <h3 className="text-lg font-bold md:mt-20">Nosotros</h3>
+              <ul className="">
                 <li>
                   <a href="#" className="text-sm hover:text-purple-600">
                     Trabaja con nosotros

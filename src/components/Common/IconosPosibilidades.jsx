@@ -20,7 +20,7 @@ const IconosPosibilidades = ({ tiempoCarga = 1000, posibilidades = [] }) => {
 
   return (
     <div className="bg-purple-50 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto px-4 cursor-pointer">
         {loading
           ? Array(posibilidades.length || 6)
               .fill(null)

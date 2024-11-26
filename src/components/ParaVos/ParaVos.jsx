@@ -2,6 +2,7 @@ import PrimeraSeccion from './PrimeraSeccion';
 import IconosPosiblidades from '../Common/IconosPosibilidades';
 import SegundaSeccion from './SegundaSeccion';
 import TerceraSeccion from './TerceraSeccion';
+import Costos from './Costos';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
 import Footer from '../Common/Footer';
 import { preguntasParaVos } from '../constants/index.js';
@@ -22,6 +23,7 @@ export const ParaVos = () => {
       <IconosPosiblidades posibilidades={iconosParaVos} />
       <SegundaSeccion />
       <TerceraSeccion />
+      <Costos />
       <PreguntasFrecuentes preguntas={preguntasParaVos} />
       <Footer />
     </div>
