@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 const PreguntasFrecuentes = ({ preguntas }) => {
-  console.log(preguntas);
   const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {

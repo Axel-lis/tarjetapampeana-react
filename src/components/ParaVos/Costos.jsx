@@ -6,10 +6,12 @@ const Costos = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="container bg-purple-50 ">
+    <div className="container bg-purple-50">
       <hr className=" h-px my-8 bg-pruple-200 border-0 dark:bg-purple-300"></hr>
       <section className="mx-auto px-4 py-8">
-        <h2 className="text-2xl font-semibold mb-4">Nuestros Costos</h2>
+        <h2 className="text-2xl font-semibold mb-4" id="costos">
+          Nuestros Costos
+        </h2>
         <div className="accordion">
           <div className="space-y-4">
             <button

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Logo y redes sociales */}
           <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
-            <h2 className="text-purple-600 text-xl font-bold">Pampeana</h2>
+            <h2 className="text-purple-700 text-xl font-bold">Pampeana</h2>
             <p className="text-sm">Copyright Tarjeta Pampeana S.A.© Todos los derechos reservados.</p>
             <div className="flex space-x-4 mt-4">
               {/* Icons (puedes usar librerías como react-icons para estos) */}

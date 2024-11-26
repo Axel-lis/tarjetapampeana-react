@@ -10,3 +10,6 @@
     font-style: normal;
   }
 }
+html {
+  scroll-padding-top: 80px;
+}
