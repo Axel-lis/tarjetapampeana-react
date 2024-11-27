@@ -94,16 +94,16 @@ const Navbar = () => {
               </Link>
               {activeDropdown === 'paraTuComercio' && (
                 <div className="absolute top-full left-0 bg-purple-600 text-white rounded-md shadow-lg p-4 flex flex-col h-max lg:flex-row lg:h-16 max-h-64 lg:max-h-none overflow-y-auto whitespace-nowrap px-5 gap-4 h-fit z-40">
-                  <Link to="/servicios" className="hover:text-orange-300">
-                    Servicios
+                  <Link to="/para-tu-comercio" className="hover:text-orange-300">
+                    Para tu comercio
                   </Link>
-                  <Link to="/beneficios" className="hover:text-orange-300">
+                  <Link to="/para-tu-comercio#beneficios" className="hover:text-orange-300">
                     Beneficios
                   </Link>
-                  <Link to="/adhesion" className="hover:text-orange-300">
+                  <Link to="/para-tu-comercio#adhesion" className="hover:text-orange-300">
                     Adhesión
                   </Link>
-                  <Link to="/requisitos" className="hover:text-orange-300">
+                  <Link to="/para-tu-comercio#requisitos" className="hover:text-orange-300">
                     Requisitos
                   </Link>
                 </div>

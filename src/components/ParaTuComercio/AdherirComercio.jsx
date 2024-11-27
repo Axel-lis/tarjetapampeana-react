@@ -27,12 +27,15 @@ const AdherirComercio = ({ beneficios }) => {
               Formando parte de la familia de Pampeana podés acceder a beneficios imperdibles, una gran variedad de
               planes y promociones exclusivas.
             </p>
-            <button className="bg-purple-600 text-white py-3 px-8 rounded-full shadow-md hover:bg-purple-700 transition">
+            <button
+              id="adhesion"
+              className="bg-purple-600 text-white py-3 px-8 rounded-full shadow-md hover:bg-purple-700 transition"
+            >
               Adherí tu comercio
             </button>
           </div>
 
-          <div className="mt-12 space-y-6">
+          <div className="mt-12 space-y-6" id="beneficios">
             {beneficios.map((beneficio, index) => (
               <div
                 key={index}
