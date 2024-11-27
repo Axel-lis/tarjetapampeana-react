@@ -14,7 +14,9 @@ const Navbar = () => {
   const handeOpenModal = () => setModalOpen(true);
   const handeCloseModal = () => setModalOpen(false);
   const handleConfirm = () => {
-    console.log('Confirmed action!');
+    //abrir en otra ventana
+
+    window.open('https://www.infotarjetas.com.ar/Login.aspx?tid=46', '_blank');
     setModalOpen(false);
   };
 
