@@ -161,3 +161,37 @@ export const preguntasParaVos = [
     respuesta: "Tarjeta Pampeana acepta como medios de pago: Pampa Pagos, Provincia Net, nuestro Portal de Autogestión y la adhesión a débito automático. Podrás encontrar más información sobre medios de pago aceptados en el menú superior 'Para vos' -> Medios de pago."
   }
 ];
+export const preguntasComercios = [
+  {
+    "titulo": "¿Cómo Adhiero mi comercio?",
+    "respuesta": "Hace CLICK AQUÍ Esto te llevará a un formulario que deberás rellenar para comenzar la adhesión de tu Comercio a Tarjeta Pampeana."
+  },
+  {
+    "titulo": "¿Qué planes de venta puedo sumar a mi comercio?",
+    "respuesta": "Contamos con varias opciones de Planes de Financiación hasta en 30 cuotas. También hay Promociones especiales durante todo el año en donde generamos acciones comerciales para impulsar las ventas en los diferentes rubros. También contamos con Descuentos Extraordinarios cada día de la semana en un rubro diferente, en donde se le realizan reintegros a los clientes y donde el comercio no tiene costo extra."
+  },
+  {
+    "titulo": "¿Cómo se hace la presentación de Cupones?",
+    "respuesta": "Automáticamente (Sistema Pos). Es imprescindible realizar el cierre de lote a través de su terminal de captura de datos diariamente para que se realice la liquidación de las ventas."
+  },
+  {
+    "titulo": "¿Tienen sistema de Autogestión para Comercios?",
+    "respuesta": "Sí. Podes acceder mediante www.online.pampeana.com.ar"
+  },
+  {
+    "titulo": "¿Cómo puedo cobrar mis liquidaciones?",
+    "respuesta": "Cada comercio podrá optar por diferentes modalidades de cobro de sus liquidaciones adaptándose a las necesidades de cada uno. Pudiendo cobrar cada 7 o 30 días mediante transferencia bancaria. Cada Plazo de pago tiene una tasa de adelanto de fondos diferentes."
+  },
+  {
+    "titulo": "¿Cuándo se pagan las liquidaciones de mis ventas?",
+    "respuesta": "Se pagan en días hábiles pactados oportunamente desde la fecha de presentación. Acreditaremos en su cuenta bancaria el total neto de arancel, retenciones impositivas e intereses si correspondiera, de las operaciones presentadas y aceptadas hasta el cierre del mes anterior."
+  },
+  {
+    "titulo": "¿Puedo solicitar un Préstamo para Capital de Trabajo?",
+    "respuesta": "Si, una vez transcurrido 6 meses de estar operando con Tarjeta Pampeana en su comercio, podrá solicitar un préstamo de capital de trabajo para invertir en su negocio y hacerlo crecer. Mediante la página web ó directamente en la aplicación de consultas de las liquidaciones verá la opción disponible."
+  },
+  {
+    "titulo": "¿Dónde puedo comunicarme por consultas o sugerencia?",
+    "respuesta": "Envíenos una sugerencia, comentario o consulta vía mail a: comercios@tarjetapampeana.com.ar"
+  }
+];
