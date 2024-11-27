@@ -142,7 +142,7 @@ const Navbar = () => {
         title="Últimos días de Pampeana Online"
         message="Nuestro viejo sitio se encuentra fuera de mantenimiento, si lo usas, te recomendamos que te registres en nuestro nuevo sitio (Pampeana: Autogestión) haciendo click en el botón violeta de la barra de navegación."
         confirmText="Ir de todas formas"
-        cancelText="Cancelar"
+        cancelText="Cerrar"
         onConfirm={handleConfirm}
       />
     </>

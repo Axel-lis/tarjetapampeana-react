@@ -71,7 +71,6 @@ const AdherirComercio = ({ beneficios }) => {
 
 AdherirComercio.propTypes = {
   beneficios: PropTypes.array.isRequired,
-  requisitosComercios: PropTypes.array.isRequired,
 };
 
 export default AdherirComercio;
