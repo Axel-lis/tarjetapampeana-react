@@ -82,6 +82,7 @@ const RequisitosComercios = ({ requisitosComercios }) => {
           </div>
         ))}
       </div>
+      <hr className=" h-px my-8 bg-pruple-200 border-0 dark:bg-purple-300"></hr>
     </div>
   );
 };
