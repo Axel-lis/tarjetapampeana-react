@@ -74,7 +74,7 @@ const Navbar = () => {
                   <Link to="/para-vos#costos" className="hover:text-orange-300">
                     Costos
                   </Link>
-                  <Link to="/medios-de-pago" className="hover:text-orange-300">
+                  <Link to="/para-vos#mediosdepago" className="hover:text-orange-300">
                     Medios de pago
                   </Link>
                   <Link to="/ahorra-mas" className="hover:text-orange-300">

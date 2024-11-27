@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../../assets/styles/carousel.css';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import carousel1 from '../../assets/banners/carousel1/carousel1.png';
-import carousel2 from '../../assets/banners/carousel1/carousel2.png';
-
+import { slidesPrincipal } from '../constants/index.js';
 import Skeleton from '../Common/Skeleton';
 
 const Carousel = ({ tiempoCarga = 2000 }) => {
@@ -21,22 +17,6 @@ const Carousel = ({ tiempoCarga = 2000 }) => {
     slidesToScroll: 1,
     autoplay: true,
   };
-
-  const slides = [
-    {
-      title: '¡Pagá menos y ahorrá más!',
-      description: 'Adquerí Pampeana y disfrutá todos los días de promociones increbiles',
-      buttonText: 'Pedir tarjeta',
-      imgSrc: carousel1,
-    },
-    {
-      title: 'Con tu ¡Paquete Pampeana disfrutás de los mejores beneficios al mejor precio!',
-      description:
-        'Acceso a Préstamos Personales PampaCa$h .Con tu Paquete Gold tenes bonificado el 100% del costo de tu Renovación Anual e importantes descuentos todos los días de la semana.',
-      buttonText: 'Ver Paquetes',
-      imgSrc: carousel2,
-    },
-  ];
 
   //Simular el tiempo de carga
   useEffect(() => {
@@ -57,7 +37,7 @@ const Carousel = ({ tiempoCarga = 2000 }) => {
   return (
     <div className="w-full ">
       <Slider {...settings}>
-        {slides.map((slide, index) => (
+        {slidesPrincipal.map((slide, index) => (
           <div key={index} className="w-full flex flex-row">
             <div className="w-full  flex flex-col justify-center md:flex-row">
               {/* Imagen */}

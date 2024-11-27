@@ -6,7 +6,38 @@ import viernesIMG from '../../assets/images/paravos-grid/06.png';
 import sabadoIMG from '../../assets/images/paravos-grid/07.png';
 import domingoIMG from '../../assets/images/paravos-grid/08.png';
 import semanalIMG from '../../assets/images/paravos-grid/09.png';
+import carousel1 from '../../assets/banners/carousel1/carousel1.png';
+import carousel2 from '../../assets/banners/carousel1/carousel2.png';
+import img0 from '../../assets/banners/carousel-comercios/comerciante-00.jpg';
+import img1 from '../../assets/banners/carousel-comercios/comerciante-01.jpg';
+import img2 from '../../assets/banners/carousel-comercios/comerciante-02.jpg';
+import img3 from '../../assets/banners/carousel-comercios/comerciante-03.jpg';
+import img4 from '../../assets/banners/carousel-comercios/comerciante-04.jpg';
+import img5 from '../../assets/banners/carousel-comercios/comerciante-05.jpg';
+import img6 from '../../assets/banners/carousel-comercios/comerciante-06.jpg';
+import img7 from '../../assets/banners/carousel-comercios/comerciante-07.jpg';
+import img8 from '../../assets/banners/carousel-comercios/comerciante-08.jpg';
+import img9 from '../../assets/banners/carousel-comercios/comerciante-09.jpg';
 
+
+/* Pagina Principal-->carousel*/
+  export const slidesPrincipal = [
+    {
+      title: '¡Pagá menos y ahorrá más!',
+      description: 'Adquerí Pampeana y disfrutá todos los días de promociones increbiles',
+      buttonText: 'Pedir tarjeta',
+      imgSrc: carousel1,
+    },
+    {
+      title: 'Con tu ¡Paquete Pampeana disfrutás de los mejores beneficios al mejor precio!',
+      description:
+        'Acceso a Préstamos Personales PampaCa$h .Con tu Paquete Gold tenes bonificado el 100% del costo de tu Renovación Anual e importantes descuentos todos los días de la semana.',
+      buttonText: 'Ver Paquetes',
+      imgSrc: carousel2,
+    },
+  ];
+
+/* Para Vos */
 export const paraVosPromos = [
   { dia: "LUNES", reintegro: "$20.000", image: lunesIMG },
   { dia: "MARTES", reintegro: "$25.000", image: martesIMG},
@@ -17,7 +48,37 @@ export const paraVosPromos = [
   { dia: "DOMINGO", reintegro: "$10.000", image:domingoIMG },
   { dia: "SEMANAL", reintegro: "$50.000", image: semanalIMG},
 ];
-
+/* Para tu comercio*/
+  export const slidesComecios = [
+   img0, img1, img2, img3, img4, img5, img6, img7, img8, img9
+  ];
+  export const beneficios = [
+    {
+        title: "Oportunidades Irresistibles",
+      description: "Descubre nuestros planes en cuotas y promociones para impulsar tus ventas.",
+    },
+    {
+      title: "¡Creciendo con Inteligencia Financiera!",
+      description: "Explorá las ventajas de nuestros planes de cuotas con tasas bonificadas que convierten a Tarjeta Pampeana en la elección destacada para tu comercio.",
+    },
+    {
+      title: "Descubre Nuestra Atención Personalizada",
+      description: "Con asesores comerciales, un equipo de ventas y marketing, podemos brindarte la mejor solución para tus necesidades comerciales, operativas y técnicas.",
+    },
+    {
+      title: "Publicidad: Destaca tu Marca",
+      description: "Potenciá la visibilidad de tu marca al aparecer en nuestras piezas de comunicación y destacarte en nuestro buscador de promociones.",
+    },
+    {
+      title: "Éxito Compartido",
+      description: "Experimentá el éxito de tu negocio al generar cuentas directamente desde tu comercio.",
+    },
+    {
+      title: "Seguridad: Resguarda tu Negocio",
+      description: "Protegé tu comercio al eliminar el riesgo asociado con el uso y retención de dinero en efectivo.",
+    }
+  ];
+/* FAQ: PREGUNTAS FRECUENTES */
 export const preguntas = [
   {
     titulo: '¿Qué es Tarjeta Pampeana?',

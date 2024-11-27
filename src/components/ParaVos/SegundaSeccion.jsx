@@ -33,7 +33,7 @@ const SegundaSeccion = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 p-8 md:p-16">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 p-8 md:p-16" id="mediosdepago">
         {/* Imagen */}
         <motion.div
           className="flex flex-auto md:flex-1 justify-center"

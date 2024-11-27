@@ -51,9 +51,11 @@ const TerceraSeccion = () => {
             recibir el dinero y cómo abonar las cuotas. Pedilo dónde y cuándo quieras. Con la confianza y el respaldo de
             Tarjeta Pampeana.
           </p>
-          <button className="w-full mt-6 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow hover:bg-indigo-700">
-            Solicitar préstamo
-          </button>
+          <div className="px-14 mx-16">
+            <button className="my-5 bg-purple-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition">
+              Solicitar préstamo
+            </button>
+          </div>
         </motion.div>
       </div>
     </div>
