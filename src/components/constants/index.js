@@ -78,6 +78,58 @@ export const paraVosPromos = [
       description: "Protegé tu comercio al eliminar el riesgo asociado con el uso y retención de dinero en efectivo.",
     }
   ];
+  export const requisitosComercios = [
+    {
+  "Requisitos": {
+    "Identidad del Titular del Comercio o de su Representante": {
+      "Documentos Aceptados": [
+        "DNI",
+        "CI",
+        "LE",
+        "LC",
+        "Pasaporte"
+      ],
+      "Sociedades": "En caso de tratarse de una sociedad, el documento corresponderá al representante legal de la misma."
+    },
+    "Cuenta Bancaria para Acreditación": {
+      "Detalles": [
+        "Número y tipo de cuenta (si es caja de ahorro o cuenta corriente)",
+        "Número de sucursal, sello o membrete del Banco y número de CBU"
+      ],
+      "Documentación Requerida": [
+        "AFIP: Constancia de inscripción",
+        "Rentas de Provincia: Comprobante de inscripción",
+        "En caso de estar inscripto bajo Convenio Multilateral: Presentar el formulario CM01",
+        "Habilitación Municipal"
+      ]
+    },
+    "Documentación Respaldo de Situación Patrimonial y/o Impositiva": {
+      "Opciones": [
+        "DDJJ de Ganancias",
+        "DDJJ de IVA"
+      ],
+      "Exenciones": "En caso de exenciones, adjuntar las constancias correspondientes."
+    },
+    "Adicionales": {
+      "Personas Jurídicas (Sociedades)": {
+        "Documentos": [
+          "Contrato Social",
+          "Actas societarias que acrediten los mandatos vigentes"
+        ],
+        "Representante no Designado": "En caso de que quien firme la solicitud de adhesión no esté designado en el contrato social como firmante o administrador, deberá presentar el poder que lo habilite."
+      },
+      "Profesionales - Independientes": {
+        "Requisito": "Carné profesional",
+        "Alternativa": "Si no contara con este requisito, podrá presentar copia del título profesional."
+      }
+    }
+  },
+  "Nota": "El comercio deberá contar en su local con terminal de captura POSNET, CIOVER o PAYWAY para poder operar con Tarjeta Pampeana.",
+  "Contacto": {
+    "Centro de Atención": "comercios@tarjetapampeana.com.ar"
+  }
+}
+  ]
 /* FAQ: PREGUNTAS FRECUENTES */
 export const preguntas = [
   {

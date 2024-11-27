@@ -2,6 +2,9 @@ import { useState } from 'react';
 import '../../assets/styles/paquetesAcordion.css';
 export const PaquetesAcordion = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const handleAccordionClick = (index) => {
+    setActiveAccordion(index === activeAccordion ? null : index);
+  };
 
   // Define la tabla de datos
   const dataTable = [
@@ -54,9 +57,6 @@ export const PaquetesAcordion = () => {
     'La adhesión al débito el algunas cuentas es opcional, pero en otras en Obligatorio. Principalmente si la cuenta tiene préstamos personales solicitados, ya que es necesario para transferir el dinero y realizar el cobro cada mes',
     '',
   ];
-  const handleAccordionClick = (index) => {
-    setActiveAccordion(index === activeAccordion ? null : index);
-  };
 
   // Asigna colores según el índice
   const getHighlightColor = (index) => {
