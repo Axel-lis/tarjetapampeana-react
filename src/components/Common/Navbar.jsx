@@ -100,8 +100,8 @@ const Navbar = () => {
             <Link to="/promociones" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
               PROMOCIONES
             </Link>
-            <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:bg-yellow-500 transition-all duration-300">
-              <span className="flex -mt-5 items-center gap-2 text-white text-sm bg-red-400 rounded-xl p-1">
+            <div className="relative bg-yellow-400 text-center py-1 px-1 rounded-md hover:bg-yellow-500 transition-all duration-300">
+              <span className="flex -mt-5 items-center gap-1 text-white text-sm bg-red-400 rounded-xl p-1">
                 <FaHourglassHalf />
                 <span>Últimos días disponibles</span>
               </span>
