@@ -19,7 +19,7 @@ export const ParaVos = () => {
 
   return (
     <div>
-      <PrimeraSeccion tiempoCarga={1000} />
+      <PrimeraSeccion tiempoCarga={500} />
       <IconosPosiblidades posibilidades={iconosParaVos} />
       <SegundaSeccion />
       <TerceraSeccion />

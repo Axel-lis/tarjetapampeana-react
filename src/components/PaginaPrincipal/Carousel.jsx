@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import { slidesPrincipal } from '../constants/index.js';
 import Skeleton from '../Common/Skeleton';
 
-const Carousel = ({ tiempoCarga = 1000 }) => {
+const Carousel = ({ tiempoCarga = 500 }) => {
   //hook useState para controlar el estado de la carga
   const [isLoading, setIsLoading] = useState(true);
 

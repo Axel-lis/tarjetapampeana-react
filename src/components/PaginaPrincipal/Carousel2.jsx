@@ -17,7 +17,7 @@ import img9 from '../../assets/banners/carousel2/RESTAURANT.jpg';
 
 import Skeleton from '../Common/Skeleton';
 
-const Carousel2 = ({ tiempoCarga = 1000 }) => {
+const Carousel2 = ({ tiempoCarga = 500 }) => {
   //hook useState para controlar el estado de la carga
   const [isLoading, setIsLoading] = useState(true);
 
