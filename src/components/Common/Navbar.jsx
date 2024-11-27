@@ -1,26 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo_nav from '../../assets/logos/logo violeta.png';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaHourglassHalf, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
-  const stylePampeanaOld = {
-    lineHeight: '12px',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    color: '#00096E',
-    textDecoration: 'none',
-    textTransform: 'uppercase',
-    fontSize: '11px',
-    backgroundColor: '#F9BC3D',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'left',
-    backgroundSize: 'auto',
-    padding: '12px 16px 12px 2.2rem',
-    borderRadius: '8px',
-    whiteSpace: 'nowrap',
-  };
-
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -57,7 +40,7 @@ const Navbar = () => {
             </button>{' '}
             {/* Para Vos */}
             <div className="relative" onMouseEnter={() => handleMouseEnter('paraVos')} onMouseLeave={handleMouseLeave}>
-              <Link to="/para-vos" className="text-gray-800 hover:text-purple-700">
+              <Link to="/para-vos" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
                 PARA VOS
               </Link>
               {activeDropdown === 'paraVos' && (
@@ -89,7 +72,7 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter('paraTuComercio')}
               onMouseLeave={handleMouseLeave}
             >
-              <Link to="/para-tu-comercio" className="text-gray-800 hover:text-purple-700">
+              <Link to="/para-tu-comercio" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
                 PARA TU COMERCIO
               </Link>
               {activeDropdown === 'paraTuComercio' && (
@@ -110,19 +93,17 @@ const Navbar = () => {
               )}
             </div>
             {/* Centros de Atención */}
-            <Link to="/centros-atencion" className="text-gray-800 hover:text-purple-700">
+            <Link to="/centros-atencion" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
               CENTROS DE ATENCIÓN
             </Link>
             {/* Promociones */}
-            <Link to="/promociones" className="text-gray-800 hover:text-purple-700">
+            <Link to="/promociones" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
               PROMOCIONES
             </Link>
-            <div
-              style={stylePampeanaOld}
-              className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:text-white"
-            >
-              <span className="absolute top-0 right-0 -mt-3 -mr-3 text-xs	 bg-red-400 text-white px-2 py-0.5 rounded-md">
-                Últimos días disponibles
+            <div className="relative bg-yellow-400 text-center py-2 px-4 rounded-md hover:bg-yellow-500 transition-all duration-300">
+              <span className="flex -mt-5 items-center gap-2 text-white text-sm bg-red-400 rounded-xl p-1">
+                <FaHourglassHalf />
+                <span>Últimos días disponibles</span>
               </span>
               PAMPEANA ONLINE
             </div>

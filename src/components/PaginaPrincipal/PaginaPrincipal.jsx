@@ -28,7 +28,7 @@ const PaginaPrincipal = () => {
 
   return (
     <div>
-      <Carousel tiempoCarga={1100} />
+      <Carousel tiempoCarga={1000} />
       <IconosPosiblidades tiempoCarga={1000} posibilidades={iconosPrincipal} />
       <Carousel2 tiempoCarga={1500} />
       <PaquetePampeana />
