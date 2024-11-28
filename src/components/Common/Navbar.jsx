@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white shadow-md fixed w-full z-10">
+      <nav className="bg-white shadow-md fixed w-full z-50">
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           {/* Logo */}
           <Link to="/" aria-label="Ir a la página principal">
