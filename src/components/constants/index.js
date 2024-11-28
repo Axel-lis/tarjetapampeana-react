@@ -8,6 +8,7 @@ import domingoIMG from '../../assets/images/paravos-grid/08.png';
 import semanalIMG from '../../assets/images/paravos-grid/09.png';
 import carousel1 from '../../assets/banners/carousel1/carousel1.png';
 import carousel2 from '../../assets/banners/carousel1/carousel2.png';
+import carousel3 from '../../assets/banners/carousel1/carousel3.png';
 import img0 from '../../assets/banners/carousel-comercios/comerciante-00.jpg';
 import img1 from '../../assets/banners/carousel-comercios/comerciante-01.jpg';
 import img2 from '../../assets/banners/carousel-comercios/comerciante-02.jpg';
@@ -35,6 +36,13 @@ import img9 from '../../assets/banners/carousel-comercios/comerciante-09.jpg';
       buttonText: 'Ver Paquetes',
       imgSrc: carousel2,
     },
+    {
+      title: 'PampaCa$h Prestamos Personales',
+      description:
+        'Pedí tu préstamo hoy mismo y obtené importantes descuentos todos los días de la semana.',
+      buttonText: 'Solicitá tu préstamo',
+      imgSrc: carousel3,
+    }
   ];
 
 /* Para Vos */
