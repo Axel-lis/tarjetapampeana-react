@@ -19,6 +19,30 @@ import img6 from '../../assets/banners/carousel-comercios/comerciante-06.jpg';
 import img7 from '../../assets/banners/carousel-comercios/comerciante-07.jpg';
 import img8 from '../../assets/banners/carousel-comercios/comerciante-08.jpg';
 import img9 from '../../assets/banners/carousel-comercios/comerciante-09.jpg';
+/*promos*/
+import img1Promo from '../../assets/banners/promociones/domingo-promo.jpg';
+import img2Promo from '../../assets/banners/promociones/lunes-promo.jpg';
+import img3Promo from '../../assets/banners/promociones/martes-promo.jpg';
+import img4Promo from '../../assets/banners/promociones/miercoles-promo.jpg';
+import img5Promo from '../../assets/banners/promociones/jueves-promo.jpg';
+import img6Promo from '../../assets/banners/promociones/viernes-promo.jpg';
+import img7Promo from '../../assets/banners/promociones/sabado-promo.jpg';
+import img8Promo from '../../assets/banners/promociones/todos-promo-1.jpg';
+import img9Promo from '../../assets/banners/promociones/todos-promo-2.jpg';
+
+import img1Mobile from '../../assets/banners/promociones/banner-domingos-mobile-2.jpg';
+import img2Mobile from '../../assets/banners/promociones/banner-lunes-mobile-2.jpg';
+import img3Mobile from '../../assets/banners/promociones/banner-martes-mobile-2.jpg';
+import img4Mobile from '../../assets/banners/promociones/banner-miercoles-mobile-2.jpg';
+import img5Mobile from '../../assets/banners/promociones/banner-jueves-mobile-2.jpg';
+import img6Mobile from '../../assets/banners/promociones/banner-viernes-mobile-2.jpg';
+import img7Mobile from '../../assets/banners/promociones/banner-sabados-mobile-2.jpg';
+import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile-2.jpg';
+import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.jpg';
+
+
+
+
 
 
 /* Pagina Principal-->carousel*/
@@ -255,6 +279,9 @@ export const preguntasComercios = [
     "respuesta": "Envíenos una sugerencia, comentario o consulta vía mail a: comercios@tarjetapampeana.com.ar"
   }
 ];
+/* Promociones banners */
+export const slidesPromos = [img1Promo, img2Promo, img3Promo, img4Promo, img5Promo, img6Promo, img7Promo, img8Promo, img9Promo ];
+export const slidesPromosMobile = [img1Mobile, img2Mobile, img3Mobile, img4Mobile, img5Mobile, img6Mobile, img7Mobile, img8Mobile, img9Mobile];
 
 /* Centros de atención */
 export const centrosDeAtencion = [
