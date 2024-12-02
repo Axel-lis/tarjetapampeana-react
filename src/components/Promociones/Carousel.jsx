@@ -48,11 +48,7 @@ const Carousel = ({ tiempoCarga = 500 }) => {
   // Renderiza múltiples Skeletons mientras carga
   if (isLoading) {
     return (
-      <div className="flex flex-row justify-center mt-8  my-10 pt-6 gap-4 items-center">
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
+      <div className="flex flex-row justify-center mt-10  my-10 pt-10  items-center">
         <Skeleton />
       </div>
     );

@@ -13,6 +13,7 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@justinribeiro/lite-youtube": "^1.6.0",
+    "@tanstack/react-table": "^8.20.5",
     "framer-motion": "^11.11.17",
     "leaflet": "^1.9.4",
     "motion": "^11.11.17",
