@@ -40,8 +40,9 @@ import img7Mobile from '../../assets/banners/promociones/banner-sabados-mobile-2
 import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile-2.jpg';
 import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.jpg';
 
+/* Pagina Principal*/
+export const imgAdherirComercio = '../../assets/banners/5.jpg';
 
-/* Pagina Principal-->carousel*/
   export const slidesPrincipal = [
     {
       title: '¡Pagá menos y ahorrá más!',
@@ -65,7 +66,7 @@ import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.
     },
   ];
 
-export const imgAdherirComercio = 'src/assets/banners/5.jpg';
+
 
 /* Para Vos */
 export const paraVosPromos = [
