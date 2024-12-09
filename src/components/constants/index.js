@@ -41,7 +41,6 @@ import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile-2.j
 import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.jpg';
 
 /* Pagina Principal*/
-export const imgAdherirComercio = '../../assets/banners/5.jpg';
 
   export const slidesPrincipal = [
     {

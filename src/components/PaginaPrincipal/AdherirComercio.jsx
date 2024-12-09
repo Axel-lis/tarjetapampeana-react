@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { imgAdherirComercio } from '../constants/index.js';
+import imgAdherirComercio from '../../assets/images/adherir-comercio.jpg';
 import { motion } from 'framer-motion';
 import Modal from '../Common/Modal';
 import { MdAddHomeWork } from 'react-icons/md';
