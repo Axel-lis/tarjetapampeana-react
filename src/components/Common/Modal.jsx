@@ -1,8 +1,30 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
 
-export default function Modal({ isOpen, onClose, title, message, confirmText, cancelText, onConfirm }) {
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  message,
+  confirmText,
+  cancelText,
+  onConfirm,
+  color,
+  icon: Icon,
+}) {
+  // Mapear colores a clases Tailwind válidas
+  const colorClasses = {
+    red: 'bg-red-600 hover:bg-red-500 text-red-500 bg-red-100',
+    green: 'bg-green-600 hover:bg-green-500 text-green-500 bg-green-100',
+    blue: 'bg-blue-600 hover:bg-blue-500 text-blue-500 bg-blue-100',
+    yellow: 'bg-yellow-600 hover:bg-yellow-500 text-yellow-500 bg-yellow-100',
+    purple: 'bg-purple-600 hover:bg-purple-500 text-purple-500 bg-purple-100',
+  };
+
+  const confirmButtonColor = colorClasses[color]?.split(' ')[0] || 'bg-gray-600';
+  const confirmButtonHover = colorClasses[color]?.split(' ')[1] || 'hover:bg-gray-500';
+  const iconBgColor = colorClasses[color]?.split(' ')[2] || 'bg-gray-100';
+  const iconTextColor = colorClasses[color]?.split(' ')[3] || 'text-gray-500';
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <DialogBackdrop transition className="fixed inset-0 bg-gray-500/75 transition-opacity" />
@@ -14,8 +36,10 @@ export default function Modal({ isOpen, onClose, title, message, confirmText, ca
           >
             <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                  <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" />
+                <div
+                  className={`mx-auto flex size-12 shrink-0 items-center justify-center rounded-full ${iconBgColor} sm:mx-0 sm:size-10`}
+                >
+                  {Icon && <Icon className={`size-8 ${iconTextColor} bg-transparent`} />}
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
@@ -31,7 +55,7 @@ export default function Modal({ isOpen, onClose, title, message, confirmText, ca
               <button
                 type="button"
                 onClick={onConfirm}
-                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                className={`inline-flex w-full justify-center rounded-md ${confirmButtonColor} px-3 py-2 text-sm font-semibold text-white shadow-sm ${confirmButtonHover} sm:ml-3 sm:w-auto`}
               >
                 {confirmText}
               </button>
@@ -58,8 +82,6 @@ Modal.propTypes = {
   confirmText: PropTypes.string.isRequired,
   cancelText: PropTypes.string.isRequired,
   onConfirm: PropTypes.func.isRequired,
+  color: PropTypes.oneOf(['red', 'green', 'blue', 'yellow', 'purple']).isRequired,
+  icon: PropTypes.elementType,
 };
-/*isOpen: PropTypes.bool.isRequired: Valida que isOpen sea un booleano y es obligatorio.
-onClose: PropTypes.func.isRequired: Valida que onClose sea una función y es obligatorio.
-title, message, confirmText, cancelText: Valida que sean cadenas de texto (string) y son obligatorias.
-onConfirm: PropTypes.func.isRequired: Valida que sea una función obligatoria.*/

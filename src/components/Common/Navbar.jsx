@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo_nav from '../../assets/logos/logo violeta.png';
-import { FaBars, FaBell, FaTimes } from 'react-icons/fa';
+import { FaBars, FaBell, FaTimes, FaExclamationTriangle } from 'react-icons/fa';
+
 import Modal from '../Common/Modal';
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -144,6 +145,8 @@ const Navbar = () => {
         confirmText="Ir de todas formas"
         cancelText="Cerrar"
         onConfirm={handleConfirm}
+        color="red"
+        icon={FaExclamationTriangle}
       />
     </>
   );

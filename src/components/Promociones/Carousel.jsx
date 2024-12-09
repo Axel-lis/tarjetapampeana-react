@@ -55,7 +55,7 @@ const Carousel = ({ tiempoCarga = 500 }) => {
   }
 
   return (
-    <div className="w-full py-20">
+    <div className="w-full pt-20">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="flex items-center justify-center px-2">

@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from 'scrollreveal';
 import PropTypes from 'prop-types';
-
-// Componente principal AdherirComercio
+import { useNavigate } from 'react-router-dom';
 const AdherirComercio = ({ beneficios }) => {
+  const navigate = useNavigate();
+  const handleNavigateToForm = () => {
+    navigate('/form-adherir-comercio');
+  };
   useEffect(() => {
     ScrollReveal().reveal('.feature-item', {
       origin: 'left',
@@ -30,6 +33,7 @@ const AdherirComercio = ({ beneficios }) => {
             <button
               id="adhesion"
               className="bg-purple-600 text-white py-3 px-8 rounded-full shadow-md hover:bg-purple-700 transition"
+              onClick={handleNavigateToForm}
             >
               Adherí tu comercio
             </button>

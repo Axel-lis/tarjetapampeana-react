@@ -12,20 +12,25 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^3.9.1",
     "@justinribeiro/lite-youtube": "^1.6.0",
     "@tanstack/react-table": "^8.20.5",
+    "axios": "^1.7.8",
     "framer-motion": "^11.11.17",
     "leaflet": "^1.9.4",
+    "lodash": "^4.17.21",
     "motion": "^11.11.17",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.0",
     "react-icons": "^5.3.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.28.0",
     "react-slick": "^0.30.2",
     "scrollreveal": "^4.0.9",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import { centrosDeAtencion } from '../constants/index.js';
+import { centrosDeAtencion } from '../constants/map.js';
 // Configurar íconos de Leaflet
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
