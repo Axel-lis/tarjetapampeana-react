@@ -46,7 +46,7 @@ IconosPosibilidades.propTypes = {
       icono: PropTypes.element.isRequired, // Icono JSX
       texto: PropTypes.string.isRequired, // Texto asociado al icono
     }),
-  ), // Lista de posibilidades
+  ),
 };
 
 export default IconosPosibilidades;

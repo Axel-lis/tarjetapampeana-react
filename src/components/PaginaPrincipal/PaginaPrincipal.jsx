@@ -2,10 +2,11 @@ import Carousel from './Carousel';
 import Carousel2 from './Carousel2';
 import PaquetePampeana from './PaquetePampeana';
 import PaquetesAcordion from './PaquetesAcordion';
-import IconosPosiblidades from '../Common/IconosPosibilidades';
+import IconosPosibilidades from '../Common/IconosPosibilidades';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
-import { preguntas } from '../constants/index.js';
 import AdherirComercio from './AdherirComercio';
+import { preguntas } from '../constants/index.js';
+
 import {
   FaCreditCard,
   FaHandHoldingUsd,
@@ -28,7 +29,7 @@ const PaginaPrincipal = () => {
   return (
     <div>
       <Carousel tiempoCarga={500} />
-      <IconosPosiblidades tiempoCarga={1000} posibilidades={iconosPrincipal} />
+      <IconosPosibilidades tiempoCarga={1000} posibilidades={iconosPrincipal} />
       <AdherirComercio />
       <Carousel2 tiempoCarga={500} />
       <PaquetePampeana />

@@ -1,7 +1,11 @@
 import { paraVosPromos } from '../constants/index.js';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 const TerceraSeccion = () => {
+  const navigate = useNavigate();
+  const handleNavigateToForm = () => {
+    navigate('/form-solicitud-credito');
+  };
   return (
     <div className="container ">
       <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -52,7 +56,10 @@ const TerceraSeccion = () => {
             Tarjeta Pampeana.
           </p>
           <div className="px-14 mx-16">
-            <button className="my-5 bg-purple-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition">
+            <button
+              onClick={handleNavigateToForm}
+              className="my-5 bg-purple-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition"
+            >
               Solicitar préstamo
             </button>
           </div>
