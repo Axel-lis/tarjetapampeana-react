@@ -3,7 +3,6 @@ import AdherirComercio from './AdherirComercio';
 import RequisitosComercios from './RequisitosComercios';
 import IconosPosiblidades from '../Common/IconosPosibilidades';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
-import Footer from '../Common/Footer';
 import { preguntasComercios } from '../constants/index.js';
 import { requisitosComercios } from '../constants/index.js';
 import { beneficios } from '../constants/index.js';
@@ -28,7 +27,6 @@ const ParaTuComercio = () => {
       <IconosPosiblidades posibilidades={iconosComercios} />
       <RequisitosComercios requisitosComercios={requisitosComercios} />
       <PreguntasFrecuentes preguntas={preguntasComercios} />
-      <Footer />
     </div>
   );
 };

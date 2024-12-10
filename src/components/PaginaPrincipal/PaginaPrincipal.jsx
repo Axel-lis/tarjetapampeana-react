@@ -4,7 +4,6 @@ import PaquetePampeana from './PaquetePampeana';
 import PaquetesAcordion from './PaquetesAcordion';
 import IconosPosiblidades from '../Common/IconosPosibilidades';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
-import Footer from '../Common/Footer';
 import { preguntas } from '../constants/index.js';
 import AdherirComercio from './AdherirComercio';
 import {
@@ -35,7 +34,6 @@ const PaginaPrincipal = () => {
       <PaquetePampeana />
       <PaquetesAcordion />
       <PreguntasFrecuentes preguntas={preguntas} />
-      <Footer />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import SegundaSeccion from './SegundaSeccion';
 import TerceraSeccion from './TerceraSeccion';
 import Costos from './Costos';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
-import Footer from '../Common/Footer';
 import { preguntasParaVos } from '../constants/index.js';
 import { FaCreditCard, FaHandHoldingUsd, FaMailBulk, FaGift, FaChartLine, FaComment } from 'react-icons/fa';
 export const ParaVos = () => {
@@ -25,7 +24,6 @@ export const ParaVos = () => {
       <TerceraSeccion />
       <Costos />
       <PreguntasFrecuentes preguntas={preguntasParaVos} />
-      <Footer />
     </div>
   );
 };

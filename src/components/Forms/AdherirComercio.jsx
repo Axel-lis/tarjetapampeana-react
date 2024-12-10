@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import { FaQuestionCircle } from 'react-icons/fa';
 import ProgressButton from '../Common/ProgressButton';
 import Alerts from '../Common/Alerts';
+import { API_FORMULARIOS } from '../../components/constants/apis';
+
 // Esquema de validación con Zod
 const schema = z.object({
   name: z.string().min(3, { message: 'El nombre debe tener al menos 3 caracteres' }),
@@ -30,7 +32,7 @@ const FormInput = ({ label, type, register, error, id }) => (
     </label>
     <div className="relative">
       <input
-        {...register(id)} // Usamos register con el id
+        {...register(id)}
         type={type}
         id={id}
         className={`w-full px-4 py-2 rounded-lg border ${
@@ -64,7 +66,7 @@ const AdherirComercio = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:3000/api/formularios/send-email', {
+      const response = await fetch(API_FORMULARIOS, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -77,6 +79,7 @@ const AdherirComercio = () => {
       setSubmitStatus('success');
       setAlertMessage('Formulario enviado exitosamente.');
       reset();
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       setSubmitStatus('error');
       setAlertMessage('Ocurrió un error al enviar el formulario. Inténtalo nuevamente.');

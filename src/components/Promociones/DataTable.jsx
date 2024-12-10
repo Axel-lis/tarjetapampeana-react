@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FiChevronLeft, FiChevronRight, FiSearch } from 'react-icons/fi';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
-
+import { API_PROMOCIONES_NOMBRES, API_PROMOCIONES_RUBROS, API_PROMOCIONES_BUSCAR } from '../constants/apis';
 const DataTable = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,7 @@ const DataTable = () => {
         search: searchTerm,
       });
 
-      const response = await axios.get(`http://localhost:3000/api/promociones/buscar-promociones?${queryParams}`);
+      const response = await axios.get(`${API_PROMOCIONES_BUSCAR}/buscar-promociones?${queryParams}`);
 
       setData(response.data.data);
       setTotalPages(response.data.totalPages);
@@ -93,7 +93,7 @@ const DataTable = () => {
   useEffect(() => {
     const fetchPromociones = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/promociones/promociones-nombres');
+        const response = await axios.get(API_PROMOCIONES_NOMBRES);
         setPromociones(response.data.aaData); // Cargar promociones
       } catch (error) {
         console.error('Error fetching promociones:', error);
@@ -102,7 +102,7 @@ const DataTable = () => {
 
     const fetchRubros = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/promociones/rubros');
+        const response = await axios.get(API_PROMOCIONES_RUBROS);
         setRubros(response.data); // Cargar rubros
       } catch (error) {
         console.error('Error fetching rubros:', error);
