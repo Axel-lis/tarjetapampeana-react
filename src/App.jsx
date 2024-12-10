@@ -10,6 +10,7 @@ import ParaTuComercio from './components/ParaTuComercio/ParaTuComercio';
 import CentrosAtencion from './components/CentrosAtencion/CentrosAtencion';
 import Promociones from './components/Promociones/Promociones';
 import AdherirComercio from './components/Forms/AdherirComercio';
+import WhatsAppWidget from './components/Common/WhatsAppWidget';
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
           <Route path="/promociones" element={<Promociones />} />
           <Route path="/form-adherir-comercio" element={<AdherirComercio />} />
         </Routes>
+        <WhatsAppWidget />
       </div>
     </Router>
   );
