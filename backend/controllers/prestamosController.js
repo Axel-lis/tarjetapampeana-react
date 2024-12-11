@@ -60,7 +60,22 @@ const limiter = rateLimit({
 // Enviar email
 export const sendEmail = async (req, res) => {
   limiter(req, res, async () => {
-    const { nombre, apellido, dni, calle, numero, localidad, provincia, telefono, email, monto, cuotas, tarjetaPampeana } = req.body;
+    const {
+      nombre,
+      apellido,
+      dni,
+      calle,
+      numero,
+      localidad,
+      provincia,
+      telefono,
+      email,
+      monto,
+      cuotas,
+      tarjetaPampeana,
+      ultimosCuatroNumeros,
+      codigoSeguridad,
+    } = req.body;
 
     try {
         const transporter = nodemailer.createTransport({
@@ -86,22 +101,30 @@ export const sendEmail = async (req, res) => {
             ],
             replyTo: 'clientes@tarjetapampeana.com.ar',
             subject: `Solicitud de comercio: ${nombre} ${apellido}`,
-            html: `
-                <p><strong>Nombre:</strong> ${nombre}</p>
-                <p><strong>Apellido:</strong> ${apellido}</p>
-                <p><strong>DNI:</strong> ${dni}</p>
-                <p><strong>Dirección:</strong> ${calle} ${numero}</p>
-                <p><strong>Localidad:</strong> ${localidad}</p>
-                <p><strong>Provincia:</strong> ${provincia}</p>
-                <p><strong>Teléfono:</strong> ${telefono}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Monto solicitado:</strong> ${monto}</p>
-                <p><strong>Cuotas:</strong> ${cuotas}</p>
-                <p><strong>Tarjeta Pampeana:</strong> ${tarjetaPampeana}</p>
-                <br>
-                <p>--</p>
-                <p>Este e-mail se ha enviado vía formulario de contacto desde Tarjeta Pampeana.</p>
-            `,
+            html:`
+          <p><strong>Nombre:</strong> ${nombre}</p>
+          <p><strong>Apellido:</strong> ${apellido}</p>
+          <p><strong>DNI:</strong> ${dni}</p>
+          <p><strong>Dirección:</strong> ${calle} ${numero}</p>
+          <p><strong>Localidad:</strong> ${localidad}</p>
+          <p><strong>Provincia:</strong> ${provincia}</p>
+          <p><strong>Teléfono:</strong> ${telefono}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Monto solicitado:</strong> ${monto}</p>
+          <p><strong>Cuotas:</strong> ${cuotas}</p>
+          <p><strong>Tarjeta Pampeana:</strong> ${tarjetaPampeana ? 'Sí' : 'No'}</p>
+          ${
+            tarjetaPampeana
+              ? `
+                <p><strong>Últimos 4 números de la tarjeta:</strong> ${ultimosCuatroNumeros}</p>
+                <p><strong>Código de seguridad:</strong> ${codigoSeguridad}</p>
+              `
+              : ''
+          }
+          <br>
+          <p>--</p>
+          <p>Este e-mail se ha enviado vía formulario de contacto desde Tarjeta Pampeana.</p>
+        `,
         };
 
         await transporter.sendMail(mailOptions);

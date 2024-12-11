@@ -19,6 +19,12 @@ const formSchema = z.object({
   monto: z.number().min(10000).max(1000000),
   cuotas: z.number().min(6).max(24),
   tarjetaPampeana: z.boolean(),
+  ultimosCuatroNumeros: z.string().refine((val) => /^\d{4}$/.test(val), {
+    message: 'Debe ingresar los últimos 4 números de su Tarjeta Pampeana',
+  }),
+  codigoSeguridad: z.string().refine((val) => /^\d{3}$/.test(val), {
+    message: 'Código de seguridad inválido (3 dígitos)',
+  }),
 });
 
 const SolicitarPrestamo = () => {
@@ -36,6 +42,8 @@ const SolicitarPrestamo = () => {
       monto: 10000,
       cuotas: 6,
       tarjetaPampeana: false,
+      ultimosCuatroNumeros: '',
+      codigoSeguridad: '',
     },
   });
 
@@ -74,26 +82,13 @@ const SolicitarPrestamo = () => {
   };
 
   const onSubmit = async (data) => {
-    setLoading(true); // Puedes mostrar un estado de carga mientras se procesa la solicitud
+    setLoading(true);
 
     try {
-      // Enviar los datos al backend
       const response = await axios.post(API_PRESTAMOS + '/send-email', {
-        nombre: data.nombre,
-        apellido: data.apellido,
-        dni: data.dni,
-        calle: data.calle,
-        numero: data.numero,
-        localidad: data.localidad,
-        provincia: data.provincia,
-        telefono: data.telefono,
-        email: data.email,
-        monto: data.monto,
-        cuotas: data.cuotas,
-        tarjetaPampeana: data.tarjetaPampeana,
+        ...data,
       });
 
-      // Manejar la respuesta (puedes mostrar un mensaje de éxito, etc.)
       if (response.data && response.data.success) {
         alert('Solicitud enviada correctamente!');
       } else {
@@ -103,7 +98,7 @@ const SolicitarPrestamo = () => {
       console.error('Error al enviar la solicitud:', error);
       alert('Hubo un error al enviar la solicitud.');
     } finally {
-      setLoading(false); // Para ocultar el estado de carga
+      setLoading(false);
     }
   };
 
@@ -204,6 +199,34 @@ const SolicitarPrestamo = () => {
             <label className="text-gray-700">¿Tienes Tarjeta Pampeana?</label>
           </div>
 
+          {tarjetaPampeana && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className={labelStyle}>Últimos 4 números de tu Tarjeta Pampeana</label>
+                <input
+                  type="text"
+                  {...register('ultimosCuatroNumeros')}
+                  className={inputStyle}
+                  placeholder="Últimos 4 números de tu Tarjeta Pampeana"
+                  maxLength={4}
+                />
+                {errors.ultimosCuatroNumeros && <p className={errorStyle}>{errors.ultimosCuatroNumeros.message}</p>}
+              </div>
+
+              <div>
+                <label className={labelStyle}>Código de Seguridad (3 Dígitos)</label>
+                <input
+                  type="text"
+                  {...register('codigoSeguridad')}
+                  className={inputStyle}
+                  placeholder="Código de Seguridad (3 Dígitos)"
+                  maxLength={3}
+                />
+                {errors.codigoSeguridad && <p className={errorStyle}>{errors.codigoSeguridad.message}</p>}
+              </div>
+            </div>
+          )}
+
           {!tarjetaPampeana && (
             <div className="bg-yellow-50 p-4 rounded-lg flex items-center space-x-2">
               <FaCreditCard className="text-yellow-600" />
@@ -213,7 +236,7 @@ const SolicitarPrestamo = () => {
                   href="https://solicitatutarjeta.pampeana.com.ar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
+                  className="text-blue-600 hover:underline ml-1"
                 >
                   Para solicitar la tarjeta, haz click aquí.
                 </a>
