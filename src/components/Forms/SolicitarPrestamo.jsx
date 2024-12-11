@@ -2,7 +2,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import axios from 'axios';
 import { FaCheckCircle, FaTimesCircle, FaCalculator, FaCreditCard } from 'react-icons/fa';
+import { API_PRESTAMOS } from '../../components/constants/apis';
 
 const formSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -22,7 +24,7 @@ const formSchema = z.object({
 const SolicitarPrestamo = () => {
   const [cuotaMensual, setCuotaMensual] = useState(0);
   const [showCalculation, setShowCalculation] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -37,21 +39,72 @@ const SolicitarPrestamo = () => {
     },
   });
 
+  const generarPeriodo = () => {
+    const fechaActual = new Date();
+    const año = fechaActual.getFullYear();
+    const mes = fechaActual.getMonth() + 1;
+    const mesFormateado = mes < 10 ? `0${mes}` : mes;
+    return `${año}${mesFormateado}`;
+  };
+
   const tarjetaPampeana = watch('tarjetaPampeana');
   const monto = watch('monto');
   const cuotas = watch('cuotas');
 
-  const calcularCuota = () => {
-    const interes = 0.45; // 45% annual interest rate
-    const tasaMensual = interes / 12;
-    const cuotaCalculada = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -cuotas));
-    setCuotaMensual(cuotaCalculada);
-    setShowCalculation(true);
+  const calcularCuota = async () => {
+    setLoading(true);
+    const periodo = generarPeriodo();
+
+    try {
+      const response = await axios.post(API_PRESTAMOS + '/calcular', {
+        pimporte: monto,
+        pcuotas: cuotas,
+        periodo,
+      });
+
+      if (response.data && response.data.cuota) {
+        setCuotaMensual(response.data.cuota);
+        setShowCalculation(true);
+      }
+    } catch (error) {
+      console.error('Error al calcular la cuota:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data) => {
+    setLoading(true); // Puedes mostrar un estado de carga mientras se procesa la solicitud
+
+    try {
+      // Enviar los datos al backend
+      const response = await axios.post(API_PRESTAMOS + '/send-email', {
+        nombre: data.nombre,
+        apellido: data.apellido,
+        dni: data.dni,
+        calle: data.calle,
+        numero: data.numero,
+        localidad: data.localidad,
+        provincia: data.provincia,
+        telefono: data.telefono,
+        email: data.email,
+        monto: data.monto,
+        cuotas: data.cuotas,
+        tarjetaPampeana: data.tarjetaPampeana,
+      });
+
+      // Manejar la respuesta (puedes mostrar un mensaje de éxito, etc.)
+      if (response.data && response.data.success) {
+        alert('Solicitud enviada correctamente!');
+      } else {
+        alert('Hubo un error al enviar la solicitud.');
+      }
+    } catch (error) {
+      console.error('Error al enviar la solicitud:', error);
+      alert('Hubo un error al enviar la solicitud.');
+    } finally {
+      setLoading(false); // Para ocultar el estado de carga
+    }
   };
 
   const inputStyle = 'w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500';
@@ -126,9 +179,9 @@ const SolicitarPrestamo = () => {
               <input
                 type="range"
                 {...register('monto', { valueAsNumber: true })}
-                min="10000"
-                max="1000000"
-                step="10000"
+                min="100000"
+                max="300000"
+                step="25000"
                 className="w-full"
               />
               <p className="text-center text-gray-600 mt-2">${monto}</p>
@@ -172,9 +225,10 @@ const SolicitarPrestamo = () => {
             type="button"
             onClick={calcularCuota}
             className="w-full bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center space-x-2"
+            disabled={loading}
           >
             <FaCalculator />
-            <span>Calcular Valor de la Cuota</span>
+            {loading ? 'Calculando...' : 'Calcular Valor de la Cuota'}
           </button>
 
           {showCalculation && (
