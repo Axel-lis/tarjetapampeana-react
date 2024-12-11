@@ -7,6 +7,7 @@ import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
 import AdherirComercio from './AdherirComercio';
 import { preguntas } from '../constants/index.js';
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 import {
   FaCreditCard,
   FaHandHoldingUsd,
@@ -15,7 +16,6 @@ import {
   FaMobileAlt,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
-import { useRef } from 'react';
 
 const PaginaPrincipal = () => {
   const iconosPrincipal = [
@@ -32,12 +32,12 @@ const PaginaPrincipal = () => {
     {
       icono: <FaFileInvoice className="text-purple-500" />,
       texto: 'Pagar mi resumen',
-      action: () => console.log('Pagar mi resumen'),
+      action: () => navigate('/para-vos'),
     },
     {
       icono: <FaPiggyBank className="text-purple-500" />,
       texto: 'Abrir una cuenta gratis',
-      action: () => console.log('Abrir una cuenta gratis'),
+      action: () => window.open('https://online.pampeana.com.ar/login.php', '_blank'),
     },
     {
       icono: <FaMapMarkerAlt className="text-purple-500" />,
