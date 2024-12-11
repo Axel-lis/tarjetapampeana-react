@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { FaCheckCircle, FaTimesCircle, FaCalculator, FaCreditCard } from 'react-icons/fa';
 import { API_PRESTAMOS } from '../../components/constants/apis';
+import Alerts from '../Common/Alerts';
 
 const formSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -31,6 +32,8 @@ const SolicitarPrestamo = () => {
   const [cuotaMensual, setCuotaMensual] = useState(0);
   const [showCalculation, setShowCalculation] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [alertData, setAlertData] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -83,6 +86,7 @@ const SolicitarPrestamo = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
+    setAlertData(null); // Limpia alertas anteriores
 
     try {
       const response = await axios.post(API_PRESTAMOS + '/send-email', {
@@ -90,18 +94,17 @@ const SolicitarPrestamo = () => {
       });
 
       if (response.data && response.data.success) {
-        alert('Solicitud enviada correctamente!');
+        setAlertData({ type: 'success', message: 'Solicitud enviada correctamente!' });
       } else {
-        alert('Hubo un error al enviar la solicitud.');
+        setAlertData({ type: 'error', message: 'Hubo un error al enviar la solicitud.' });
       }
     } catch (error) {
       console.error('Error al enviar la solicitud:', error);
-      alert('Hubo un error al enviar la solicitud.');
+      setAlertData({ type: 'error', message: 'Hubo un error al enviar la solicitud.' });
     } finally {
       setLoading(false);
     }
   };
-
   const inputStyle = 'w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500';
   const errorStyle = 'text-red-500 text-sm mt-1';
   const labelStyle = 'block text-gray-700 font-medium mb-2';
@@ -243,7 +246,12 @@ const SolicitarPrestamo = () => {
               </p>
             </div>
           )}
-
+          <div>
+            {alertData && <Alerts type={alertData.type} message={alertData.message} />}
+            <button onClick={handleSubmit(onSubmit)} disabled={loading}>
+              {loading ? 'Enviando...' : 'Enviar'}
+            </button>
+          </div>
           <button
             type="button"
             onClick={calcularCuota}

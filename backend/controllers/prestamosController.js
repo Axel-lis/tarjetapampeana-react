@@ -100,7 +100,7 @@ export const sendEmail = async (req, res) => {
                 'administracion@tarjetapampeana.com.ar',
             ],
             replyTo: 'clientes@tarjetapampeana.com.ar',
-            subject: `Solicitud de comercio: ${nombre} ${apellido}`,
+            subject: `Solicitud Préstamo: ${nombre} ${apellido}`,
             html:`
           <p><strong>Nombre:</strong> ${nombre}</p>
           <p><strong>Apellido:</strong> ${apellido}</p>
