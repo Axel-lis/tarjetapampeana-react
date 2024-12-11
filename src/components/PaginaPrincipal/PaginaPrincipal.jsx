@@ -19,20 +19,46 @@ import { useRef } from 'react';
 
 const PaginaPrincipal = () => {
   const iconosPrincipal = [
-    { icono: <FaCreditCard className="text-orange-500" />, texto: 'Pedí tu Tarjeta Pampeana' },
-    { icono: <FaHandHoldingUsd className="text-purple-500" />, texto: 'Pedí un préstamo' },
-    { icono: <FaFileInvoice className="text-purple-500" />, texto: 'Pagar mi resumen' },
-    { icono: <FaPiggyBank className="text-purple-500" />, texto: 'Abrir una cuenta gratis' },
-    { icono: <FaMapMarkerAlt className="text-purple-500" />, texto: 'Conocé nuestros comercios adheridos' },
-    { icono: <FaMobileAlt className="text-purple-500" />, texto: 'Conocé nuestra app' },
+    {
+      icono: <FaCreditCard className="text-orange-500" />,
+      texto: 'Pedí tu Tarjeta Pampeana',
+      action: () => window.open('https://solicitatutarjeta.pampeana.com.ar/', '_blank'),
+    },
+    {
+      icono: <FaHandHoldingUsd className="text-purple-500" />,
+      texto: 'Pedí un préstamo',
+      action: () => navigate('/form-solicitud-credito'),
+    },
+    {
+      icono: <FaFileInvoice className="text-purple-500" />,
+      texto: 'Pagar mi resumen',
+      action: () => console.log('Pagar mi resumen'),
+    },
+    {
+      icono: <FaPiggyBank className="text-purple-500" />,
+      texto: 'Abrir una cuenta gratis',
+      action: () => console.log('Abrir una cuenta gratis'),
+    },
+    {
+      icono: <FaMapMarkerAlt className="text-purple-500" />,
+      texto: 'Conocé nuestros comercios adheridos',
+      action: () => navigate('/centros-atencion'),
+    },
+    {
+      icono: <FaMobileAlt className="text-purple-500" />,
+      texto: 'Conocé nuestra app',
+      action: () => console.log('Conocé nuestra app'),
+    },
   ];
+
   const navigate = useNavigate();
-  const messagesEnd = useRef(null); // Create a ref to target the bottom of the page
+  const messagesEnd = useRef(null);
 
   // Function to scroll to the bottom
   const scrollToBottom = () => {
     messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
   };
+
   const handleButtonClick = (buttonText) => {
     switch (buttonText) {
       case 'Pedir tarjeta':

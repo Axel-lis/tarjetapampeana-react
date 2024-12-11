@@ -29,6 +29,7 @@ const IconosPosibilidades = ({ tiempoCarga = 1000, posibilidades = [] }) => {
               <div
                 key={index}
                 className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                onClick={item.action} // Ejecuta la acción asociada al ícono
               >
                 <div className="text-4xl mb-4">{item.icono}</div>
                 <p className="text-center font-semibold">{item.texto}</p>
