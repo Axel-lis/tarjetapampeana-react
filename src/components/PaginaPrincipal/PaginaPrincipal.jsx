@@ -59,7 +59,6 @@ const PaginaPrincipal = () => {
       <PaquetePampeana />
       <div ref={messagesEnd} />
       <PaquetesAcordion />
-
       <PreguntasFrecuentes preguntas={preguntas} />
     </div>
   );

@@ -4,11 +4,11 @@ import { z } from 'zod';
 import { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle, FaExternalLinkAlt } from 'react-icons/fa';
 import ProgressButton from '../Common/ProgressButton';
 import Alerts from '../Common/Alerts';
 import { API_FORMULARIOS } from '../../components/constants/apis';
-
+import Modal from '../Common/Modal';
 // Esquema de validación con Zod
 const schema = z.object({
   name: z.string().min(3, { message: 'El nombre debe tener al menos 3 caracteres' }),
@@ -55,6 +55,9 @@ const FormInput = ({ label, type, register, error, id }) => (
 );
 
 const AdherirComercio = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
   const [submitStatus, setSubmitStatus] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
   const {
@@ -125,10 +128,33 @@ const AdherirComercio = () => {
             error={errors.logoLink}
           />
 
-          <div className="flex-nowrap items-center space-x-2 text-l">
+          <div className="flex-nowrap items-center space-x-2 text-l cursor-pointer" onClick={handleOpenModal}>
             <FaQuestionCircle className="text-inline inline bg-gray-50 mx-1" />
             ¿Cómo obtener un link para mi logo?
           </div>
+          <Modal
+            isOpen={modalOpen}
+            onClose={handleCloseModal}
+            title="Tarjeta Pampeana: Adherir Comercio"
+            message={
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    `Puedes obtener un enlace para tu imagen siguiendo estos pasos:<br><br>` +
+                    `1. Visita <a href='https://postimages.org/' target='_blank' className='text-blue-700 underline hover:text-blue-600'>postimages.org</a><br><br>` +
+                    `2. Haz clic en 'Choose images'<br><br>` +
+                    `3. Selecciona tu imagen<br><br>` +
+                    `4. Haz clic en 'Upload now'<br><br>` +
+                    `5. Copia el enlace que se proporciona en la sección 'Direct link'`,
+                }}
+              />
+            }
+            confirmText="Volver al formulario"
+            cancelText="Cancelar"
+            onConfirm={handleCloseModal}
+            color="green"
+            icon={FaExternalLinkAlt}
+          />
           <div className="flex items-center justify-center">
             <ProgressButton type="submit" hasError={Object.keys(errors).length > 0} />
           </div>

@@ -79,9 +79,9 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  confirmText: PropTypes.string.isRequired,
+  confirmText: PropTypes.string,
   cancelText: PropTypes.string.isRequired,
-  onConfirm: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func,
   color: PropTypes.oneOf(['red', 'green', 'blue', 'yellow', 'purple']).isRequired,
   icon: PropTypes.elementType,
 };
