@@ -15,6 +15,7 @@ import {
   FaMobileAlt,
   FaMapMarkerAlt,
 } from 'react-icons/fa';
+import { useRef } from 'react';
 
 const PaginaPrincipal = () => {
   const iconosPrincipal = [
@@ -26,7 +27,12 @@ const PaginaPrincipal = () => {
     { icono: <FaMobileAlt className="text-purple-500" />, texto: 'Conocé nuestra app' },
   ];
   const navigate = useNavigate();
+  const messagesEnd = useRef(null); // Create a ref to target the bottom of the page
 
+  // Function to scroll to the bottom
+  const scrollToBottom = () => {
+    messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
+  };
   const handleButtonClick = (buttonText) => {
     switch (buttonText) {
       case 'Pedir tarjeta':
@@ -37,7 +43,7 @@ const PaginaPrincipal = () => {
         navigate('/form-solicitud-credito');
         break;
       case 'Ver Paquetes':
-        navigate('/');
+        scrollToBottom();
         break;
       default:
         console.log(`Botón ${buttonText} presionado`);
@@ -51,7 +57,9 @@ const PaginaPrincipal = () => {
       <AdherirComercio />
       <Carousel2 tiempoCarga={500} />
       <PaquetePampeana />
+      <div ref={messagesEnd} />
       <PaquetesAcordion />
+
       <PreguntasFrecuentes preguntas={preguntas} />
     </div>
   );
