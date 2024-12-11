@@ -6,14 +6,40 @@ import Costos from './Costos';
 import PreguntasFrecuentes from '../Common/PreguntasFrecuentes';
 import { preguntasParaVos } from '../constants/index.js';
 import { FaCreditCard, FaHandHoldingUsd, FaMailBulk, FaGift, FaChartLine, FaComment } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 export const ParaVos = () => {
+  const navigate = useNavigate();
   const iconosParaVos = [
-    { icono: <FaHandHoldingUsd className="text-green-500" />, texto: 'SOLICITÁ TU PRÉSTAMO' },
-    { icono: <FaCreditCard className="text-purple-400" />, texto: 'ADHERITE AL DÉBITO' },
-    { icono: <FaMailBulk className="text-sky-500" />, texto: 'RECIBÍ TU RESUMEN' },
-    { icono: <FaGift className="text-orange-400" />, texto: 'CANJEÁ TUS PUNTOS' },
-    { icono: <FaChartLine className="text-sky-500" />, texto: 'AUMENTÁ TU LÍMITE' },
-    { icono: <FaComment className="text-sky-500" />, texto: 'CONTACTANOS' },
+    {
+      icono: <FaHandHoldingUsd className="text-green-500" />,
+      texto: 'SOLICITÁ TU PRÉSTAMO',
+      action: () => navigate('/form-solicitud-credito'),
+    },
+    {
+      icono: <FaCreditCard className="text-purple-400" />,
+      texto: 'ADHERITE AL DÉBITO',
+      action: () => window.open('https://solicitatutarjeta.pampeana.com.ar/', '_blank'),
+    },
+    {
+      icono: <FaMailBulk className="text-sky-500" />,
+      texto: 'RECIBÍ TU RESUMEN',
+      action: () => window.open('https://online.pampeana.com.ar/', '_blank'),
+    },
+    {
+      icono: <FaGift className="text-orange-400" />,
+      texto: 'CANJEÁ TUS PUNTOS',
+      action: () => window.open('https://online.pampeana.com.ar/', '_blank'),
+    },
+    {
+      icono: <FaChartLine className="text-yellow-500" />,
+      texto: 'AUMENTÁ TU LÍMITE',
+      action: () => window.open('https://online.pampeana.com.ar/', '_blank'),
+    },
+    {
+      icono: <FaComment className="text-sky-500" />,
+      texto: 'CONTACTANOS',
+      action: () => window.open('https://api.whatsapp.com/send?phone=5492954233330&amp;lang=es', '_blank'),
+    },
   ];
 
   return (
