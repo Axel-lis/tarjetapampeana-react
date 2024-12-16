@@ -2,6 +2,7 @@ import bcra from '../../assets/logos/bcra.png';
 import datafiscal from '../../assets/logos/data-fiscal.png';
 import certacyc from '../../assets/logos/CERTACYC-img.png';
 import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-white-50  text-gray-700 py-8 border-t">
@@ -71,14 +72,14 @@ const Footer = () => {
               <h3 className="text-lg font-bold md:mt-20">Nosotros</h3>
               <ul className="">
                 <li>
-                  <a href="#" className="text-sm hover:text-purple-600">
+                  <Link to="/nosotros" aria-label="Trabaja con nosotros">
                     Trabaja con nosotros
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-sm hover:text-purple-600">
+                  <Link to="/nosotros" aria-label="Sobre nosotros">
                     Sobre nosotros
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

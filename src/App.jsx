@@ -12,6 +12,7 @@ import Promociones from './components/Promociones/Promociones';
 import AdherirComercio from './components/Forms/AdherirComercio';
 import SolicitarPrestamo from './components/Forms/SolicitarPrestamo';
 import WhatsAppWidget from './components/Common/WhatsAppWidget';
+import Nosotros from './components/Nosotros/Nosotros';
 import Footer from './components/Common/Footer';
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/promociones" element={<Promociones />} />
           <Route path="/form-adherir-comercio" element={<AdherirComercio />} />
           <Route path="/form-solicitud-credito" element={<SolicitarPrestamo />} />
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
         <WhatsAppWidget />
         <Footer />
