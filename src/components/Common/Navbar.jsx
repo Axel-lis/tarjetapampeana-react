@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo_nav from '../../assets/logos/logo violeta.png';
+import logo_nav from '../../assets/logos/logo-2025.png';
 import { FaBars, FaBell, FaTimes, FaExclamationTriangle } from 'react-icons/fa';
 
 import Modal from '../Common/Modal';
