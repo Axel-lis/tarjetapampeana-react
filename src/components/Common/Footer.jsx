@@ -61,7 +61,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#" className="text-sm hover:text-purple-600">
-                    RESUMEN DEL CONTRATO.
+                    RESUMEN DEL CONTRATO
                   </a>
                 </li>
               </ul>

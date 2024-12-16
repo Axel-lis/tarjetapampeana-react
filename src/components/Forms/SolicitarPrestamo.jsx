@@ -113,6 +113,7 @@ const SolicitarPrestamo = () => {
     <div className="min-h-screen bg-purple-600 py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Solicitud de Préstamo</h2>
+        <img src="/src/assets/logos/pampaCash-logo-violeta.png" alt="PampaCa$h Logo" className="w-80 mx-auto mb-8" />
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
