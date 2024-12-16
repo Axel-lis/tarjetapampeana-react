@@ -56,7 +56,7 @@ const DynamicTable = () => {
         setFilteredData(mockData);
         setLoading(false);
       } catch (err) {
-        setError('Error al cargar los datos');
+        setError('Error al cargar los datos' + err);
         setLoading(false);
       }
     };
