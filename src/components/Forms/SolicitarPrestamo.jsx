@@ -180,7 +180,7 @@ const SolicitarPrestamo = () => {
                 min="100000"
                 max="300000"
                 step="25000"
-                className="w-full"
+                className="w-full bg-green-400"
               />
               <p className="text-center text-gray-600 mt-2">${monto}</p>
             </div>
