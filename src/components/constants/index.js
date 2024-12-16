@@ -39,6 +39,9 @@ import img6Mobile from '../../assets/banners/promociones/banner-viernes-mobile-2
 import img7Mobile from '../../assets/banners/promociones/banner-sabados-mobile-2.jpg';
 import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile-2.jpg';
 import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.jpg';
+/* Donde comprar */
+export const bannerDC = dondeComprar; 
+import dondeComprar from '../../assets/banners/dondecomprar/dondeComprar.jpg';
 
 /* Pagina Principal*/
 

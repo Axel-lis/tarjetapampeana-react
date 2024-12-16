@@ -1,10 +1,10 @@
-import banner from '../../assets/banners/DondeComprar/DondeComprar.jpg';
+import { bannerDC } from '../constants/index.js';
 import DynamicTable from './DynamicTable';
 const DondeComprar = () => {
   return (
     <div className="py-20">
       <div className="banner">
-        <img src={banner} alt="banner" />
+        <img src={bannerDC} alt="banner" />
       </div>
       <DynamicTable />
     </div>
