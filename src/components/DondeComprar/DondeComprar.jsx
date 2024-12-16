@@ -1,12 +1,17 @@
+import React, { Suspense } from 'react';
 import { bannerDC } from '../constants/index.js';
-import DynamicTable from './DynamicTable';
+
+const DynamicTable = React.lazy(() => import('./DynamicTable'));
+
 const DondeComprar = () => {
   return (
     <div className="py-20">
       <div className="banner">
-        <img src={bannerDC} alt="banner" />
+        <img src={bannerDC} alt="banner" loading="lazy" />
       </div>
-      <DynamicTable />
+      <Suspense fallback={<div>Cargando Comercios...⌛</div>}>
+        <DynamicTable />
+      </Suspense>
     </div>
   );
 };
