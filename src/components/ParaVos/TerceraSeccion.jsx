@@ -38,7 +38,7 @@ const TerceraSeccion = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 60, damping: 15, loop: true }}
         >
-          <h5 className="text-2xl text-purple-600 font-bold mb-4">¡CON PAMPEANA AHORRÁ MÁS!</h5>
+          <h5 className="text-2xl text-purple-600 font-bold mb-4">CON PAMPEANA A TODOS LADOS</h5>
           <p className="text-base mb-4">
             Accedé a un sinfín de posibilidades para que puedas consumir y realizar tus operaciones sin moverte de tu
             casa. Tenés préstamos{' '}

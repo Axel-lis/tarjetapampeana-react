@@ -1,9 +1,15 @@
 import React, { Suspense } from 'react';
 import videoSource from '../../assets/images/ahorra.mp4';
+import { useNavigate } from 'react-router-dom';
 // Cargar VideoComponent de forma lazy
 const VideoComponent = React.lazy(() => import('../Common/VideoComponent'));
 
 const AhorraMas = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/ahorra-mas');
+  };
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between px-4 sm:px-10">
       <div className="w-full sm:w-1/2 max-w-2xl sm:ml-10 sm:mr-auto mb-6 sm:mb-0">
@@ -21,7 +27,10 @@ const AhorraMas = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center sm:w-1/4 sm:max-w-lg ml-auto cursor-pointer">
+      <div
+        className="flex items-center justify-center sm:w-1/4 sm:max-w-lg ml-auto cursor-pointer"
+        onClick={handleNavigate}
+      >
         <Suspense fallback={<div className="text-lg">Cargando video...</div>}>
           <VideoComponent src={videoSource} />
         </Suspense>

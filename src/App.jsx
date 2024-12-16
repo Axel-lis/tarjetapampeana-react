@@ -14,6 +14,7 @@ import SolicitarPrestamo from './components/Forms/SolicitarPrestamo';
 import WhatsAppWidget from './components/Common/WhatsAppWidget';
 import Nosotros from './components/Nosotros/Nosotros';
 import DondeComprar from './components/DondeComprar/DondeComprar';
+import AhorraMas from './components/AhorraMas/AhorraMas';
 import Footer from './components/Common/Footer';
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/form-adherir-comercio" element={<AdherirComercio />} />
           <Route path="/form-solicitud-credito" element={<SolicitarPrestamo />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/ahorra-mas" element={<AhorraMas />} />
         </Routes>
         <WhatsAppWidget />
         <Footer />
