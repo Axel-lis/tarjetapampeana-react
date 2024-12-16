@@ -25,6 +25,9 @@ const DataTable = () => {
     {
       accessorKey: 'rubro',
       header: 'Rubro',
+      cell: (info) => (
+        <span className="rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-xs font-medium">{info.getValue()}</span>
+      ),
       filterFn: 'rubroFilter',
     },
     {
@@ -41,6 +44,7 @@ const DataTable = () => {
     {
       accessorKey: 'dias',
       header: 'Días',
+      cell: (info) => <span className="uppercase">{info.getValue()}</span>,
     },
     {
       accessorKey: 'hasta',
