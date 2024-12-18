@@ -7,3 +7,5 @@ export const API_PROMOCIONES_BUSCAR='http://localhost:3000/api/promociones';
 /**  FORMULARIOS **/
 export const API_FORMULARIOS = 'http://localhost:3000/api/formularios/send-email';
 export const API_PRESTAMOS = 'http://localhost:3000/api/prestparam';
+/** Comercios->Donde comprar **/
+export const API_COMERCIOS = 'http://localhost:3000/api/comercios';

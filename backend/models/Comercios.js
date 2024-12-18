@@ -75,6 +75,6 @@ const Comercios = sequelize.define('Comercios', {
 });
 
 // Relaciones
-Comercios.belongsTo(RubroComercios, { foreignKey: 'cod_rubro' });
+Comercios.belongsTo(RubroComercios, { foreignKey: 'cod_rubro', as: 'Rubro', targetKey: 'codigo' });
 
 export default Comercios;

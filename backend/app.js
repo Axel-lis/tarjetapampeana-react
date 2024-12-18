@@ -4,7 +4,7 @@ import cors from 'cors';
 import promocionesRouter from './routes/promociones.js';
 import formulariosRouter from './routes/formularios.js';
 import prestamosRouter from './routes/prestamos.js';
-
+import dondeComprar from './routes/comercios.js';
 const app = express();
 
 // Configuraciones generales
@@ -16,7 +16,7 @@ app.use(bodyParser.json()); // Analizar solicitudes JSON
 app.use('/api/promociones', promocionesRouter);
 app.use('/api/formularios', formulariosRouter);
 app.use('/api/prestamos', prestamosRouter);
-
+app.use('/api/comercios', dondeComprar);
 // Middleware para manejar errores
 app.use((err, req, res) => {
   console.error(err.stack);
