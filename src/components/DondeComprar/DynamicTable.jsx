@@ -4,14 +4,14 @@ import { FaSearch } from 'react-icons/fa';
 import { API_COMERCIOS } from '../constants/apis';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const DynamicTable = () => {
-  const [data, setData] = useState([]); // Datos sin filtrar
-  const [filteredData, setFilteredData] = useState([]); // Datos filtrados para mostrar
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); // Página actual
-  const [totalPages, setTotalPages] = useState(0); // Total de páginas
-  const [pageSize, setPageSize] = useState(10); // Tamaño de la página
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [localidadFilter, setLocalidadFilter] = useState('');
   const [rubroFilter, setRubroFilter] = useState('');
 
@@ -36,15 +36,14 @@ const DynamicTable = () => {
       const result = await response.json();
       const comercios = result.data;
 
-      setData(comercios); // Guardamos los datos sin filtrar
-      // Asegúrate de que la respuesta de la API incluya el total de items correctamente
-      setTotalPages(Math.ceil(result.meta.totalItems / pageSize)); // Calculamos el total de páginas
+      setData(comercios);
+      setTotalPages(Math.ceil(result.meta.totalItems / pageSize));
     } catch (error) {
       setError('Error al cargar datos :' + error);
     } finally {
       setLoading(false);
     }
-  }, 500); // Retraso de debounce (500ms)
+  }, 500); // Retraso de debounce
 
   // Efecto para actualizar filteredData cuando cambian los filtros o los datos
   useEffect(() => {
