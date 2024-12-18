@@ -1,17 +1,19 @@
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import logoIcon from '../../assets/logos/LOGO.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { centrosDeAtencion } from '../constants/map.js';
-// Configurar íconos de Leaflet
-L.Icon.Default.mergeOptions({
-  iconUrl: markerIcon,
+
+// Define the custom icon
+var iconoPampa = L.icon({
+  iconUrl: logoIcon,
   shadowUrl: markerShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+  iconSize: [20, 20], // Tamaño del ícono
+  shadowSize: [0, 0], // Tamaño de la sombra
+  iconAnchor: [22, 94], // Punto del ícono que se corresponde con la ubicación del marcador
+  shadowAnchor: [4, 62], // Punto de la sombra
+  popupAnchor: [-3, -76], // Punto desde el cual se abrirá el popup
 });
 
 const Mapa = () => {
@@ -32,12 +34,15 @@ const Mapa = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {centrosDeAtencion.map((centro, index) => {
-            // Verificar que la ubicacion existe y tiene lat y lng
             const { lat, lng } = centro.ubicacion || {};
-            if (!lat || !lng) return null; // Si no hay latitud o longitud, no mostrar marcador
+            if (!lat || !lng) return null;
 
             return (
-              <Marker key={index} position={[lat, lng]}>
+              <Marker
+                key={index}
+                position={[lat, lng]}
+                icon={iconoPampa} // Asignar el ícono personalizado directamente aquí
+              >
                 <Popup>
                   <div>
                     <h4 className="font-bold text-lg">{centro.nombre}</h4>
