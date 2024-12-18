@@ -1,8 +1,5 @@
-import React, { Suspense } from 'react';
-import videoSource from '../../assets/images/ahorra.mp4';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Cargar VideoComponent de forma lazy
-const VideoComponent = React.lazy(() => import('../Common/VideoComponent'));
 
 const AhorraMas = () => {
   const navigate = useNavigate();
@@ -10,8 +7,22 @@ const AhorraMas = () => {
   const handleNavigate = () => {
     navigate('/ahorra-mas');
   };
+
+  useEffect(() => {
+    // Cargar el script de Lottie Player dinámicamente
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between px-4 sm:px-10">
+      {/* Texto */}
       <div className="w-full sm:w-1/2 max-w-2xl sm:ml-10 sm:mr-auto mb-6 sm:mb-0">
         <p className="text-xl sm:text-2xl font-semibold text-purple-700 dark:text-purple-600 mb-4">
           Con Tarjeta Pampeana, cada día <strong>AHORRA MÁS</strong>
@@ -27,13 +38,20 @@ const AhorraMas = () => {
         </p>
       </div>
 
+      {/* Animación Lottie */}
       <div
         className="flex items-center justify-center sm:w-1/4 sm:max-w-lg ml-auto cursor-pointer"
         onClick={handleNavigate}
       >
-        <Suspense fallback={<div className="text-lg">Cargando video...</div>}>
-          <VideoComponent src={videoSource} />
-        </Suspense>
+        {/* Usando lottie-player */}
+        <lottie-player
+          src="https://lottie.host/b258f142-39a5-494a-82e9-32275619905f/RbtlJUQNHA.json"
+          background="transparent"
+          speed="1"
+          style={{ width: '300px', height: '300px' }}
+          loop
+          autoplay
+        ></lottie-player>
       </div>
     </div>
   );
