@@ -109,38 +109,44 @@ const DynamicTable = () => {
   }
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-6 bg-gray-100">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Buscar Localidad..."
-            value={localidadFilter}
-            onChange={handleLocalidadChange}
-            className="w-full px-4 py-2 rounded-lg border"
-          />
-          <FaSearch className="absolute right-3 top-3 text-gray-400" />
+      <div className="mb-4 flex gap-4 items-center">
+        <div className="flex-1 min-w-[200px]">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Buscar Localidad..."
+              value={localidadFilter}
+              onChange={handleLocalidadChange}
+              className="w-full px-4 py-2 rounded-lg border"
+            />
+            <FaSearch className="absolute right-3 top-3 text-gray-400" />
+          </div>
         </div>
 
-        <div className="relative mt-2">
-          <input
-            type="text"
-            placeholder="Buscar Rubro..."
-            value={rubroFilter}
-            onChange={handleRubroChange}
-            className="w-full px-4 py-2 rounded-lg border"
-          />
-          <FaSearch className="absolute right-3 top-3 text-gray-400" />
+        <div className="flex-1 min-w-[200px]">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Buscar Rubro..."
+              value={rubroFilter}
+              onChange={handleRubroChange}
+              className="w-full px-4 py-2 rounded-lg border"
+            />
+            <FaSearch className="absolute right-3 top-3 text-gray-400" />
+          </div>
         </div>
 
-        <div className="relative mt-2">
-          <input
-            type="text"
-            placeholder="Buscar por palabra clave..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="w-full px-4 py-2 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-          <FaSearch className="absolute right-3 top-3 text-gray-400" />
+        <div className="flex-1 min-w-[200px]">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Buscar por palabra clave..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="w-full px-4 py-2 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <FaSearch className="absolute right-3 top-3 text-gray-400" />
+          </div>
         </div>
       </div>
 
