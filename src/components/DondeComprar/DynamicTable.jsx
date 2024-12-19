@@ -1,22 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { debounce } from 'lodash';
 import { FaSearch } from 'react-icons/fa';
 import { API_COMERCIOS } from '../constants/apis';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-const DynamicTable = () => {
+
+// Hook personalizado para manejar la lógica de datos
+const useComercios = (currentPage, pageSize, localidadFilter, rubroFilter, searchTerm) => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
-  const [localidadFilter, setLocalidadFilter] = useState('');
-  const [rubroFilter, setRubroFilter] = useState('');
 
-  // Debounced version of fetchData
-  const debouncedSearch = debounce(async () => {
+  const fetchData = async () => {
     try {
       setLoading(true);
       const url = new URL(API_COMERCIOS);
@@ -25,7 +20,7 @@ const DynamicTable = () => {
         pageSize: pageSize,
         localidad: localidadFilter,
         rubro: rubroFilter,
-        search: searchTerm, // Filtrar por término de búsqueda
+        search: searchTerm,
       };
       Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
 
@@ -39,42 +34,45 @@ const DynamicTable = () => {
       setData(comercios);
       setTotalPages(Math.ceil(result.meta.totalItems / pageSize));
     } catch (error) {
-      setError('Error al cargar datos :' + error);
+      setError('Error al cargar datos :' + error.message);
     } finally {
       setLoading(false);
     }
-  }, 500); // Retraso de debounce
+  };
 
-  // Efecto para actualizar filteredData cuando cambian los filtros o los datos
   useEffect(() => {
-    // Filtramos los datos por búsqueda y filtros
-    const applyFilters = () => {
-      let filtered = [...data];
+    const debouncedFetch = debounce(fetchData, 500);
+    debouncedFetch();
+    return () => debouncedFetch.cancel();
+  }, [currentPage, pageSize, localidadFilter, rubroFilter, searchTerm]);
 
-      if (searchTerm) {
-        filtered = filtered.filter((item) => item.nombreFantasia.toLowerCase().includes(searchTerm.toLowerCase()));
-      }
+  return { data, totalPages, loading, error };
+};
 
-      if (localidadFilter) {
-        filtered = filtered.filter((item) => item.localidad.toLowerCase().includes(localidadFilter.toLowerCase()));
-      }
+const DynamicTable = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [localidadFilter, setLocalidadFilter] = useState('');
+  const [rubroFilter, setRubroFilter] = useState('');
 
-      if (rubroFilter) {
-        filtered = filtered.filter((item) => item.rubro.toLowerCase().includes(rubroFilter.toLowerCase()));
-      }
+  const { data, totalPages, loading, error } = useComercios(
+    currentPage,
+    pageSize,
+    localidadFilter,
+    rubroFilter,
+    searchTerm,
+  );
 
-      setFilteredData(filtered);
-    };
-
-    applyFilters();
-  }, [data, searchTerm, localidadFilter, rubroFilter]); // Se actualiza filteredData cuando cambian estos valores
-
-  // Efecto para realizar la búsqueda
-  useEffect(() => {
-    debouncedSearch();
-    // Limpiar debounce cuando el componente se desmonte
-    return () => debouncedSearch.cancel();
-  }, [currentPage, localidadFilter, rubroFilter, searchTerm, pageSize]); // Dependencias de búsqueda
+  const filteredData = useMemo(() => {
+    return data.filter((item) => {
+      return (
+        (!searchTerm || item.nombreFantasia.toLowerCase().includes(searchTerm.toLowerCase())) &&
+        (!localidadFilter || item.localidad.toLowerCase().includes(localidadFilter.toLowerCase())) &&
+        (!rubroFilter || item.rubro.toLowerCase().includes(rubroFilter.toLowerCase()))
+      );
+    });
+  }, [data, searchTerm, localidadFilter, rubroFilter]);
 
   const handleLocalidadChange = (e) => {
     setLocalidadFilter(e.target.value);
@@ -87,8 +85,7 @@ const DynamicTable = () => {
   };
 
   const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value); // Actualiza el valor del input
+    setSearchTerm(e.target.value);
   };
 
   if (loading) {
@@ -106,6 +103,7 @@ const DynamicTable = () => {
       </div>
     );
   }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-4 flex gap-4 items-center">
