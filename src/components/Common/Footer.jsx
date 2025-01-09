@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
 
           {/* Información */}
-          <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-5">
+          <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-1">
             {/* Sobre tu tarjeta */}
             <div>
               <div className="flex flex-row items-center flex-nowrap">
@@ -70,7 +70,7 @@ const Footer = () => {
             {/* Nosotros */}
             <div>
               <h3 className="text-lg font-bold md:mt-20">Nosotros</h3>
-              <ul className="">
+              <ul className="md:mr-5">
                 <li>
                   <Link to="/nosotros" aria-label="Trabaja con nosotros">
                     Trabaja con nosotros

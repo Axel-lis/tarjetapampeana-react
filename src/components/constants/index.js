@@ -20,25 +20,26 @@ import img7 from '../../assets/banners/carousel-comercios/comerciante-07.jpg';
 import img8 from '../../assets/banners/carousel-comercios/comerciante-08.jpg';
 import img9 from '../../assets/banners/carousel-comercios/comerciante-09.jpg';
 /*promos*/
-import img1Promo from '../../assets/banners/promociones/domingo-promo.jpg';
-import img2Promo from '../../assets/banners/promociones/lunes-promo.jpg';
-import img3Promo from '../../assets/banners/promociones/martes-promo.jpg';
-import img4Promo from '../../assets/banners/promociones/miercoles-promo.jpg';
-import img5Promo from '../../assets/banners/promociones/jueves-promo.jpg';
-import img6Promo from '../../assets/banners/promociones/viernes-promo.jpg';
-import img7Promo from '../../assets/banners/promociones/sabado-promo.jpg';
-import img8Promo from '../../assets/banners/promociones/todos-promo-1.jpg';
-import img9Promo from '../../assets/banners/promociones/todos-promo-2.jpg';
+import img1Promo from '../../assets/banners/promociones/banner-domingos-desktop.jpg';
+import img2Promo from '../../assets/banners/promociones/banner-lunes-desktop.jpg';
+import img3Promo from '../../assets/banners/promociones/banner-martes-desktop.jpg';
+import img4Promo from '../../assets/banners/promociones/banner-miercoles-desktop.jpg';
+import img5Promo from '../../assets/banners/promociones/banner-jueves-desktop.jpg';
+import img6Promo from '../../assets/banners/promociones/banner-viernes-desktop.jpg';
+import img7Promo from '../../assets/banners/promociones/banner-sabado-desktop.jpg';
+import img8Promo from '../../assets/banners/promociones/banner-todos-desktop.png';
+import img9Promo from '../../assets/banners/promociones/banner-todos-2-desktop.png';
 
-import img1Mobile from '../../assets/banners/promociones/banner-domingos-mobile-2.jpg';
-import img2Mobile from '../../assets/banners/promociones/banner-lunes-mobile-2.jpg';
-import img3Mobile from '../../assets/banners/promociones/banner-martes-mobile-2.jpg';
-import img4Mobile from '../../assets/banners/promociones/banner-miercoles-mobile-2.jpg';
-import img5Mobile from '../../assets/banners/promociones/banner-jueves-mobile-2.jpg';
-import img6Mobile from '../../assets/banners/promociones/banner-viernes-mobile-2.jpg';
-import img7Mobile from '../../assets/banners/promociones/banner-sabados-mobile-2.jpg';
-import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile-2.jpg';
-import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile-2.jpg';
+import img1Mobile from '../../assets/banners/promociones/banner-domingos-mobile.jpg';
+import img2Mobile from '../../assets/banners/promociones/banner-lunes-mobile.jpg';
+import img3Mobile from '../../assets/banners/promociones/banner-martes-mobile.jpg';
+import img4Mobile from '../../assets/banners/promociones/banner-miercoles-mobile.jpg';
+import img5Mobile from '../../assets/banners/promociones/banner-jueves-mobile.jpg';
+import img6Mobile from '../../assets/banners/promociones/banner-viernes-mobile.jpg';
+import img7Mobile from '../../assets/banners/promociones/banner-sabados-mobile.jpg';
+import img8Mobile from '../../assets/banners/promociones/banner-todos-mobile.png';
+import img9Mobile from '../../assets/banners/promociones/banner-todos2-mobile.png';
+
 /* Donde comprar */
 export const bannerDC = dondeComprar; 
 import dondeComprar from '../../assets/banners/dondecomprar/dondeComprar.jpg';
