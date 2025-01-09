@@ -247,12 +247,7 @@ const SolicitarPrestamo = () => {
               </p>
             </div>
           )}
-          <div>
-            {alertData && <Alerts type={alertData.type} message={alertData.message} />}
-            <button onClick={handleSubmit(onSubmit)} disabled={loading}>
-              {loading ? 'Enviando...' : 'Enviar'}
-            </button>
-          </div>
+          <div>{alertData && <Alerts type={alertData.type} message={alertData.message} />}</div>
           <button
             type="button"
             onClick={calcularCuota}

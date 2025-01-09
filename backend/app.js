@@ -18,9 +18,10 @@ app.use('/api/formularios', formulariosRouter);
 app.use('/api/prestamos', prestamosRouter);
 app.use('/api/comercios', dondeComprar);
 // Middleware para manejar errores
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({ error: err.message || 'Error interno del servidor' });
 });
+
 
 export default app;
