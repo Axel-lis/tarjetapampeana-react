@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { slidesPromos, slidesPromosMobile } from '../constants/index.js';
 import { motion } from 'framer-motion';
 import debounce from 'lodash/debounce';
-
+import chicaAhorraMas from '../../assets/personas/chicaPagaMenos.png';
 const AhorraMas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,6 +41,7 @@ const AhorraMas = () => {
 
   return (
     <div className="py-20">
+      <img src={chicaAhorraMas} alt="Ahorrá Más" className="w-full h-auto mx-auto" />
       <div className="flex flex-col gap-4">
         {slides.map((slide, index) => (
           <motion.div
