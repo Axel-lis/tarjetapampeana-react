@@ -83,7 +83,12 @@ const SolicitarPrestamo = () => {
       setLoading(false);
     }
   };
-
+  const formatCurrency = (number) => {
+    return number
+      .toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      .replace('.', ',')
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+  };
   const onSubmit = async (data) => {
     setLoading(true);
     setAlertData(null); // Limpia alertas anteriores
@@ -261,7 +266,8 @@ const SolicitarPrestamo = () => {
           {showCalculation && (
             <div className="bg-blue-50 p-4 rounded-lg">
               <p className="text-blue-800 text-center text-lg">
-                El monto de tu cuota mensual es de: ${cuotaMensual.toFixed(2)}
+                El monto de tu cuota mensual es de:
+                <span className="text-green-600 font-semibold text-2xl">{` $${formatCurrency(cuotaMensual)}`} </span>
               </p>
             </div>
           )}
