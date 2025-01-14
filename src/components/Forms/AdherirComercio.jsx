@@ -156,7 +156,7 @@ const AdherirComercio = () => {
             icon={FaExternalLinkAlt}
           />
           <div className="flex items-center justify-center">
-            <ProgressButton type="submit" hasError={Object.keys(errors).length > 0} />
+            <ProgressButton type="submit" disabled={Object.keys(errors).length > 0} />
           </div>
         </form>
       </div>

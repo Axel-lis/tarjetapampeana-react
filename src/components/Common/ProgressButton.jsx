@@ -9,14 +9,19 @@ const ProgressButton = ({ hasError: externalHasError, disabled: externalDisabled
   const [internalHasError, setInternalHasError] = useState(false);
 
   // Combinar errores externos y estados internos para desactivar el botón
-  const isDisabled = externalHasError || externalDisabled || isLoading || isCompleted || internalHasError;
+  const isDisabled = externalDisabled || isLoading || isCompleted || (externalHasError && !internalHasError);
+  const isEnabled = !isDisabled && !internalHasError && !externalHasError && !isCompleted;
 
-  const backgroundColor =
-    internalHasError || externalHasError
-      ? 'bg-red-500 hover:bg-red-600'
-      : isCompleted
-      ? 'bg-green-500 hover:bg-green-600'
-      : 'bg-blue-500 hover:bg-blue-600';
+  // Determinar el color de fondo según el estado
+  const backgroundColor = isDisabled
+    ? 'bg-gray-400 cursor-not-allowed' // Fondo gris cuando está deshabilitado
+    : isEnabled
+    ? 'bg-blue-500 hover:bg-blue-600' // Fondo azul cuando está habilitado
+    : internalHasError || externalHasError
+    ? 'bg-red-500 hover:bg-red-600' // Fondo rojo cuando hay errores
+    : isCompleted
+    ? 'bg-green-500 hover:bg-green-600' // Fondo verde cuando está completado
+    : 'bg-blue-500 hover:bg-blue-600'; // Fondo azul por defecto
 
   useEffect(() => {
     // Si hay errores externos, reiniciar el estado inmediatamente
@@ -54,7 +59,6 @@ const ProgressButton = ({ hasError: externalHasError, disabled: externalDisabled
         setProgress((prevProgress) => {
           const newProgress = prevProgress + 2;
           if (newProgress >= 100) {
-            // Simular error aleatorio (30% chance)
             const shouldError = Math.random() < 0.3;
 
             if (shouldError) {

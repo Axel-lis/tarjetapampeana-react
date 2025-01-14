@@ -90,9 +90,9 @@ const Footer = () => {
         <div className="mt-8 border-t pt-4 text-center">
           <ul className="flex flex-wrap justify-center space-x-4 text-sm">
             <li>
-              <a href="#" className="hover:text-purple-600">
+              <Link to="/solicitar-baja" className="hover:text-purple-600">
                 Baja Tarjeta
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-purple-600">

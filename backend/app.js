@@ -20,8 +20,8 @@ app.use('/api/comercios', dondeComprar);
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
+  next.createError(err.message);
   res.status(err.status || 500).json({ error: err.message || 'Error interno del servidor' });
 });
-
 
 export default app;
