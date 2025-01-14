@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import { FaQuestionCircle, FaExternalLinkAlt } from 'react-icons/fa';
-import ProgressButton from '../Common/ProgressButton';
 import Alerts from '../Common/Alerts';
 import { API_FORMULARIOS } from '../../components/constants/apis';
 import Modal from '../Common/Modal';
@@ -63,9 +62,11 @@ const AdherirComercio = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
-  } = useForm({ resolver: zodResolver(schema) });
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
   const onSubmit = async (data) => {
     try {
@@ -96,6 +97,11 @@ const AdherirComercio = () => {
           <h2 className="mt-12 text-center text-3xl font-bold text-gray-800">Adherir mi comercio a Pampeana</h2>
           <h5 className="text-center text-gray-600">¡Es fácil, rápido y gratuito!</h5>
         </div>
+        {isSubmitSuccessful && (
+          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center">
+            Formulario de baja de tarjeta enviado exitosamente!
+          </div>
+        )}
         {submitStatus && <Alerts type={submitStatus} message={alertMessage} />}
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
           <FormInput label="Nombre" type="text" id="name" register={register} error={errors.name} />
@@ -156,7 +162,13 @@ const AdherirComercio = () => {
             icon={FaExternalLinkAlt}
           />
           <div className="flex items-center justify-center">
-            <ProgressButton type="submit" disabled={Object.keys(errors).length > 0} />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Enviando...' : 'Enviar Formulario'}
+            </button>
           </div>
         </form>
       </div>

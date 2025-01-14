@@ -1,127 +1,62 @@
-import { useState, useEffect } from 'react';
-import { FaCheck, FaTimes } from 'react-icons/fa';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { FiCheck } from 'react-icons/fi';
 
-const ProgressButton = ({ hasError: externalHasError, disabled: externalDisabled, onClick, ...props }) => {
-  const [progress, setProgress] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [internalHasError, setInternalHasError] = useState(false);
+const ProgressButton = () => {
+  const [buttonState, setButtonState] = useState('idle');
 
-  // Combinar errores externos y estados internos para desactivar el botón
-  const isDisabled = externalDisabled || isLoading || isCompleted || (externalHasError && !internalHasError);
-  const isEnabled = !isDisabled && !internalHasError && !externalHasError && !isCompleted;
+  const handleClick = () => {
+    if (buttonState !== 'idle') return;
 
-  // Determinar el color de fondo según el estado
-  const backgroundColor = isDisabled
-    ? 'bg-gray-400 cursor-not-allowed' // Fondo gris cuando está deshabilitado
-    : isEnabled
-    ? 'bg-blue-500 hover:bg-blue-600' // Fondo azul cuando está habilitado
-    : internalHasError || externalHasError
-    ? 'bg-red-500 hover:bg-red-600' // Fondo rojo cuando hay errores
-    : isCompleted
-    ? 'bg-green-500 hover:bg-green-600' // Fondo verde cuando está completado
-    : 'bg-blue-500 hover:bg-blue-600'; // Fondo azul por defecto
-
-  useEffect(() => {
-    // Si hay errores externos, reiniciar el estado inmediatamente
-    if (externalHasError) {
-      setIsLoading(false);
-      setIsCompleted(false);
-      setInternalHasError(true);
-      setProgress(0);
-    }
-  }, [externalHasError]);
-
-  const handleClick = (event) => {
-    // Si hay errores o ya está desactivado, no hacer nada
-    if (isDisabled) {
-      return;
-    }
-
-    // Llamar al onClick original si existe
-    if (onClick) {
-      onClick(event);
-    }
-
-    // Iniciar la animación de carga
-    setIsLoading(true);
-    setProgress(0);
-    setIsCompleted(false);
-    setInternalHasError(false);
+    setButtonState('loading');
+    setTimeout(() => {
+      setButtonState('completed');
+      setTimeout(() => {
+        setButtonState('idle');
+      }, 2000);
+    }, 3000);
   };
 
-  useEffect(() => {
-    let progressInterval;
+  const getButtonStyles = () => {
+    const baseStyles =
+      'flex items-center justify-center gap-2 px-6 py-2.5 rounded-md font-semibold text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
-    if (isLoading && progress < 100) {
-      progressInterval = setInterval(() => {
-        setProgress((prevProgress) => {
-          const newProgress = prevProgress + 2;
-          if (newProgress >= 100) {
-            const shouldError = Math.random() < 0.3;
-
-            if (shouldError) {
-              setInternalHasError(true);
-              setIsLoading(false);
-              setIsCompleted(false);
-            } else {
-              setIsCompleted(true);
-              setIsLoading(false);
-            }
-
-            clearInterval(progressInterval);
-            return 100;
-          }
-          return newProgress;
-        });
-      }, 50);
+    switch (buttonState) {
+      case 'loading':
+        return `${baseStyles} bg-gray-400 cursor-not-allowed`;
+      case 'completed':
+        return `${baseStyles} bg-green-500 hover:bg-green-600 focus:ring-green-300`;
+      default:
+        return `${baseStyles} bg-blue-500 hover:bg-blue-600 focus:ring-blue-300`;
     }
+  };
 
-    return () => {
-      if (progressInterval) {
-        clearInterval(progressInterval);
-      }
-    };
-  }, [isLoading, progress]);
+  const getButtonContent = () => {
+    switch (buttonState) {
+      case 'loading':
+        return (
+          <>
+            <AiOutlineLoading3Quarters className="animate-spin" />
+            Cargando...
+          </>
+        );
+      case 'completed':
+        return (
+          <>
+            <FiCheck className="text-lg" />
+            Enviado!
+          </>
+        );
+      default:
+        return 'Enviar';
+    }
+  };
 
   return (
-    <button
-      {...props}
-      className={`relative min-w-[200px] h-12 px-6 py-2 rounded-lg font-medium text-white overflow-hidden transition-colors duration-300 ${backgroundColor}`}
-      aria-live="polite"
-      disabled={isDisabled}
-      onClick={handleClick}
-    >
-      <div
-        className={`absolute left-0 top-0 h-full transition-all duration-300 ease-out ${
-          internalHasError ? 'bg-red-100/20' : 'bg-white/20'
-        }`}
-        style={{ width: `${progress}%` }}
-      />
-      <div className="relative flex items-center justify-center gap-2">
-        {internalHasError || externalHasError ? (
-          <>
-            <FaTimes className="text-white" />
-            <span>Error</span>
-          </>
-        ) : isCompleted ? (
-          <>
-            <FaCheck className="text-white" />
-            <span>¡Enviado!</span>
-          </>
-        ) : (
-          <span>{isLoading ? 'Cargando...' : 'Enviar'}</span>
-        )}
-      </div>
+    <button onClick={handleClick} disabled={buttonState === 'loading'} className={getButtonStyles()}>
+      {getButtonContent()}
     </button>
   );
-};
-
-ProgressButton.propTypes = {
-  hasError: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
 };
 
 export default ProgressButton;
