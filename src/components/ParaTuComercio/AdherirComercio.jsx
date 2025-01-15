@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ScrollReveal from 'scrollreveal';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+
 const AdherirComercio = ({ beneficios }) => {
   const navigate = useNavigate();
   const handleNavigateToForm = () => {
@@ -30,17 +31,20 @@ const AdherirComercio = ({ beneficios }) => {
               Formando parte de la familia de Pampeana podés acceder a beneficios imperdibles, una gran variedad de
               planes y promociones exclusivas.
             </p>
-            <button
-              id="adhesion"
+            <motion.button
+              type="button"
               className="bg-purple-600 text-white py-3 px-8 rounded-full shadow-md hover:bg-purple-700 transition"
               onClick={handleNavigateToForm}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
               Adherí tu comercio
-            </button>
+            </motion.button>
           </div>
 
           <div className="mt-12 space-y-6" id="beneficios">
-            {beneficios.map((beneficio, index) => (
+            {beneficios?.map((beneficio, index) => (
               <div
                 key={index}
                 className="feature-item flex flex-col md:flex-row items-start md:items-center space-y-3 md:space-y-0 md:space-x-4 p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition"
@@ -65,8 +69,9 @@ const AdherirComercio = ({ beneficios }) => {
           >
             ¿Cómo funciona?
           </motion.h4>
-          {/* Asegúrate de que 'lite-youtube' esté importado correctamente o usa un iframe estándar de YouTube */}
-          <lite-youtube videoid="tghIZ_RwoY0"></lite-youtube>
+          <div className="video-container">
+            <lite-youtube videoid="tghIZ_RwoY0"></lite-youtube>
+          </div>
         </div>
       </div>
     </div>
