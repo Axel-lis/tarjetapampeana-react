@@ -10,3 +10,7 @@ export const API_FORMULARIO_BAJA = 'http://localhost:3000/api/formularios/baja-t
 export const API_PRESTAMOS = 'http://localhost:3000/api/prestamos';
 /** Comercios->Donde comprar **/
 export const API_COMERCIOS = 'http://localhost:3000/api/comercios';
+
+/** Variables de la tarjeta **/
+export const API_VARIABLES_TARJ = 'http://localhost:3000/api/variables_tarj';
+export const API_PREST_PARAM = 'http://localhost:3000/api/prest_param';
