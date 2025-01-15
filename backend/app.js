@@ -5,6 +5,8 @@ import promocionesRouter from './routes/promociones.js';
 import formulariosRouter from './routes/formularios.js';
 import prestamosRouter from './routes/prestamos.js';
 import dondeComprar from './routes/comercios.js';
+import variablesTarjRouter from './routes/variablesTarj.js';
+import prestParamRouter from './routes/prestParam.js';
 const app = express();
 
 // Configuraciones generales
@@ -14,6 +16,8 @@ app.use(bodyParser.json()); // Analizar solicitudes JSON
 
 // Rutas
 app.use('/api/promociones', promocionesRouter);
+app.use('/api/variables_tarj', variablesTarjRouter);
+app.use('/api/prest_param', prestParamRouter);
 app.use('/api/formularios', formulariosRouter);
 app.use('/api/prestamos', prestamosRouter);
 app.use('/api/comercios', dondeComprar);
