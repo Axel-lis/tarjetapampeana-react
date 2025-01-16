@@ -104,13 +104,21 @@ const DefensaConsumidor = () => {
                 Asimismo, se le informa, que en caso de realizar un reclamo, podrá realizarlo en la sede administrativa
                 y/o judicial de su domicilio real. <br />
                 <br />
-                <a href="https://defensaconsumidor.lapampa.gob.ar/">Defensa al consumidor Gobierno de La Pampa</a>{' '}
+                <a className="text-sky-600 underline" href="https://defensaconsumidor.lapampa.gob.ar/">
+                  Defensa al consumidor Gobierno de La Pampa
+                </a>{' '}
                 <br />
-                <a href="https://www.argentina.gob.ar/servicio/iniciar-un-reclamo-ante-defensa-de-las-y-los-consumidores">
+                <a
+                  className="text-sky-600 underline"
+                  href="https://www.argentina.gob.ar/servicio/iniciar-un-reclamo-ante-defensa-de-las-y-los-consumidores"
+                >
                   Iniciar un reclamo ante defensa de las y los consumidores
                 </a>{' '}
                 <br />
-                <a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario">
+                <a
+                  className="text-sky-600 underline"
+                  href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario"
+                >
                   {' '}
                   Defensa de las y los Consumidores | Para reclamos Ingrese aquí{' '}
                 </a>{' '}
@@ -118,7 +126,10 @@ const DefensaConsumidor = () => {
                 <br />
                 <br />
                 <strong>Responsabilidad Fiscal :</strong>{' '}
-                <a href="http://www.afip.gob.ar/images/f960/DATAWEB.jpg"> Responsabilidad Fiscal AFIP</a>
+                <a className="text-sky-600 underline" href="http://www.afip.gob.ar/images/f960/DATAWEB.jpg">
+                  {' '}
+                  Responsabilidad Fiscal AFIP
+                </a>
                 <br />
                 <strong>C.U.I.T.: 30-71452748-3</strong>
               </p>
