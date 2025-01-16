@@ -1,0 +1,31 @@
+import { useRef } from 'react';
+
+const DefensaButton = () => {
+  const defensorRef = useRef(null);
+
+  const scrollToDefensor = () => {
+    defensorRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-between">
+      {/* Defensa del Consumidor Section */}
+      <section ref={defensorRef} className="w-full bg-gray-100 p-8 rounded-lg shadow-md">
+        <h2 className="text-2xl font-semibold mb-4">Defensa del Consumidor</h2>
+        <p className="text-gray-600 leading-relaxed">
+          Esta es la sección de Defensa del Consumidor. Aquí encontrarás información importante sobre tus derechos como
+          consumidor y los procedimientos para realizar reclamos o consultas.
+        </p>
+        <button
+          onClick={scrollToDefensor}
+          aria-label="Navegar a la sección de Defensa del Consumidor"
+          className="my-5 bg-purple-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition"
+        >
+          Ir a Defensa del Consumidor
+        </button>
+      </section>
+    </div>
+  );
+};
+
+export default DefensaButton;

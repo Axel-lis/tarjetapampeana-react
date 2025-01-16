@@ -100,9 +100,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-purple-600">
+              <Link to="/defensa-consumidor" className="hover:text-purple-600">
                 Defensa al Consumidor
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-purple-600">

@@ -8,6 +8,7 @@ import { preguntasParaVos } from '../constants/index.js';
 import { FaCreditCard, FaHandHoldingUsd, FaMailBulk, FaGift, FaChartLine, FaComment } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import AhorraMas from './AhorraMas.jsx';
+import DefensaButton from './DefensaButton.jsx';
 export const ParaVos = () => {
   const navigate = useNavigate();
   const iconosParaVos = [
@@ -51,6 +52,7 @@ export const ParaVos = () => {
       <AhorraMas />
       <TerceraSeccion />
       <Costos />
+      <DefensaButton />
       <PreguntasFrecuentes preguntas={preguntasParaVos} />
     </div>
   );
