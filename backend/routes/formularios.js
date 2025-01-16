@@ -83,7 +83,7 @@ router.post('/send-email', limiter, async (req, res) => {
   }
 });
 
-router.post('/baja-tarjeta', async (req, res) => {
+router.post('/baja-tarjeta', limiter, async (req, res) => {
   // Asegúrate de que esta función sea async
   const {
     nombre,
@@ -102,8 +102,8 @@ router.post('/baja-tarjeta', async (req, res) => {
 
   const mailOptions = {
     from: '"Consulta desde página web" <no-responder@tarjetapampeana.com.ar>',
-    to: 'clientes@tarjetapampeana.com.ar',
-    cc: ['mchapado@yahoo.com.ar', 'comercial@tarjetapampeana.com.ar', 'administracion@tarjetapampeana.com.ar'],
+    to: 'axelliscovsky@outlook.com.ar',
+    cc: ['axelliscovsky@outlook.com.ar'],
     replyTo: 'clientes@tarjetapampeana.com.ar',
     subject: `Solicitud de comercio: ${nombre} ${apellido}`,
     html: `
@@ -149,4 +149,5 @@ router.post('/baja-tarjeta', async (req, res) => {
     });
   }
 });
+
 export default router;

@@ -11,12 +11,13 @@ import CentrosAtencion from './components/CentrosAtencion/CentrosAtencion';
 import Promociones from './components/Promociones/Promociones';
 import AdherirComercio from './components/Forms/AdherirComercio';
 import SolicitarPrestamo from './components/Forms/SolicitarPrestamo';
+import SolicitarBaja from './components/Forms/SolicitarBaja';
+import ConsultasYReclamos from './components/Forms/ConsultasYReclamos';
 import WhatsAppWidget from './components/Common/WhatsAppWidget';
 import Nosotros from './components/Nosotros/Nosotros';
 import DondeComprar from './components/DondeComprar/DondeComprar';
 import AhorraMas from './components/AhorraMas/AhorraMas';
 import Footer from './components/Common/Footer';
-import SolicitarBaja from './components/Forms/SolicitarBaja';
 function App() {
   return (
     <Router>
@@ -25,16 +26,17 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<PaginaPrincipal />} />
-          <Route path="/para-vos" element={<ParaVos />} />
           <Route path="/para-tu-comercio" element={<ParaTuComercio />} />
+          <Route path="/para-vos" element={<ParaVos />} />
           <Route path="/donde-comprar" element={<DondeComprar />} />
           <Route path="/centros-atencion" element={<CentrosAtencion />} />
           <Route path="/promociones" element={<Promociones />} />
-          <Route path="/form-adherir-comercio" element={<AdherirComercio />} />
-          <Route path="/form-solicitud-credito" element={<SolicitarPrestamo />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/ahorra-mas" element={<AhorraMas />} />
+          <Route path="/form-adherir-comercio" element={<AdherirComercio />} />
+          <Route path="/form-solicitud-credito" element={<SolicitarPrestamo />} />
           <Route path="/solicitar-baja" element={<SolicitarBaja />} />
+          <Route path="/consultas-y-reclamos" element={<ConsultasYReclamos />} />
         </Routes>
         <WhatsAppWidget />
         <Footer />

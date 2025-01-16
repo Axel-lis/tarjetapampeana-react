@@ -8,6 +8,7 @@ export const API_PROMOCIONES_BUSCAR = 'http://localhost:3000/api/promociones';
 export const API_FORMULARIOS = 'http://localhost:3000/api/formularios/send-email';
 export const API_FORMULARIO_BAJA = 'http://localhost:3000/api/formularios/baja-tarjeta';
 export const API_PRESTAMOS = 'http://localhost:3000/api/prestamos';
+export const API_CYR = 'http://localhost:3000/api/cyr';
 /** Comercios->Donde comprar **/
 export const API_COMERCIOS = 'http://localhost:3000/api/comercios';
 

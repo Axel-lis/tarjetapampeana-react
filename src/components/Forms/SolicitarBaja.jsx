@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { API_FORMULARIO_BAJA } from '../../components/constants/apis';
 import Swal from 'sweetalert2';
 import { CiCreditCardOff } from 'react-icons/ci';
+
 const formSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   apellido: z.string().min(2, 'El apellido debe tener al menos 2 caracteres'),

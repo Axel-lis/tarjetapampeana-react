@@ -7,6 +7,7 @@ import prestamosRouter from './routes/prestamos.js';
 import dondeComprar from './routes/comercios.js';
 import variablesTarjRouter from './routes/variablesTarj.js';
 import prestParamRouter from './routes/prestParam.js';
+import cyrRouter from './routes/cyr.js';
 const app = express();
 
 // Configuraciones generales
@@ -19,6 +20,7 @@ app.use('/api/promociones', promocionesRouter);
 app.use('/api/variables_tarj', variablesTarjRouter);
 app.use('/api/prest_param', prestParamRouter);
 app.use('/api/formularios', formulariosRouter);
+app.use('/api/cyr', cyrRouter);
 app.use('/api/prestamos', prestamosRouter);
 app.use('/api/comercios', dondeComprar);
 // Middleware para manejar errores

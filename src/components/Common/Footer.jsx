@@ -95,9 +95,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-purple-600">
+              <Link to="/consultas-y-reclamos" className="hover:text-purple-600">
                 Consultas y reclamos
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-purple-600">
