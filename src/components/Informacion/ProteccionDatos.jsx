@@ -3,7 +3,7 @@ const ProteccionDatos = () => {
     <div className="bg-purple-600 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <section className="bg-white rounded-2xl shadow-lg p-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Información al Usuario Financiero</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Protección de Datos</h1>
 
           <section className="menu mb-8">
             <h3 className="text-lg font-semibold mb-4">Anclas de Protección de Datos</h3>

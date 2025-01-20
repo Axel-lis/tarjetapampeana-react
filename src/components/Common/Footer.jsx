@@ -115,9 +115,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-purple-600">
+              <Link to="/boton-arrepentimiento" className="hover:text-purple-600">
                 Botón de arrepentimiento
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

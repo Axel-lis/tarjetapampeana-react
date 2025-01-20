@@ -21,6 +21,7 @@ import DefensaConsumidor from './components/DefensaConsumidor/DefensaConsumidor'
 import InformacionUsuarioFinanciero from './components/Informacion/InformacionUsuarioFinanciero';
 import ProteccionDatos from './components/Informacion/ProteccionDatos';
 import Footer from './components/Common/Footer';
+import BotonArrepentimiento from './components/Forms/BotonArrepentimiento';
 function App() {
   return (
     <Router>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/consultas-y-reclamos" element={<ConsultasYReclamos />} />
           <Route path="/informacion-usuario-financiero" element={<InformacionUsuarioFinanciero />} />
           <Route path="/proteccion-datos" element={<ProteccionDatos />} />
+          <Route path="/boton-arrepentimiento" element={<BotonArrepentimiento />} />
         </Routes>
         <WhatsAppWidget />
         <Footer />
