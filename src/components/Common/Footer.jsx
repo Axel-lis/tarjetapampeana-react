@@ -110,9 +110,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-purple-600">
+              <Link to="/proteccion-datos" className="hover:text-purple-600">
                 Protección de datos personales
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-purple-600">
