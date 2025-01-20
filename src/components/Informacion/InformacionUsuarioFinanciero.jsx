@@ -39,19 +39,19 @@ const InformacionUsuarioFinanciero = () => {
               este plazo, la consulta y/o reclamo no fue respondido o se encuentra disconforme con la respuesta o
               solución brindada, podrá informar la situación frente al Banco Central de la República Argentina. El Banco
               Central de la República Argentina dispone de un área de Protección al Usuario de Servicios Financieros que
-              podrá contactar ingresando a:
+              podrá contactar ingresando a este{' '}
               <a
                 className="text-sky-700 underline"
                 href="https://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp"
                 target="_blank"
               >
-                https://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp
+                link de BCRA
               </a>
               <p className="font-bold underline my-4">
                 Medios para canalizar cualquier consulta y/o reclamo a Tarjeta Pampeana:
               </p>
               <ul>
-                <li className="flex items-center gap-2 mb-2">
+                <li className="flex items-center gap-2 mb-2 sm: flex flex-col gap-2 mb-4">
                   <p className="font-semibold ">Correo electrónico:</p>
                   <a className="text-sky-700 underline" href="mailto:clientes@tarjetapampeana.com.ar">
                     clientes@tarjetapampeana.com.ar

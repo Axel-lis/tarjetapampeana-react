@@ -32,6 +32,7 @@ const BotonArrepentimiento = () => {
     'Chaco',
     'Corrientes',
     'Santiago del Estero',
+    'La Pampa',
   ];
 
   const validateField = (name, value) => {
