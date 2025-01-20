@@ -18,6 +18,7 @@ import Nosotros from './components/Nosotros/Nosotros';
 import DondeComprar from './components/DondeComprar/DondeComprar';
 import AhorraMas from './components/AhorraMas/AhorraMas';
 import DefensaConsumidor from './components/DefensaConsumidor/DefensaConsumidor';
+import InformacionUsuarioFinanciero from './components/Informacion/InformacionUsuarioFinanciero';
 import Footer from './components/Common/Footer';
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/solicitar-baja" element={<SolicitarBaja />} />
           <Route path="/defensa-consumidor" element={<DefensaConsumidor />} />
           <Route path="/consultas-y-reclamos" element={<ConsultasYReclamos />} />
+          <Route path="/informacion-usuario-financiero" element={<InformacionUsuarioFinanciero />} />
         </Routes>
         <WhatsAppWidget />
         <Footer />
