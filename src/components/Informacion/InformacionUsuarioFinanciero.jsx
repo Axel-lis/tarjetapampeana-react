@@ -27,32 +27,33 @@ const InformacionUsuarioFinanciero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <section className="bg-white rounded-2xl shadow-lg p-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Información al Usuario Financiero</h1>
-
           <div className="mb-12">
             <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
               En nuestro compromiso con la transparencia y la educación financiera, proporcionamos información clara y
               detallada sobre nuestros servicios financieros. Nuestro objetivo es empoderar a nuestros usuarios con el
               conocimiento necesario para tomar decisiones financieras informadas y alcanzar sus metas económicas.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-4xl my-2 mx-auto">
-              Toda consulta y/o reclamo será respondido dentro de un plazo máximo de diez (10) días hábiles. Si pasado
-              este plazo, la consulta y/o reclamo no fue respondido o se encuentra disconforme con la respuesta o
-              solución brindada, podrá informar la situación frente al Banco Central de la República Argentina. El Banco
-              Central de la República Argentina dispone de un área de Protección al Usuario de Servicios Financieros que
-              podrá contactar ingresando a este{' '}
-              <a
-                className="text-sky-700 underline"
-                href="https://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp"
-                target="_blank"
-              >
-                link de BCRA
-              </a>
+            <div className="text-lg text-gray-700 leading-relaxed max-w-4xl my-2 mx-auto">
+              <p>
+                Toda consulta y/o reclamo será respondido dentro de un plazo máximo de diez (10) días hábiles. Si pasado
+                este plazo, la consulta y/o reclamo no fue respondido o se encuentra disconforme con la respuesta o
+                solución brindada, podrá informar la situación frente al Banco Central de la República Argentina. El
+                Banco Central de la República Argentina dispone de un área de Protección al Usuario de Servicios
+                Financieros que podrá contactar ingresando a este{' '}
+                <a
+                  className="text-sky-700 underline"
+                  href="https://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp"
+                  target="_blank"
+                >
+                  link de BCRA
+                </a>
+              </p>
               <p className="font-bold underline my-4">
                 Medios para canalizar cualquier consulta y/o reclamo a Tarjeta Pampeana:
               </p>
               <ul>
-                <li className="flex items-center gap-2 mb-2 ">
-                  <p className="font-semibold ">Correo electrónico:</p>
+                <li className="flex items-center gap-2 mb-2">
+                  <p className="font-semibold">Correo electrónico:</p>
                   <a
                     className="text-sky-700 underline break-all overflow-wrap-anywhere max-w-full block"
                     href="mailto:clientes@tarjetapampeana.com.ar"
@@ -61,7 +62,7 @@ const InformacionUsuarioFinanciero = () => {
                   </a>
                 </li>
                 <li className="flex items-center gap-2 mb-2">
-                  <p className="font-semibold ">Teléfono:</p>
+                  <p className="font-semibold">Teléfono:</p>
                   <a className="text-sky-700 underline" href="tel">
                     (2954) 302240/233330
                   </a>{' '}
@@ -78,7 +79,7 @@ const InformacionUsuarioFinanciero = () => {
                   </div>
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
