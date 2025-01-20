@@ -18,8 +18,8 @@ import Nosotros from './components/Nosotros/Nosotros';
 import DondeComprar from './components/DondeComprar/DondeComprar';
 import AhorraMas from './components/AhorraMas/AhorraMas';
 import DefensaConsumidor from './components/DefensaConsumidor/DefensaConsumidor';
+import ProteccionDatos from './components/Informacion/proteccionDatos';
 import InformacionUsuarioFinanciero from './components/Informacion/InformacionUsuarioFinanciero';
-import ProteccionDatos from './components/Informacion/ProteccionDatos';
 import Footer from './components/Common/Footer';
 import BotonArrepentimiento from './components/Forms/BotonArrepentimiento';
 function App() {

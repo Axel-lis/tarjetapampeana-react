@@ -33,6 +33,7 @@ const BotonArrepentimiento = () => {
     'Corrientes',
     'Santiago del Estero',
     'La Pampa',
+    'Mordor',
   ];
 
   const validateField = (name, value) => {
