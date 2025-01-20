@@ -51,9 +51,12 @@ const InformacionUsuarioFinanciero = () => {
                 Medios para canalizar cualquier consulta y/o reclamo a Tarjeta Pampeana:
               </p>
               <ul>
-                <li className="flex items-center gap-2 mb-2 sm: flex flex-col gap-2 mb-4">
+                <li className="flex items-center gap-2 mb-2 ">
                   <p className="font-semibold ">Correo electrónico:</p>
-                  <a className="text-sky-700 underline" href="mailto:clientes@tarjetapampeana.com.ar">
+                  <a
+                    className="text-sky-700 underline break-all overflow-wrap-anywhere max-w-full block"
+                    href="mailto:clientes@tarjetapampeana.com.ar"
+                  >
                     clientes@tarjetapampeana.com.ar
                   </a>
                 </li>
