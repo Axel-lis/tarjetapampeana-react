@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FiInfo } from 'react-icons/fi';
 import { BsCheckCircle, BsXCircle } from 'react-icons/bs';
 import { CiCreditCardOff } from 'react-icons/ci';
+import Swal from 'sweetalert2';
+import { API_FORMULARIO_BTN_ARREPENT } from '../../components/constants/apis';
 const BotonArrepentimiento = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -16,12 +18,25 @@ const BotonArrepentimiento = () => {
     securityCode: '',
     accountNumber: '',
   });
-
+  const initialFormState = {
+    firstName: '',
+    lastName: '',
+    dni: '',
+    address: '',
+    city: '',
+    province: '',
+    phone: '',
+    email: '',
+    cardLastDigits: '',
+    securityCode: '',
+    accountNumber: '',
+  };
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const provinces = [
+    'La Pampa',
     'Buenos Aires',
     'Córdoba',
     'Santa Fe',
@@ -32,8 +47,6 @@ const BotonArrepentimiento = () => {
     'Chaco',
     'Corrientes',
     'Santiago del Estero',
-    'La Pampa',
-    'Mordor',
   ];
 
   const validateField = (name, value) => {
@@ -76,17 +89,40 @@ const BotonArrepentimiento = () => {
 
     if (Object.keys(newErrors).length === 0) {
       try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        setIsSuccess(true);
-      } catch (error) {
-        setErrors({ submit: 'Error al procesar la solicitud' + error });
-      }
-    } else {
-      setErrors(newErrors);
-    }
+        const response = await fetch(API_FORMULARIO_BTN_ARREPENT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
 
-    setIsSubmitting(false);
+        if (response.ok) {
+          Swal.fire({
+            title: 'Formulario enviado!',
+            text: 'Formulario enviado con éxito',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+          setIsSuccess(true);
+          // Limpiar formulario después del éxito
+          setFormData(initialFormState);
+        } else {
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al enviar el formulario',
+            icon: 'error',
+            confirmButtonText: 'OK',
+          });
+        }
+        setErrors(newErrors);
+      } catch (error) {
+        setErrors({
+          ...newErrors,
+          submit: 'Ocurrió un error al procesar la solicitud' + error,
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
   };
 
   return (
@@ -96,15 +132,15 @@ const BotonArrepentimiento = () => {
           <CiCreditCardOff className="h-12 w-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Formulario de Arrepentimiento</h2>
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-            <div className="flex items-start">
+            <div className="flex items-start justify-center space-x-4">
               <FiInfo className="h-5 w-5 text-yellow-400 mt-0.5" />
-              <div className="ml-3">
+              <div className="ml-8">
                 <h3 className="text-sm font-medium text-yellow-800">Información Importante</h3>
                 <div className="mt-2 text-sm text-yellow-700">
-                  <ol className="list-decimal">
-                    <li>Complete todos los campos requeridos</li>
-                    <li>Verifique la información antes de enviar</li>
-                    <li className="">El proceso puede demorar hasta 48 horas hábiles</li>
+                  <ol className="list-decimal pl-5 space-y-0">
+                    <li className="pl-1">Complete todos los campos requeridos</li>
+                    <li className="pl-1">Verifique la información ingresada</li>
+                    <li className="pl-1">El proceso puede demorar hasta 48 horas hábiles</li>
                   </ol>
                 </div>
               </div>
