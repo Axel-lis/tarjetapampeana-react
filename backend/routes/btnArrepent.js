@@ -32,8 +32,8 @@ router.post('/', limiter, async (req, res) => {
 
   const mailOptions = {
     from: '"Consulta desde página web" <no-responder@tarjetapampeana.com.ar>',
-    to: 'axelliscovsky@outlook.com.ar',
-    cc: ['axelliscovsky@outlook.com.ar'],
+    to: 'clientes@tarjetapampeana.com.ar',
+    cc: ['mchapado@yahoo.com.ar', 'comercial@tarjetapampeana.com.ar', 'administracion@tarjetapampeana.com.ar'],
     replyTo: 'clientes@tarjetapampeana.com.ar',
     subject: `Formulario Botón de Arrepentimiento de Página Web ${firstName} ${lastName}`,
     html: ` 
