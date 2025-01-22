@@ -13,7 +13,7 @@ const PrimeraSeccion = ({ tiempoCarga = 1100 }) => {
   }, [tiempoCarga]);
 
   return (
-    <div className="container w-full">
+    <div className="container w-full min-w-full pt-14">
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-16">
         {/* Bloque de texto */}
         <div className="flex flex-auto md:flex-1">

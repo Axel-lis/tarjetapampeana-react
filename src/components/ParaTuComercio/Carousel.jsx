@@ -28,11 +28,11 @@ const Carousel = () => {
   };
 
   return (
-    <div className="container w-full pt-14">
+    <div className="container w-full min-w-full pt-14">
       <Slider {...sliderSettings}>
         {slidesComecios.map((slide, index) => (
-          <div key={index} className="w-2/4 flex flex-row justify-center items-center">
-            <img src={slide} alt={`Slide ${index + 1}`} />
+          <div key={index} className="w-full flex flex-row justify-center items-center">
+            <img src={slide} alt={`Slide ${index + 1}`} className="w-full h-auto object-contain" />
           </div>
         ))}
       </Slider>

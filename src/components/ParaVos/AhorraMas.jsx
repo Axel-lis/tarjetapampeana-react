@@ -25,16 +25,16 @@ const AhorraMas = () => {
       <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between px-4 sm:px-10">
         {/* Texto */}
         <div className="w-full sm:w-1/2 max-w-2xl sm:ml-10 sm:mr-auto mb-6 sm:mb-0">
-          <p className="text-xl sm:text-2xl font-semibold text-purple-700 dark:text-purple-600 mb-4">
+          <p className="text-xl sm:text-2xl font-semibold text-purple-700 dark:text-purple-600 mb-4 whitespace-nowrap">
             Con Tarjeta Pampeana, cada día <strong>AHORRA MÁS</strong>
           </p>
-          <p className="text-xl sm:text-2xl font-semibold text-purple-700/75 dark:text-purple-600/75 mb-4">
+          <p className="text-xl sm:text-2xl font-semibold text-purple-700/75 dark:text-purple-600/75 mb-4  whitespace-nowrap">
             Con Tarjeta Pampeana, cada día <strong>AHORRA MÁS</strong>
           </p>
-          <p className="text-xl sm:text-2xl font-semibold text-purple-700/50 dark:text-purple-600/50 mb-4">
+          <p className="text-xl sm:text-2xl font-semibold text-purple-700/50 dark:text-purple-600/50 mb-4  whitespace-nowrap">
             Con Tarjeta Pampeana, cada día <strong>AHORRA MÁS</strong>
           </p>
-          <p className="text-xl sm:text-2xl font-semibold text-purple-700/25 dark:text-purple-600/25 mb-4">
+          <p className="text-xl sm:text-2xl font-semibold text-purple-700/25 dark:text-purple-600/25 mb-4  whitespace-nowrap">
             Con Tarjeta Pampeana, cada día <strong>AHORRA MÁS</strong>
           </p>
         </div>

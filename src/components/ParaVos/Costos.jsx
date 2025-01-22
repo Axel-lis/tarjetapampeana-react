@@ -39,9 +39,9 @@ const Costos = () => {
   }, []);
 
   return (
-    <div className="container bg-purple-50">
+    <div className="container bg-purple-50 min-w-full pt-14">
       <hr className="h-px my-8 bg-pruple-200 border-0 dark:bg-purple-300"></hr>
-      <section className="mx-auto px-8 py-8">
+      <section className="mx-auto px-8 py-8 ">
         <h2 className="text-2xl font-semibold mb-4" id="costos">
           Nuestros Costos
         </h2>

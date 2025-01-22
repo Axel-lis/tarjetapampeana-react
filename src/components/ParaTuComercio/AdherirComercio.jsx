@@ -21,7 +21,7 @@ const AdherirComercio = ({ beneficios }) => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container w-full min-w-full pt-14">
         <div className="bg-gray-50 py-10 px-5">
           <div className="max-w-2xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
