@@ -5,15 +5,16 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // Imágenes del carousel
-import img1 from '../../assets/banners/carousel2/DOM.jpg';
-import img2 from '../../assets/banners/carousel2/LUN.jpg';
-import img3 from '../../assets/banners/carousel2/MAR.jpg';
-import img4 from '../../assets/banners/carousel2/MIE.jpg';
-import img5 from '../../assets/banners/carousel2/JUE.jpg';
-import img6 from '../../assets/banners/carousel2/VIE.jpg';
-import img7 from '../../assets/banners/carousel2/SAB.jpg';
-import img8 from '../../assets/banners/carousel2/ELECTROHOG.jpg';
-import img9 from '../../assets/banners/carousel2/RESTAURANT.jpg';
+
+import img1 from '../../assets/banners/promociones/DOMIN.png';
+import img2 from '../../assets/banners/promociones/LUNES.png';
+import img3 from '../../assets/banners/promociones/MARTE.png';
+import img4 from '../../assets/banners/promociones/MIERC.png';
+import img5 from '../../assets/banners/promociones/JUEVE.png';
+import img6 from '../../assets/banners/promociones/VIERNES.png';
+import img7 from '../../assets/banners/promociones/SABAD.png';
+import img8 from '../../assets/banners/promociones/ELECTROHOGAR.png';
+import img9 from '../../assets/banners/promociones/RESTAURANTES.png';
 
 import Skeleton from '../Common/Skeleton';
 
