@@ -40,6 +40,16 @@ const Costos = () => {
       const cierreDiciembre = 17;
       let fechaInicio, fechaFin;
 
+      // Lógica principal para fechas
+      if (hoy.getDate() >= 22) {
+        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 22);
+        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 21);
+      } else {
+        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 22);
+        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth(), 21);
+      }
+
+      // Casos especiales para diciembre
       if (hoy.getMonth() === 11 && hoy.getDate() >= 18) {
         fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 18);
         fechaFin = new Date(hoy.getFullYear() + 1, 0, 21);
@@ -49,19 +59,18 @@ const Costos = () => {
       } else if (hoy.getMonth() === 10) {
         fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 22);
         fechaFin = new Date(hoy.getFullYear(), hoy.getMonth() + 1, cierreDiciembre);
-      } else {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 22);
-        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth(), 21);
       }
 
       const formatoFecha = (fecha) =>
-        ('0' + fecha.getDate()).slice(-2) + '/' + ('0' + (fecha.getMonth() + 1)).slice(-2) + '/' + fecha.getFullYear();
+        `${('0' + fecha.getDate()).slice(-2)}/${('0' + (fecha.getMonth() + 1)).slice(-2)}/${fecha.getFullYear()}`;
 
-      const texto = `Las tasas de interés, comisiones y cargos informados en esta oportunidad, 
-        corresponden a las vigentes del período comprendido entre el ${formatoFecha(fechaInicio)} y el ${formatoFecha(
-        fechaFin,
-      )}.`;
+      const texto =
+        `Las tasas de interés, comisiones y cargos informados en esta oportunidad, ` +
+        `corresponden a las vigentes del período comprendido entre el ${formatoFecha(fechaInicio)} y el ${formatoFecha(
+          fechaFin,
+        )}.`;
 
+      // Actualizar estado en lugar de manipular DOM
       setFechasInteres(texto);
 
       const meses = [
@@ -79,11 +88,10 @@ const Costos = () => {
         'diciembre',
       ];
 
-      const mesActual = hoy.getMonth();
-      const nombreMesActual = meses[mesActual];
+      // Actualizar el estado del mes actual
       setPrestamosData((prevData) => ({
         ...prevData,
-        tasa_interes_prestamos_personales_mes: nombreMesActual,
+        tasa_interes_prestamos_personales_mes: meses[hoy.getMonth()],
       }));
     };
 
