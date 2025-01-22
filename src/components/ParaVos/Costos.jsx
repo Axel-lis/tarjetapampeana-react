@@ -6,7 +6,6 @@ const Costos = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [tarjetasData, setTarjetasData] = useState({});
   const [prestamosData, setPrestamosData] = useState({});
-  const [fechasInteres, setFechasInteres] = useState('');
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -35,69 +34,8 @@ const Costos = () => {
       }
     };
 
-    const actualizarFechasInteres = () => {
-      const hoy = new Date();
-      const cierreDiciembre = 17;
-      let fechaInicio, fechaFin;
-
-      // Lógica principal para fechas
-      if (hoy.getDate() >= 22) {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 22);
-        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 21);
-      } else {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 22);
-        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth(), 21);
-      }
-
-      // Casos especiales para diciembre
-      if (hoy.getMonth() === 11 && hoy.getDate() >= 18) {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 18);
-        fechaFin = new Date(hoy.getFullYear() + 1, 0, 21);
-      } else if (hoy.getMonth() === 11 && hoy.getDate() < 18) {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 22);
-        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth(), cierreDiciembre);
-      } else if (hoy.getMonth() === 10) {
-        fechaInicio = new Date(hoy.getFullYear(), hoy.getMonth(), 22);
-        fechaFin = new Date(hoy.getFullYear(), hoy.getMonth() + 1, cierreDiciembre);
-      }
-
-      const formatoFecha = (fecha) =>
-        `${('0' + fecha.getDate()).slice(-2)}/${('0' + (fecha.getMonth() + 1)).slice(-2)}/${fecha.getFullYear()}`;
-
-      const texto =
-        `Las tasas de interés, comisiones y cargos informados en esta oportunidad, ` +
-        `corresponden a las vigentes del período comprendido entre el ${formatoFecha(fechaInicio)} y el ${formatoFecha(
-          fechaFin,
-        )}.`;
-
-      // Actualizar estado en lugar de manipular DOM
-      setFechasInteres(texto);
-
-      const meses = [
-        'enero',
-        'febrero',
-        'marzo',
-        'abril',
-        'mayo',
-        'junio',
-        'julio',
-        'agosto',
-        'septiembre',
-        'octubre',
-        'noviembre',
-        'diciembre',
-      ];
-
-      // Actualizar el estado del mes actual
-      setPrestamosData((prevData) => ({
-        ...prevData,
-        tasa_interes_prestamos_personales_mes: meses[hoy.getMonth()],
-      }));
-    };
-
     cargarVariablesTarjetas();
     cargarVariablesPrestamos();
-    actualizarFechasInteres();
   }, []);
 
   return (
@@ -119,7 +57,12 @@ const Costos = () => {
             {isOpen && (
               <div className="bg-gray-50 p-4 rounded-md shadow-md mt-4">
                 <ul className="space-y-2">
-                  <li id="fechas_interes">{fechasInteres}</li>
+                  <li>
+                    Las tasas de interés, comisiones y cargos informados en esta oportunidad, corresponden a las
+                    vigentes del período comprendido entre el {tarjetasData.cierre_dia}/{tarjetasData.cierre_mes}/
+                    {tarjetasData.cierre_anio} hasta el {tarjetasData.proximo_dia}/{tarjetasData.proximo_mes}/{' '}
+                    {tarjetasData.proximo_anio}.
+                  </li>
                   <li>Cargo por uso de cajero automático Red Link $ {tarjetasData.comision_redlink} + I.V.A.*</li>
                   <li>
                     Cargo consulta aceptada por cajero automático Red Link $ {tarjetasData.cargo_consulta_aceptada} +
