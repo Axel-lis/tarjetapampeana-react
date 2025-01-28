@@ -20,7 +20,7 @@ export const ParaVos = () => {
     {
       icono: <FaCreditCard className="text-purple-400" />,
       texto: 'ADHERITE AL DÉBITO',
-      action: () => window.open('https://solicitatutarjeta.pampeana.com.ar/', '_blank'),
+      action: () => window.open('https://online.pampeana.com.ar/', '_blank'),
     },
     {
       icono: <FaMailBulk className="text-sky-500" />,

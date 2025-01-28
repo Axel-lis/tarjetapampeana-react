@@ -6,9 +6,7 @@ import viernesIMG from '../../assets/images/paravos-grid/06.png';
 import sabadoIMG from '../../assets/images/paravos-grid/07.png';
 import domingoIMG from '../../assets/images/paravos-grid/08.png';
 import semanalIMG from '../../assets/images/paravos-grid/09.png';
-import carousel1 from '../../assets/banners/carousel1/carousel1.png';
-import carousel2 from '../../assets/banners/carousel1/carousel2.png';
-import carousel3 from '../../assets/banners/carousel1/carousel3.png';
+
 import img0 from '../../assets/banners/carousel-comercios/comerciante-00.jpg';
 import img1 from '../../assets/banners/carousel-comercios/comerciante-01.jpg';
 import img2 from '../../assets/banners/carousel-comercios/comerciante-02.jpg';
@@ -43,30 +41,6 @@ import img9Mobile from '../../assets/banners/promociones/RESTAURANTES.png';
 /* Donde comprar */
 export const bannerDC = dondeComprar;
 import dondeComprar from '../../assets/banners/dondecomprar/dondeComprar.jpg';
-
-/* Pagina Principal*/
-
-export const slidesPrincipal = [
-  {
-    title: '¡Pagá menos y ahorrá más!',
-    description: 'Adquerí Pampeana y disfrutá todos los días de promociones increbiles',
-    buttonText: 'Pedir tarjeta',
-    imgSrc: carousel1,
-  },
-  {
-    title: 'PampaCa$h Prestamos Personales',
-    description: 'Pedí tu préstamo hoy mismo y obtené importantes descuentos todos los días de la semana.',
-    buttonText: 'Solicitá tu préstamo',
-    imgSrc: carousel3,
-  },
-  {
-    title: 'Con tu ¡Paquete Pampeana disfrutás de los mejores beneficios al mejor precio!',
-    description:
-      'Acceso a Préstamos Personales PampaCa$h .Con tu Paquete Gold tenes bonificado el 100% del costo de tu Renovación Anual e importantes descuentos todos los días de la semana.',
-    buttonText: 'Ver Paquetes',
-    imgSrc: carousel2,
-  },
-];
 
 /* Para Vos */
 export const paraVosPromos = [

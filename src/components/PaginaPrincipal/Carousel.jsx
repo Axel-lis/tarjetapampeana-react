@@ -1,72 +1,92 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import '../../assets/styles/carousel.css';
-import Slider from 'react-slick';
-import { slidesPrincipal } from '../constants/index.js';
-import Skeleton from '../Common/Skeleton';
 
-const Carousel = ({ tiempoCarga = 500, onButtonClick }) => {
-  // hook useState para controlar el estado de la carga
-  const [isLoading, setIsLoading] = useState(true);
+const Carousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
+  const slides = [
+    {
+      imageMobile: '/src/assets/banners/carousel1/2-mobile.jpg',
+      imageDesktop: '/src/assets/banners/carousel1/2-desktop.jpg',
+      text: 'texto que podemos cambiar dinamicamente',
+      buttonText: 'Obtené tu tarjeta',
+    },
+    {
+      imageMobile: '/src/assets/banners/carousel1/1-mobile.png',
+      imageDesktop: '/src/assets/banners/carousel1/1-desktop.png',
+      text: 'texto que podemos cambiar dinamicamente',
+      buttonText: 'Solicitá tu préstamo',
+    },
+    {
+      imageMobile: '/src/assets/banners/carousel1/3-mobile.jpg',
+      imageDesktop: '/src/assets/banners/carousel1/3-desktop.jpg',
+      text: 'texto que podemos cambiar dinamicamente',
+      buttonText: 'Descargar App',
+    },
+    {
+      imageMobile: '/src/assets/banners/carousel1/4-mobile.jpg',
+      imageDesktop: '/src/assets/banners/carousel1/4-desktop.jpg',
+      text: 'texto que podemos cambiar dinamicamente',
+      buttonText: 'Consultá comercios adheridos',
+    },
+    {
+      imageMobile: '/src/assets/banners/carousel1/5-mobile.jpg',
+      imageDesktop: '/src/assets/banners/carousel1/5-desktop.jpg',
+      text: 'texto que podemos cambiar dinamicamente',
+      buttonText: '¡UNITE AHORA!',
+    },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
-  // Simular el tiempo de carga
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), tiempoCarga);
-    return () => clearTimeout(timer);
-  }, [tiempoCarga]);
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+  };
 
-  // Renderiza múltiples Skeletons mientras carga
-  if (isLoading) {
-    return (
-      <div className="flex flex-row justify-center mt-8  my-10 pt-6 gap-4 items-center">
-        <Skeleton />
-        <Skeleton />
-      </div>
-    );
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [currentSlide]);
 
   return (
-    <div className="w-full ">
-      <Slider {...settings}>
-        {slidesPrincipal.map((slide, index) => (
-          <div key={index} className="w-full flex flex-row">
-            <div className="w-full flex flex-col justify-center md:flex-row">
-              {/* Imagen */}
-              <div className="w-full md:w-2/4 flex items-center justify-center order-1 md:order-2">
-                <img src={slide.imgSrc} alt={slide.title} className="w-full h-4/6 object-contain mt-2" />
-              </div>
-              {/* Texto */}
-              <div className="w-full md:w-1/4 p-6 flex flex-col justify-center order-2 md:order-1">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">{slide.title}</h2>
-                <p className="text-lg mb-6">{slide.description}</p>
-                <button
-                  className="px-6 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700"
-                  onClick={() => onButtonClick(slide.buttonText)} // Aquí asignamos la función al botón
-                >
-                  {slide.buttonText}
-                </button>
-              </div>
+    <div className="relative w-full overflow-hidden">
+      <div
+        className="flex transition-transform duration-500 ease-in-out my-20"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
+        {slides.map((slide, index) => (
+          <div key={index} className="min-w-full flex-shrink-0 relative">
+            {/* Imagen para móvil */}
+            <img src={slide.imageMobile} alt={`Slide ${index + 1}`} className="w-full h-auto block md:hidden" />
+            {/* Imagen para escritorio */}
+            <img src={slide.imageDesktop} alt={`Slide ${index + 1}`} className="w-full h-auto hidden md:block" />
+            <div className="absolute inset-0 flex flex-col items-start justify-end p-4 text-white">
+              <p className="text-2xl text-red-400 mb-4">{slide.text}</p>
+              <button className="px-6 py-2 mb-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                {slide.buttonText}
+              </button>
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
+      <button
+        onClick={prevSlide}
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full ml-4"
+      >
+        &#10094;
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full mr-4"
+      >
+        &#10095;
+      </button>
     </div>
   );
-};
-
-// Validación de props con PropTypes
-Carousel.propTypes = {
-  tiempoCarga: PropTypes.number, // Validamos que sea un número
-  onButtonClick: PropTypes.func.isRequired, // Validamos que sea una función
 };
 
 export default Carousel;
