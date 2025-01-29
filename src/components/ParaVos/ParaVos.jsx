@@ -9,8 +9,10 @@ import { FaCreditCard, FaHandHoldingUsd, FaMailBulk, FaGift, FaChartLine, FaComm
 import { useNavigate } from 'react-router-dom';
 import AhorraMas from './AhorraMas.jsx';
 import DefensaButton from './DefensaButton.jsx';
+
 export const ParaVos = () => {
   const navigate = useNavigate();
+
   const iconosParaVos = [
     {
       icono: <FaHandHoldingUsd className="text-green-500" />,
