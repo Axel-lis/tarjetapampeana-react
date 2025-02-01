@@ -1,25 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo_nav from '../../assets/logos/logo-2025.png';
-import { FaBars, FaBell, FaTimes, FaExclamationTriangle } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-import Modal from '../Common/Modal';
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = (menu) => setActiveDropdown(menu);
   const handleMouseLeave = () => setActiveDropdown(null);
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const handeOpenModal = () => setModalOpen(true);
-  const handeCloseModal = () => setModalOpen(false);
-  const handleConfirm = () => {
-    //abrir en otra ventana
-
-    window.open('https://www.infotarjetas.com.ar/Login.aspx?tid=46', '_blank');
-    setModalOpen(false);
-  };
 
   return (
     <>
@@ -53,6 +42,12 @@ const Navbar = () => {
               >
                 <FaTimes size={24} />
               </button>{' '}
+              <Link
+                to="/form-solicitud-credito"
+                className="text-gray-800 px-5 text-sm md:text-base hover:text-purple-700"
+              >
+                PAMPA CASH
+              </Link>
               {/* Para Vos */}
               <div
                 className="relative"
@@ -119,13 +114,6 @@ const Navbar = () => {
               <Link to="/promociones" className="text-gray-800 text-sm md:text-base hover:text-purple-700">
                 PROMOCIONES
               </Link>
-              <div className="relative bg-yellow-400 text-center text-sm p-2 cursor-pointer rounded-md hover:bg-yellow-500 transition-all duration-300">
-                <FaBell
-                  onClick={handeOpenModal}
-                  className="text-2xl -mt-5 mx-full bg-red-400 rounded-xl p-1 text-white cursor-pointer"
-                />
-                PAMPEANA ONLINE
-              </div>
               {/* Botón Autogestión */}
               <a href="https://online.pampeana.com.ar/" target="_blank" rel="noopener noreferrer">
                 <button className="bg-purple-600 text-white py-2 px-6 rounded-md hover:bg-purple-700 transition">
@@ -136,18 +124,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* Modal reutilizable */}
-      <Modal
-        isOpen={modalOpen}
-        onClose={handeCloseModal}
-        title="Últimos días de Pampeana Online"
-        message="Nuestro viejo sitio se encuentra fuera de mantenimiento, si lo usas, te recomendamos que te registres en nuestro nuevo sitio (Pampeana: Autogestión) haciendo click en el botón violeta de la barra de navegación."
-        confirmText="Ir de todas formas"
-        cancelText="Cerrar"
-        onConfirm={handleConfirm}
-        color="red"
-        icon={FaExclamationTriangle}
-      />
     </>
   );
 };
