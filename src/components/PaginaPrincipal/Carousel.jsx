@@ -1,92 +1,74 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import {slides} from '../constants/carousel-inicio.js';
 
-const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
-    {
-      imageMobile: '/src/assets/banners/carousel1/2-mobile.jpg',
-      imageDesktop: '/src/assets/banners/carousel1/2-desktop.jpg',
-      text: 'texto que podemos cambiar dinamicamente',
-      buttonText: 'Obtené tu tarjeta',
-    },
-    {
-      imageMobile: '/src/assets/banners/carousel1/1-mobile.png',
-      imageDesktop: '/src/assets/banners/carousel1/1-desktop.png',
-      text: 'texto que podemos cambiar dinamicamente',
-      buttonText: 'Solicitá tu préstamo',
-    },
-    {
-      imageMobile: '/src/assets/banners/carousel1/3-mobile.jpg',
-      imageDesktop: '/src/assets/banners/carousel1/3-desktop.jpg',
-      text: 'texto que podemos cambiar dinamicamente',
-      buttonText: 'Descargar App',
-    },
-    {
-      imageMobile: '/src/assets/banners/carousel1/4-mobile.jpg',
-      imageDesktop: '/src/assets/banners/carousel1/4-desktop.jpg',
-      text: 'texto que podemos cambiar dinamicamente',
-      buttonText: 'Consultá comercios adheridos',
-    },
-    {
-      imageMobile: '/src/assets/banners/carousel1/5-mobile.jpg',
-      imageDesktop: '/src/assets/banners/carousel1/5-desktop.jpg',
-      text: 'texto que podemos cambiar dinamicamente',
-      buttonText: '¡UNITE AHORA!',
-    },
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-  };
+const Carousel = ({ onButtonClick}) => {
+  const [current, setCurrent] = useState(0);
+  const totalSlides = slides.length;
 
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+    setCurrent((current - 1 + totalSlides) % totalSlides);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  const nextSlide = () => {
+    setCurrent((current + 1) % totalSlides);
+  };
 
   return (
     <div className="relative w-full overflow-hidden">
+      {/* Contenedor de slides */}
       <div
-        className="flex transition-transform duration-500 ease-in-out my-20"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${current * 100}%)` }}
       >
-        {slides.map((slide, index) => (
-          <div key={index} className="min-w-full flex-shrink-0 relative">
-            {/* Imagen para móvil */}
-            <img src={slide.imageMobile} alt={`Slide ${index + 1}`} className="w-full h-auto block md:hidden" />
-            {/* Imagen para escritorio */}
-            <img src={slide.imageDesktop} alt={`Slide ${index + 1}`} className="w-full h-auto hidden md:block" />
-            <div className="absolute inset-0 flex flex-col items-start justify-end p-4 text-white">
-              <p className="text-2xl text-red-400 mb-4">{slide.text}</p>
-              <button className="px-6 py-2 mb-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+        {slides.map((slide) => (
+          <div key={slide.id} className="min-w-full flex flex-col md:flex-row items-center pt-20">
+            {/* Imagen: En móvil se muestra primero (order-1), en escritorio se reubica a la derecha (md:order-2) */}
+            <div className="p-10 relative order-1 md:order-2 w-full md:w-1/2">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-auto object-cover rounded-lg"
+              />
+              <div className="hidden md:block absolute top-0 left-0 w-24 h-full bg-white"
+                style={{ clipPath: "polygonpolygon(35% 0%, 100% 50%, 36% 100%, 0% 100%, 0% 50%, 0% 0%)" }}
+>
+              </div>
+            </div>
+            {/* Texto y botón: En móvil se muestra después (order-2), en escritorio se muestra a la izquierda (md:order-1) */}
+            <div className="order-2 md:order-1 w-full md:w-1/2 p-6 flex flex-col justify-center">
+              <h2 className="text-3xl font-bold mb-4">{slide.title}</h2>
+              <p className="mb-6">{slide.description}</p>
+              <button className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-xl w-3/4"
+              onClick={ () => onButtonClick(slide.buttonText)}>
+              
                 {slide.buttonText}
               </button>
             </div>
           </div>
         ))}
       </div>
+      {/* Botones de navegación */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full ml-4"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
       >
         &#10094;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full mr-4"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
       >
         &#10095;
       </button>
     </div>
   );
+};
+
+
+Carousel.propTypes = {
+  onButtonClick: PropTypes.func.isRequired,
 };
 
 export default Carousel;

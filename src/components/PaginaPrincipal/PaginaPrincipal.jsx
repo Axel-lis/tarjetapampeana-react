@@ -1,4 +1,4 @@
-import Carousel from './Carousel';
+import Carousel from './Carousel.jsx';
 import Carousel2 from './Carousel2';
 import PaquetePampeana from './PaquetePampeana';
 import PaquetesAcordion from './PaquetesAcordion';
