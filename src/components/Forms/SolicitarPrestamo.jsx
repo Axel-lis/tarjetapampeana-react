@@ -7,6 +7,7 @@ import { FaCheckCircle, FaTimesCircle, FaCalculator, FaCreditCard } from 'react-
 import { API_PRESTAMOS } from '../../components/constants/apis';
 import Alerts from '../Common/Alerts';
 
+
 const formSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   apellido: z.string().min(2, 'El apellido debe tener al menos 2 caracteres'),
@@ -115,8 +116,8 @@ const SolicitarPrestamo = () => {
   const labelStyle = 'block text-gray-700 font-medium mb-2';
 
   return (
-    <div className="min-h-screen bg-purple-600 py-14 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">
+    <div style={{ minHeight: '100vh', padding: '3.5rem 1rem', position: 'relative', }} className="min-h-screen py-14 px-4 sm:px-6 lg:px-8">
+      <div  className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Solicitud de Préstamo</h2>
         <img src="/src/assets/logos/pampaCash-logo-violeta.png" alt="PampaCa$h Logo" className="w-80 mx-auto mb-8" />
 
