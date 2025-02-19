@@ -116,8 +116,9 @@ const SolicitarPrestamo = () => {
   const labelStyle = 'block text-gray-700 font-medium mb-2';
 
   return (
-    <div style={{ minHeight: '100vh', padding: '3.5rem 1rem', position: 'relative', }} className="min-h-screen py-14 px-4 sm:px-6 lg:px-8">
-      <div  className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-blue-800 via-purple-500 to-purple-900">
+    <div className="flex-grow py-14 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Solicitud de Préstamo</h2>
         <img src="/src/assets/logos/pampaCash-logo-violeta.png" alt="PampaCa$h Logo" className="w-80 mx-auto mb-8" />
 
@@ -287,6 +288,7 @@ const SolicitarPrestamo = () => {
           </button>
         </form>
       </div>
+       </div>
     </div>
   );
 };

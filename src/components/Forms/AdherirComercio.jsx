@@ -8,6 +8,7 @@ import { FaQuestionCircle, FaExternalLinkAlt } from 'react-icons/fa';
 import Alerts from '../Common/Alerts';
 import { API_FORMULARIOS } from '../../components/constants/apis';
 import Modal from '../Common/Modal';
+import adherirSVG from '../../assets/images/adherir-svg.jpg'; 
 // Esquema de validación con Zod
 const schema = z.object({
   name: z.string().min(3, { message: 'El nombre debe tener al menos 3 caracteres' }),
@@ -92,10 +93,11 @@ const AdherirComercio = () => {
 
   return (
     <div className="min-h-screen bg-purple-600 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg">
-        <div>
+      <div className="max-w-3xl w-full space-y-8 bg-white p-8 rounded-xl shadow-lg">
+        <div className='align-items-center'>
           <h2 className="mt-12 text-center text-3xl font-bold text-gray-800">Adherir mi comercio a Pampeana</h2>
           <h5 className="text-center text-gray-600">¡Es fácil, rápido y gratuito!</h5>
+          <img src={adherirSVG} alt="Adherir a Comercios" className='mx-auto w-[350px]' />
         </div>
         {isSubmitSuccessful && (
           <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center">
