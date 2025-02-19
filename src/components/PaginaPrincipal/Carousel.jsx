@@ -32,7 +32,7 @@ const Carousel = ({ onButtonClick}) => {
                 className="w-full h-auto object-cover rounded-lg"
               />
               <div className="hidden md:block absolute top-0 left-0 w-24 h-full bg-white"
-                style={{ clipPath: "polygonpolygon(35% 0%, 100% 50%, 36% 100%, 0% 100%, 0% 50%, 0% 0%)" }}
+                style={{ clipPath: "polygon(35% 0%, 100% 50%, 36% 100%, 0% 100%, 0% 50%, 0% 0%)" }}
 >
               </div>
             </div>
