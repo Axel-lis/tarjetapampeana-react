@@ -1,26 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
-import { slidesPromos, slidesPromosMobile } from '../constants/index.js';
+import { slidesPromosMobile } from '../constants/index.js';
 import { motion } from 'framer-motion';
-import debounce from 'lodash/debounce';
 import chicaAhorraMas from '../../assets/personas/chicaPagaMenos.png';
+
 const AhorraMas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    //debounce para evitar que checkMobile se ejecute demasiado seguido
-    const checkMobile = debounce(() => {
-      setIsMobile(window.innerWidth <= 768);
-    }, 200);
-    //ejectuar al montar
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    //limpiar el evento cuando el componente desmonte
-    return () => {
-      removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
-  const slides = useMemo(() => (isMobile ? slidesPromosMobile : slidesPromos), [isMobile]);
+  const slides = useMemo(() => slidesPromosMobile, []);
 
   const containerVariants = useMemo(
     () => ({
@@ -42,7 +26,7 @@ const AhorraMas = () => {
   return (
     <div className="py-20">
       <img src={chicaAhorraMas} alt="Ahorrá Más" className="w-full h-auto mx-auto" />
-      <div className="flex flex-col gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {slides.map((slide, index) => (
           <motion.div
             key={index}
