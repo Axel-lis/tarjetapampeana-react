@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import {  useMemo } from 'react';
 import { slidesPromosMobile } from '../constants/index.js';
 import { motion } from 'framer-motion';
 import chicaAhorraMas from '../../assets/personas/chicaPagaMenos.png';
