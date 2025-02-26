@@ -149,10 +149,10 @@ export const PaquetesAcordion = () => {
                         </tr>
                         <tr className="text-center">
                           <td>Costo Mantenimiento Mensual + IVA</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$7,499.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$8,999.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$10,499.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$11,999.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>comision_comun</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>comision_preferencial</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>comision_premium</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>comision_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Costo Renovación Anual + IVA</td>
