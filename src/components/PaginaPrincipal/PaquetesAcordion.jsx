@@ -72,59 +72,59 @@ export const PaquetesAcordion = () => {
                         </tr>
                         <tr className="table-success highlight-green">
                           <td>Límite de Compra Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$500,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$1,500,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$2,000,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$3,000,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_com_max_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_com_max_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_com_max_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_com_max_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Compra</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$150,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$300,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$450,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$600,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_com_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_com_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_com_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_com_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Cuotas</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$350,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$1,200,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$1,550,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$2,400,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_cuo_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_cuo_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_cuo_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_cuo_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Pago Mínimo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$150,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$300,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$450,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$600,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_pm_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_pm_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_pm_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_pm_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Adelanto por Cajero - Disponible Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$20,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$40,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$60,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$80,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>adel_caj_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>adel_caj_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>adel_caj_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>adel_caj_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Préstamos Personales Monto Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$250,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>prest_max_corp</td>
                           <td style={{ backgroundColor: getHighlightColor(1) }}>NO HABILITADO</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$750,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$1,000,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>prest_max_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>prest_max_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Préstamos Personales Pre-Aprobados</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$150,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>prest_pre_corp</td>
                           <td style={{ backgroundColor: getHighlightColor(1) }}>NO HABILITADO</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$300,000.00</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$500,000.00</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>prest_pre_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>prest_pre_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Bonificación Tasa Préstamo</td>
                           <td style={{ backgroundColor: getHighlightColor(0) }}>NO</td>
                           <td style={{ backgroundColor: getHighlightColor(1) }}>NO</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>-10%</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>-20%</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>SÍ</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>SÍ</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Compra ArgenCard Nacional</td>
@@ -156,24 +156,24 @@ export const PaquetesAcordion = () => {
                         </tr>
                         <tr className="text-center">
                           <td>Costo Renovación Anual + IVA</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$1,199.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$5,999.99</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>renov_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>renov_clas</td>
                           <td style={{ backgroundColor: getHighlightColor(2) }}>SIN COSTO</td>
                           <td style={{ backgroundColor: getHighlightColor(3) }}>SIN COSTO</td>
                         </tr>
                         <tr className="text-center">
                           <td>Reposición Tarjeta por Robo o Extravío</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$11,999.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$11,999.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$11,999.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$11,999.99</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>renov_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>renov_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>renov_prem</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>renov_gold</td>
                         </tr>
                         <tr className="text-center">
                           <td>Comisión Uso Cajeros Red Link</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>$499.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>$499.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>$499.99</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>$499.99</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>comision_redlink</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>comision_redlink</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>comision_redlink</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>comision_redlink</td>
                         </tr>
                         <tr className="text-center">
                           <td>Adhesión Débito Automático (DAS)</td>

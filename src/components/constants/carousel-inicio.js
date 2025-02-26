@@ -3,7 +3,7 @@ export const slides = [
     id: 1,
     title: "Préstamos Personales",
     description: "El préstamo ágil y facil de Tarjeta Pampeana. ",
-    image: "/src/assets/images/carousel1/1xx.png", 
+    image: "/src/assets/images/carousel1/1x.png", 
     buttonText: "SOLICITARLO YA",
     url: "/form-solicitud-credito"
   },
