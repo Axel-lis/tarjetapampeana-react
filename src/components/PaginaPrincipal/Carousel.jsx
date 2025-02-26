@@ -34,7 +34,7 @@ const Carousel = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>; // O puedes mostrar un spinner
+    return <div>Cargando...</div>; // O puedes mostrar un spinner
   }
 
   return (
@@ -60,11 +60,12 @@ const Carousel = () => {
               ></div>
             </div>
             {/* Texto y botón: En móvil se muestra después (order-2), en escritorio se muestra a la izquierda (md:order-1) */}
-            <div className="order-2 md:order-1 w-full md:w-1/2 p-6 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold mb-4">{slide.title}</h2>
-              <p className="mb-6">{slide.description}</p>
+            <div className="order-2 md:order-1 w-full md:w-1/2 p-6 flex flex-col justify-center text-center">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-purple-600 mb-6 py-3">{slide.title}</h2>
+              <h3 className="text-2xl md:text-4xl font-semibold pt-2">Para eso que tanto querés</h3>
+              <p className="text-lg md:text-2xl mb-6 pb-3">{slide.description}</p>
               <button
-                className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-xl w-3/4"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-xl w-1/2 mx-auto"
                 onClick={() => handleButtonClick(slide.url)}
               >
                 {slide.buttonText}

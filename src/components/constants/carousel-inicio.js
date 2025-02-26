@@ -1,9 +1,9 @@
 export const slides = [
   {
     id: 1,
-    title: "Solicitá tu prestamo PAMPACA$H",
-    description: "Podes invertir hasta $5.000.000 por frasco y hacer rendir tu plata con hasta 31% TNA. Simula tus frascos sin compromiso y descubrí cuánta plata extra podes ganar.",
-    image: "/src/assets/images/carousel1/1x.jpg", 
+    title: "Préstamos Personales",
+    description: "El préstamo ágil y facil de Tarjeta Pampeana. ",
+    image: "/src/assets/images/carousel1/1xx.png", 
     buttonText: "SOLICITARLO YA",
     url: "/form-solicitud-credito"
   },
