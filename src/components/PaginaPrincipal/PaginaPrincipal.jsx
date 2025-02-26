@@ -54,31 +54,10 @@ const PaginaPrincipal = () => {
   const navigate = useNavigate();
   const messagesEnd = useRef(null);
 
-  // Function to scroll to the bottom
-  const scrollToBottom = () => {
-    messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleButtonClick = (buttonText) => {
-    switch (buttonText) {
-      case 'Pedir tarjeta':
-        console.log('Pedir tarjeta Pampeana');
-        window.open('https://solicitatutarjeta.pampeana.com.ar/', '_blank');
-        break;
-      case 'Solicitá tu préstamo':
-        navigate('/form-solicitud-credito');
-        break;
-      case 'Ver Paquetes':
-        scrollToBottom();
-        break;
-      default:
-        console.log(`Botón ${buttonText} presionado`);
-    }
-  };
 
   return (
     <div>
-      <Carousel tiempoCarga={500} onButtonClick={handleButtonClick} />
+      <Carousel tiempoCarga={500} />
       <IconosPosibilidades tiempoCarga={1000} posibilidades={iconosPrincipal} />
       <AdherirComercio />
       <Carousel2 tiempoCarga={500} />

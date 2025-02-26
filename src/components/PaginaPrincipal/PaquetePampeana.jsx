@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import paquetePampeana from '../../assets/logos/tarjeta.png';
+import paquetePampeana from '../../assets/logos/tarjetas.png';
 import { motion } from 'framer-motion';
 import Skeleton from '../Common/Skeleton';
 import { useEffect } from 'react';

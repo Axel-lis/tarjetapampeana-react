@@ -1,4 +1,4 @@
-import ParaVosTarjetas from '../../assets/images/ParaVos-Tarjetas.png';
+import ParaVosTarjetas from '../../assets/logos/tarjetas.png';
 import { motion } from 'framer-motion';
 
 const SegundaSeccion = () => {

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { slides } from '../constants/carousel-inicio.js';
+import {useNavigate} from 'react-router-dom';
 
-const Carousel = ({ onButtonClick }) => {
+const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const totalSlides = slides.length;
+  const navigate = useNavigate();
 
   const changeSlide = (direction) => {
     setCurrent((prev) => (prev + direction + totalSlides) % totalSlides);
@@ -13,6 +15,9 @@ const Carousel = ({ onButtonClick }) => {
   const prevSlide = () => changeSlide(-1);
   const nextSlide = () => changeSlide(1);
 
+  const handleButtonClick = (url) => {
+    navigate(url);
+  }
   return (
     <div className="relative w-full overflow-hidden">
       {/* Contenedor de slides */}
@@ -41,7 +46,7 @@ const Carousel = ({ onButtonClick }) => {
               <p className="mb-6">{slide.description}</p>
               <button
                 className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-xl w-3/4"
-                onClick={() => onButtonClick(slide.buttonText)}
+                onClick={() => handleButtonClick(slide.url)}
               >
                 {slide.buttonText}
               </button>
@@ -70,7 +75,6 @@ const Carousel = ({ onButtonClick }) => {
 };
 
 Carousel.propTypes = {
-  onButtonClick: PropTypes.func.isRequired,
+  tiempoCarga: PropTypes.number,
 };
-
 export default Carousel;

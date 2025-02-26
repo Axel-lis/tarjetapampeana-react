@@ -7,11 +7,11 @@ const TerceraSeccion = () => {
     navigate('/form-solicitud-credito');
   };
   return (
-    <div className="container ">
-      <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="container max-w-full">
+      <div className="max-w-7xl mx-auto px-1 py-8 grid grid-cols-1 lg:grid-cols-2 gap-20">
         {/* Columna de Promociones */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full"
           initial={{ x: '-100vw', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 60, damping: 15, loop: true }}

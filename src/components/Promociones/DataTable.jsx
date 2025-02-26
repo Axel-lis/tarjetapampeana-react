@@ -15,6 +15,7 @@ const DataTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [promociones, setPromociones] = useState([]);
   const [rubros, setRubros] = useState([]);
+  const [userLocation, setUserLocation] = useState(null);
 
   const columns = [
     {
@@ -116,6 +117,31 @@ const DataTable = () => {
     fetchPromociones();
     fetchRubros();
   }, []); // Solo se ejecuta al montar el componente
+
+  // Efecto para obtener la ubicación del usuario
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+        }
+      );
+    }
+  }, []);
+
+  // Filtrar datos por localidad del usuario si está disponible
+  useEffect(() => {
+    if (userLocation) {
+      console.log('User location:', userLocation);
+      handleFilterChange('localidad', userLocation);
+    }
+  }, [userLocation]);
 
   if (loading) {
     return (
