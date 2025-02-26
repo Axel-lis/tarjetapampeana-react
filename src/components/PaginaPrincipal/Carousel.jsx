@@ -1,12 +1,26 @@
-import { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { slides } from '../constants/carousel-inicio.js';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+// Usamos useState y useEffect para cargar los slides perezosamente
 const Carousel = () => {
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Cargar los slides de forma perezosa (lazy loading)
+    const loadSlides = async () => {
+      const { slides } = await import('../constants/carousel-inicio.js'); // Import dinámico
+      setSlides(slides); // Guardar los slides en el estado
+      setLoading(false); // Finalizar la carga
+    };
+
+    loadSlides();
+  }, []);
+
   const [current, setCurrent] = useState(0);
   const totalSlides = slides.length;
-  const navigate = useNavigate();
 
   const changeSlide = (direction) => {
     setCurrent((prev) => (prev + direction + totalSlides) % totalSlides);
@@ -17,7 +31,12 @@ const Carousel = () => {
 
   const handleButtonClick = (url) => {
     navigate(url);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>; // O puedes mostrar un spinner
   }
+
   return (
     <div className="relative w-full overflow-hidden">
       {/* Contenedor de slides */}
@@ -77,4 +96,5 @@ const Carousel = () => {
 Carousel.propTypes = {
   tiempoCarga: PropTypes.number,
 };
+
 export default Carousel;
