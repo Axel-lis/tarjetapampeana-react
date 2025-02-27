@@ -27,7 +27,9 @@ const DataTable = () => {
       accessorKey: 'rubro',
       header: 'Rubro',
       cell: (info) => (
-        <span className="rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-xs font-medium">{info.getValue()}</span>
+        <span className="rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-xs font-medium">
+          {info.getValue()}
+        </span>
       ),
       filterFn: 'rubroFilter',
     },
@@ -83,23 +85,24 @@ const DataTable = () => {
       setLoading(false);
     }
   };
+
   // Usar debounce para optimizar la búsqueda
   const debouncedSearch = debounce(() => {
     fetchData();
-  }, 500); // Retraso de 500ms
+  }, 500);
 
   // Efecto para realizar la búsqueda
   useEffect(() => {
     debouncedSearch();
-    // Limpiar debounce cuando el componente se desmonte
     return () => debouncedSearch.cancel();
   }, [pageIndex, pageSize, filters, searchTerm]);
+
   // Efecto para cargar promociones y rubros en el select
   useEffect(() => {
     const fetchPromociones = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_NOMBRES);
-        setPromociones(response.data.aaData); // Cargar promociones
+        setPromociones(response.data.aaData);
       } catch (error) {
         console.error('Error fetching promociones:', error);
       }
@@ -108,7 +111,7 @@ const DataTable = () => {
     const fetchRubros = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_RUBROS);
-        setRubros(response.data); // Cargar rubros
+        setRubros(response.data);
       } catch (error) {
         console.error('Error fetching rubros:', error);
       }
@@ -116,7 +119,7 @@ const DataTable = () => {
 
     fetchPromociones();
     fetchRubros();
-  }, []); // Solo se ejecuta al montar el componente
+  }, []);
 
   // Efecto para obtener la ubicación del usuario
   useEffect(() => {
@@ -135,11 +138,22 @@ const DataTable = () => {
     }
   }, []);
 
-  // Filtrar datos por localidad del usuario si está disponible
+  // Efecto para obtener la localidad mediante reverse geocoding con LocationIQ
   useEffect(() => {
     if (userLocation) {
-      console.log('User location:', userLocation);
-      handleFilterChange('localidad', userLocation);
+      const { latitude, longitude } = userLocation;
+      axios
+        .get(`https://us1.locationiq.com/v1/reverse.php?key=pk.b7d27b4ec9c04c0ff8d2a5ff989f4ad5&lat=${latitude}&lon=${longitude}&format=json`)
+        .then(response => {
+          const address = response.data.address;
+          // Extraer la localidad (ajusta según la estructura de la respuesta)
+          const localidad = address.city || address.town || address.village || '';
+          // Actualizar el filtro de localidad
+          handleFilterChange('localidad', localidad);
+        })
+        .catch(error => {
+          console.error('Error fetching reverse geocoding data:', error);
+        });
     }
   }, [userLocation]);
 
@@ -182,7 +196,6 @@ const DataTable = () => {
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
         </div>
-        {/* Filtro de promociones */}
         <div className="min-w-[150px]">
           <select
             value={filters.promocion || ''}
@@ -197,8 +210,6 @@ const DataTable = () => {
             ))}
           </select>
         </div>
-
-        {/* Filtro de rubros */}
         <div className="min-w-[150px]">
           <select
             value={filters.rubro || ''}
@@ -284,7 +295,7 @@ const DataTable = () => {
             onClick={() => setPageIndex((prev) => Math.min(totalPages - 1, prev + 1))}
             disabled={pageIndex === totalPages - 1}
             className="p-2 rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Siguente página"
+            aria-label="Siguiente página"
           >
             <FiChevronRight className="w-5 h-5" />
           </button>
