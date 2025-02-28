@@ -1,8 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../assets/styles/paquetesAcordion.css';
+//import { API_PAQUETES } from '../constants/apis';
 
 export const PaquetesAcordion = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
+ const [paqData, setPaqData] = useState([]);
+ const [varData, setVarData] = useState([]);
+
+  useEffect(() => {
+    const fetchPaqData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/paquetes/paq_param');
+        const result = await response.json();
+        setPaqData(result);
+      } catch (error) {
+        console.error('Error fetching paq_param data:', error);
+      }
+    };
+
+    const fetchVarData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/variables_tarj');
+        const result = await response.json();
+        setVarData(result);
+      } catch (error) {
+        console.error('Error fetching variables_tarj data:', error);
+      }
+    };
+
+    fetchPaqData();
+    fetchVarData();
+  }, []);
 
   const handleAccordionClick = (index) => {
     setActiveAccordion(index === activeAccordion ? null : index);
@@ -22,7 +50,7 @@ export const PaquetesAcordion = () => {
         return '#FFFFFF';
     }
   };
-  return (
+ return (
     <div>
       <article className="contenedor__ambasTarjetas flex justify-center bg-purple-50 py-8">
         <div className="accordion-container">
@@ -72,52 +100,52 @@ export const PaquetesAcordion = () => {
                         </tr>
                         <tr className="table-success highlight-green">
                           <td>Límite de Compra Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_com_max_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_com_max_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_com_max_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_com_max_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.lim_com_max_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.lim_com_max_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.lim_com_max_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.lim_com_max_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Compra</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_com_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_com_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_com_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_com_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.lim_com_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.lim_com_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.lim_com_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.lim_com_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Cuotas</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_cuo_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_cuo_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_cuo_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_cuo_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.lim_cuo_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.lim_cuo_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.lim_cuo_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.lim_cuo_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Límite de Pago Mínimo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>lim_pm_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>lim_pm_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>lim_pm_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>lim_pm_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.lim_pm_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.lim_pm_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.lim_pm_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.lim_pm_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Adelanto por Cajero - Disponible Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>adel_caj_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>adel_caj_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>adel_caj_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>adel_caj_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.adel_caj_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.adel_caj_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.adel_caj_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.adel_caj_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Préstamos Personales Monto Máximo</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>prest_max_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.prest_max_corp}</td>
                           <td style={{ backgroundColor: getHighlightColor(1) }}>NO HABILITADO</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>prest_max_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>prest_max_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.prest_max_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.prest_max_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Préstamos Personales Pre-Aprobados</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>prest_pre_corp</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.prest_pre_corp}</td>
                           <td style={{ backgroundColor: getHighlightColor(1) }}>NO HABILITADO</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>prest_pre_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>prest_pre_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.prest_pre_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.prest_pre_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Bonificación Tasa Préstamo</td>
@@ -148,32 +176,32 @@ export const PaquetesAcordion = () => {
                           <td style={{ backgroundColor: getHighlightColor(3) }}>SI</td>
                         </tr>
                         <tr className="text-center">
-                          <td>Costo Mantenimiento Mensual + IVA</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>comision_comun</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>comision_preferencial</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>comision_premium</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>comision_gold</td>
+                          <td>Costo Mantenimiento Mensual + IVA *****</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData[0]?.comision_comun}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData[0]?.comision_preferencial}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData[0]?.comision_premium}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${varData[0]?.comision_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Costo Renovación Anual + IVA</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>renov_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>renov_clas</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.renov_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.renov_clas}</td>
                           <td style={{ backgroundColor: getHighlightColor(2) }}>SIN COSTO</td>
                           <td style={{ backgroundColor: getHighlightColor(3) }}>SIN COSTO</td>
                         </tr>
                         <tr className="text-center">
                           <td>Reposición Tarjeta por Robo o Extravío</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>renov_corp</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>renov_clas</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>renov_prem</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>renov_gold</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${paqData[0]?.renov_corp}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${paqData[0]?.renov_clas}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${paqData[0]?.renov_prem}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${paqData[0]?.renov_gold}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Comisión Uso Cajeros Red Link</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>comision_redlink</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>comision_redlink</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>comision_redlink</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>comision_redlink</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData[0]?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData[0]?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData[0]?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${varData[0]?.comision_redlink}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Adhesión Débito Automático (DAS)</td>

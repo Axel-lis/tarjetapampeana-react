@@ -9,6 +9,7 @@ import variablesTarjRouter from './routes/variablesTarj.js';
 import prestParamRouter from './routes/prestParam.js';
 import cyrRouter from './routes/cyr.js';
 import btnArrepentRouter from './routes/btnArrepent.js';
+import paquetesRouter from './routes/paquetes.js';
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.use('/api/cyr', cyrRouter);
 app.use('/api/prestamos', prestamosRouter);
 app.use('/api/comercios', dondeComprar);
 app.use('/api/btn-arrepent', btnArrepentRouter);
+app.use('/api/paquetes', paquetesRouter);
+
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
   console.error(err.stack);

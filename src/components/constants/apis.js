@@ -16,3 +16,6 @@ export const API_COMERCIOS = 'http://localhost:3000/api/comercios';
 /** Variables de la tarjeta **/
 export const API_VARIABLES_TARJ = 'http://localhost:3000/api/variables_tarj';
 export const API_PREST_PARAM = 'http://localhost:3000/api/prest_param';
+
+/** PAQUETES inicio**/
+export const API_PAQUETES = 'http://localhost:3000/api/paquetes';
