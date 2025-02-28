@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../../assets/styles/paquetesAcordion.css';
-//import { API_PAQUETES } from '../constants/apis';
+import { API_PAQUETES_PARAM, API_VARIABLES_TARJ  } from '../constants/apis';
 
 export const PaquetesAcordion = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -10,7 +10,7 @@ export const PaquetesAcordion = () => {
   useEffect(() => {
     const fetchPaqData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/paquetes/paq_param');
+        const response = await fetch({API_PAQUETES_PARAM});
         const result = await response.json();
         setPaqData(result);
       } catch (error) {
@@ -20,7 +20,7 @@ export const PaquetesAcordion = () => {
 
     const fetchVarData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/variables_tarj');
+        const response = await fetch({API_VARIABLES_TARJ});
         const result = await response.json();
         setVarData(result);
       } catch (error) {

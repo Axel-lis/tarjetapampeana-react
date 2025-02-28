@@ -45,7 +45,7 @@ const Carousel = () => {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide) => (
-          <div key={slide.id} className="min-w-full flex flex-col md:flex-row items-center pt-20">
+          <div key={slide.id} className="min-w-full flex flex-col md:flex-row items-center pt-18">
             {/* Imagen: En móvil se muestra primero (order-1), en escritorio se reubica a la derecha (md:order-2) */}
             <div className="p-10 relative order-1 md:order-2 w-full md:w-1/2">
               <img
@@ -61,11 +61,12 @@ const Carousel = () => {
             </div>
             {/* Texto y botón: En móvil se muestra después (order-2), en escritorio se muestra a la izquierda (md:order-1) */}
             <div className="order-2 md:order-1 w-full md:w-1/2 p-6 flex flex-col justify-center text-center">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-purple-600 mb-6 py-3">{slide.title}</h2>
-              <h3 className="text-2xl md:text-4xl font-semibold pt-2">Para eso que tanto querés</h3>
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 py-3" style={{ color: '#6024EE' }}>{slide.title}</h2>
+              <h3 className="text-2xl md:text-4xl font-semibold pt-2">{slide.subtitle}</h3>
               <p className="text-lg md:text-2xl mb-6 pb-3">{slide.description}</p>
               <button
-                className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-xl w-1/2 mx-auto"
+                className="hover:bg-purple-800 text-white font-bold py-2 px-4 rounded-xl w-1/2 mx-auto"
+                style={{ backgroundColor: '#6024EE' }}
                 onClick={() => handleButtonClick(slide.url)}
               >
                 {slide.buttonText}

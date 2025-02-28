@@ -1,42 +1,47 @@
 export const slides = [
   {
     id: 1,
-    title: "Préstamos Personales",
-    description: "El préstamo ágil y facil de Tarjeta Pampeana. ",
-    image: "/src/assets/images/carousel1/1x.png", 
-    buttonText: "SOLICITARLO YA",
+    title: "ESCANEÁ EL CÓDIGO QR",
+    subtitle: "SACÁ TU TARJETA RÁPIDO Y FÁCIL",
+    description: "Mínimos requisitos, sin costos de emisión ni mantenimiento. ¡Pedila ya!",
+    image: "/src/assets/images/carousel1/1.png", 
+    buttonText: "OBTENÉ TU TARJETA",
     url: "/form-solicitud-credito"
   },
   {
     id: 2,
-    title: "Título del Slide 2",
-    description: "Descripción del slide 2 con más detalles e información adicional.",
-    image: "/src/assets/images/carousel1/2x.jpg",
-    buttonText: "Botón de acción",
+    title: "PRÉSTAMOS PERSONALES",
+    subtitle: "¡PARA ESO QUE TANTO QUERÉS!",
+    description: "El préstamo ágil y fácil de Tarjeta Pampeana",
+    image: "/src/assets/images/carousel1/2.png",
+    buttonText: "PEDIRLO YA",
     url: "/slide-2"
   },
   {
     id: 3,
-    title: "Título del Slide 3",
-    description: "Descripción del slide 3 con más detalles e información adicional.",
-    image: "/src/assets/images/carousel1/3x.jpg",
-    buttonText: "Botón de acción",
-    url: "/slide-3"
+    title: "DESCARGATE NUESTRAS APP",
+    subtitle: "MÁS SERVICIOS, MÁS INFORMACIÓN",
+    description: "Disponibles en Play Store y App Store. Tené toda la información de tu tarjeta en la palma de tu mano.",
+    image: "/src/assets/images/carousel1/3.png",
+    buttonText: "DESCARGAR AHORA",
+    url: "/https://play.google.com/store/apps/details?id=com.pampeana.mobile&pli=1"
   },
   {
     id: 4,
-    title: "Título del Slide 4",
-    description: "Descripción del slide 4 con más detalles e información adicional.",
-    image: "/src/assets/images/carousel1/4x.jpg",
-    buttonText: "Botón de acción",
-    url: "/slide-4"
+    title: "PORTAL DE AUTOGESTIÓN",
+    subtitle: "AMPLÍA TUS LIMITES DE COMPRA",
+    description: "Accede a gestionar tu cuenta con un click",
+    image: "/src/assets/images/carousel1/4.png",
+    buttonText: "INGRESA AHORA",
+    url: "https://www.online.pampeana.com.ar/login.php"
   },
   {
     id: 5,
-    title: "Título del Slide 5",
-    description: "Descripción del slide 5 con más detalles e información adicional.",
-    image: "/src/assets/images/carousel1/5x.jpg",
-    buttonText: "Botón de acción",
-    url: "/slide-5"
+    title: "PAGÁ MENOS, AHORRÁ MÁS",
+    subtitle: "TODOS LOS DÍAS REINTEGROS",
+    description: "Comestibles, farmacias, tiendas, electrohogar y mucho más",
+    image: "/src/assets/images/carousel1/5.png",
+    buttonText: "PROMOCIONES",
+    url: "/promociones"
   },
 ];
