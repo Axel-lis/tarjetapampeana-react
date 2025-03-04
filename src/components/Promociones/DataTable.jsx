@@ -3,6 +3,7 @@ import { FiChevronLeft, FiChevronRight, FiSearch } from 'react-icons/fi';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
 import { API_PROMOCIONES_NOMBRES, API_PROMOCIONES_RUBROS, API_PROMOCIONES_BUSCAR } from '../constants/apis';
+
 const DataTable = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,7 @@ const DataTable = () => {
   ];
 
   const handleFilterChange = (column, value) => {
+    console.log(`Filter change - ${column}: ${value}`);
     setFilters((prev) => ({
       ...prev,
       [column]: value,
@@ -73,13 +75,18 @@ const DataTable = () => {
         search: searchTerm,
       });
 
+      console.log('Fetching data with query params:', queryParams.toString());
+
       const response = await axios.get(`${API_PROMOCIONES_BUSCAR}/buscar-promociones?${queryParams}`);
+
+      console.log('Response data:', response.data);
 
       setData(response.data.data);
       setTotalPages(response.data.totalPages);
       setTotalItems(response.data.totalItems);
       setError(null);
     } catch (err) {
+      console.error('Error fetching data:', err);
       setError('Error fetching data. Please try again later.' + err.message);
     } finally {
       setLoading(false);
@@ -102,6 +109,7 @@ const DataTable = () => {
     const fetchPromociones = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_NOMBRES);
+        console.log('Fetched promociones:', response.data);
         setPromociones(response.data.aaData);
       } catch (error) {
         console.error('Error fetching promociones:', error);
@@ -111,6 +119,7 @@ const DataTable = () => {
     const fetchRubros = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_RUBROS);
+        console.log('Fetched rubros:', response.data);
         setRubros(response.data);
       } catch (error) {
         console.error('Error fetching rubros:', error);
@@ -126,6 +135,7 @@ const DataTable = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
+         // console.log('User location:', position.coords);
           setUserLocation({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -146,9 +156,9 @@ const DataTable = () => {
         .get(`https://us1.locationiq.com/v1/reverse.php?key=pk.b7d27b4ec9c04c0ff8d2a5ff989f4ad5&lat=${latitude}&lon=${longitude}&format=json`)
         .then(response => {
           const address = response.data.address;
-          // Extraer la localidad (ajusta según la estructura de la respuesta)
+          //console.log('Reverse geocoding address:', address);
           const localidad = address.city || address.town || address.village || '';
-          // Actualizar el filtro de localidad
+          //console.log('Localidad obtenida:', localidad);
           handleFilterChange('localidad', localidad);
         })
         .catch(error => {
@@ -174,7 +184,7 @@ const DataTable = () => {
             onClick={fetchData}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
           >
-            Retry
+            Intentar Nuevamente
           </button>
         </div>
       </div>

@@ -45,7 +45,7 @@ const Carousel = () => {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide) => (
-          <div key={slide.id} className="min-w-full flex flex-col md:flex-row items-center pt-18">
+          <div key={slide.id} className="min-w-full flex flex-col md:flex-row items-center pt-20">
             {/* Imagen: En móvil se muestra primero (order-1), en escritorio se reubica a la derecha (md:order-2) */}
             <div className="p-10 relative order-1 md:order-2 w-full md:w-1/2">
               <img
