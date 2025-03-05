@@ -3,24 +3,29 @@ import '../../assets/styles/paquetesAcordion.css';
 import { API_PAQUETES_PARAM, API_VARIABLES_TARJ  } from '../constants/apis';
 
 export const PaquetesAcordion = () => {
-  const [activeAccordion, setActiveAccordion] = useState(null);
+const [activeAccordion, setActiveAccordion] = useState(null);
  const [paqData, setPaqData] = useState([]);
  const [varData, setVarData] = useState([]);
 
   useEffect(() => {
     const fetchPaqData = async () => {
       try {
-        const response = await fetch({API_PAQUETES_PARAM});
+        const response = await fetch(API_PAQUETES_PARAM);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const result = await response.json();
         setPaqData(result);
       } catch (error) {
         console.error('Error fetching paq_param data:', error);
       }
     };
-
     const fetchVarData = async () => {
       try {
-        const response = await fetch({API_VARIABLES_TARJ});
+        const response = await fetch(API_VARIABLES_TARJ);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const result = await response.json();
         setVarData(result);
       } catch (error) {
@@ -176,11 +181,12 @@ export const PaquetesAcordion = () => {
                           <td style={{ backgroundColor: getHighlightColor(3) }}>SI</td>
                         </tr>
                         <tr className="text-center">
-                          <td>Costo Mantenimiento Mensual + IVA *****</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData[0]?.comision_comun}</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData[0]?.comision_preferencial}</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData[0]?.comision_premium}</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>${varData[0]?.comision_gold}</td>
+                          <td>Costo Mantenimiento Mensual + IVA </td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData?.comision_comun}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData?.comision_preferencial}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData?.comision_premium}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>$11,999.00</td>
+                          {/*<td style={{ backgroundColor: getHighlightColor(3) }}>${varData?.comision_gold}</td> */}
                         </tr>
                         <tr className="text-center">
                           <td>Costo Renovación Anual + IVA</td>
@@ -198,10 +204,10 @@ export const PaquetesAcordion = () => {
                         </tr>
                         <tr className="text-center">
                           <td>Comisión Uso Cajeros Red Link</td>
-                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData[0]?.comision_redlink}</td>
-                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData[0]?.comision_redlink}</td>
-                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData[0]?.comision_redlink}</td>
-                          <td style={{ backgroundColor: getHighlightColor(3) }}>${varData[0]?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(0) }}>${varData?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(1) }}>${varData?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(2) }}>${varData?.comision_redlink}</td>
+                          <td style={{ backgroundColor: getHighlightColor(3) }}>${varData?.comision_redlink}</td>
                         </tr>
                         <tr className="text-center">
                           <td>Adhesión Débito Automático (DAS)</td>
