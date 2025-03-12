@@ -1,4 +1,4 @@
-import ParaVosTarjetas from '../../assets/logos/tarjetas.png';
+
 import { motion } from 'framer-motion';
 
 const SegundaSeccion = () => {
@@ -42,7 +42,7 @@ const SegundaSeccion = () => {
           transition={{ type: 'spring', stiffness: 60, damping: 15 }}
         >
           <img
-            src={ParaVosTarjetas}
+            src='/logos/tarjetas.png'
             alt="Para vos"
             className="w-4/5 md:w-3/4  transition-transform transform hover:scale-105"
           />

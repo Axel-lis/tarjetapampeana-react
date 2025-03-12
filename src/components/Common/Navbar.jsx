@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo_nav from '../../assets/logos/logo-2025.png';
+
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           {/* Logo */}
           <Link to="/" aria-label="Ir a la página principal">
-            <img src={logo_nav} alt="Tarjeta Pampeana" height={200} width={200} />
+            <img src="/logos/logo-2025.png" alt="Tarjeta Pampeana" height={200} width={200} />
           </Link>
           {/* Botón para abrir/cerrar menú móvil */}
           <div className="md:hidden">

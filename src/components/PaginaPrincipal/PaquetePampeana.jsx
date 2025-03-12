@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import paquetePampeana from '../../assets/logos/tarjetas.png';
 import { motion } from 'framer-motion';
 import Skeleton from '../Common/Skeleton';
 import { useEffect } from 'react';
@@ -67,7 +66,7 @@ const PaquetePampeana = () => {
       <div className="flex flex-col md:flex-row items-center gap-8 ml-4">
         {/* Columna de la imagen */}
         <motion.div className="flex-1 flex justify-center" variants={containerVariants}>
-        <img src={paquetePampeana} alt="Paquete Pampeana" className="w-full md:max-w-xl h-auto" />
+        <img src='/logos/tarjetas.png' alt="Paquete Pampeana" className="w-full md:max-w-xl h-auto" />
         </motion.div>
 
         {/* Columna de los bulletpoints */}

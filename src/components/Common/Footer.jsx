@@ -1,7 +1,5 @@
 
-import bcra from '../../assets/logos/bcra.png';
-import datafiscal from '../../assets/logos/data-fiscal.png';
-import certacyc from '../../assets/logos/CERTACYC-img.png';
+
 import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const Footer = () => {
@@ -44,9 +42,9 @@ const Footer = () => {
             {/* Sobre tu tarjeta */}
             <div>
               <div className="flex flex-row items-center flex-nowrap">
-                <img src={bcra} alt="bcra" height={120} width={120} />
-                <img src={datafiscal} alt="bcra" height={60} width={60} />
-                <img src={certacyc} alt="certac" height={160} width={160} />
+                <img src='/logos/bcra.png' alt="bcra" height={120} width={120} />
+                <img src='/logos/data-fiscal.png' alt="bcra" height={60} width={60} />
+                <img src='/logos/CERTACYC-img.png' alt="certac" height={160} width={160} />
               </div>
               <h3 className="text-lg font-bold">Sobre tu tarjeta</h3>
               <ul className="mt-2 space-y-2">

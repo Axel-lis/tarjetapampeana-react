@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import logoIcon from '../../assets/logos/LOGO.png';
+import logoIcon from '../../assets/images/LOGO.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { centrosDeAtencion } from '../constants/map.js';
 
