@@ -42,19 +42,12 @@ const [activeAccordion, setActiveAccordion] = useState(null);
   };
 
   const getHighlightColor = (columnIndex) => {
-    switch (columnIndex) {
-      case 0:
-        return '#ccffcc';
-      case 1:
-        return '#ccccff';
-      case 2:
-        return '#dddddd';
-      case 3:
-        return '#f1f1f1';
-      default:
-        return '#FFFFFF';
+    if (columnIndex === activeAccordion) {
+      return '#ccccff';
     }
+    return '#ffffff';
   };
+
  return (
     <div>
       <article className="contenedor__ambasTarjetas flex justify-center bg-purple-50 py-8">
