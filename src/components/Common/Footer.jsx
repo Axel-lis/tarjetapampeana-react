@@ -1,3 +1,4 @@
+
 import bcra from '../../assets/logos/bcra.png';
 import datafiscal from '../../assets/logos/data-fiscal.png';
 import certacyc from '../../assets/logos/CERTACYC-img.png';
@@ -50,17 +51,23 @@ const Footer = () => {
               <h3 className="text-lg font-bold">Sobre tu tarjeta</h3>
               <ul className="mt-2 space-y-2">
                 <li>
-                  <a href="#" className="text-sm hover:text-purple-600">
+                  <a href="/contrato/Contrato Web 2025.pdf" className="text-sm hover:text-purple-600">
                     Contrato adhesión tarjeta
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-sm hover:text-purple-600">
+                  <a href="/contrato/Terminos-y-Condiciones-Débito 2024.pdf" className="text-sm hover:text-purple-600">
                     Anexo a débito Automático
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-sm hover:text-purple-600">
+                  <a href="/contrato/Anexo Pampeana Gold.pdf" className="text-sm hover:text-purple-600">Anexo Pampeana Gold</a>
+                </li>
+                <li>
+                  <a href="/contrato/Anexo Pampeana Premium.pdf"> Anexo Pampeana Premium</a>
+                </li>
+                <li>
+                  <a href="/contrato/RESUMEN DEL CONTRATO PARA INFORMAR AL CLIENTE.pdf" className="text-sm hover:text-purple-600">
                     RESUMEN DEL CONTRATO
                   </a>
                 </li>

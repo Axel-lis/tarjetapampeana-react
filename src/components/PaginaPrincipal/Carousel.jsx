@@ -29,9 +29,15 @@ const Carousel = () => {
   const prevSlide = () => changeSlide(-1);
   const nextSlide = () => changeSlide(1);
 
-  const handleButtonClick = (url) => {
+const handleButtonClick = (url) => {
+  if (url.startsWith('http')) {
+    // Si es una URL externa, redirige usando window.location
+    window.location.href = url;
+  } else {
+    // Si es una URL interna, usa el navigate de React Router
     navigate(url);
-  };
+  }
+};
 
   if (loading) {
     return <div>Cargando...</div>; // O puedes mostrar un spinner

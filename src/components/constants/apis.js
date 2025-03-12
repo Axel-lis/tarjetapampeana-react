@@ -1,21 +1,22 @@
+var PAG = 'https://testing.tarjetapampeana.com.ar/';
 /**  PROMOCIONES **/
 
-export const API_PROMOCIONES_NOMBRES = 'http://localhost:3000/api/promociones/promociones-nombres';
-export const API_PROMOCIONES_RUBROS = 'http://localhost:3000/api/promociones/rubros';
-export const API_PROMOCIONES_BUSCAR = 'http://localhost:3000/api/promociones';
+export const API_PROMOCIONES_NOMBRES = PAG + 'api/promociones/promociones-nombres';
+export const API_PROMOCIONES_RUBROS = PAG + 'api/promociones/rubros';
+export const API_PROMOCIONES_BUSCAR = PAG + 'api/promociones';
 
 /**  FORMULARIOS **/
-export const API_FORMULARIOS = 'http://localhost:3000/api/formularios/send-email';
-export const API_FORMULARIO_BAJA = 'http://localhost:3000/api/formularios/baja-tarjeta';
-export const API_PRESTAMOS = 'http://localhost:3000/api/prestamos';
-export const API_CYR = 'http://localhost:3000/api/cyr';
-export const API_FORMULARIO_BTN_ARREPENT = 'http://localhost:3000/api/btn-arrepent';
+export const API_FORMULARIOS = PAG + 'api/formularios/send-email';
+export const API_FORMULARIO_BAJA = PAG + 'api/formularios/baja-tarjeta';
+export const API_PRESTAMOS = PAG + 'api/prestamos';
+export const API_CYR = PAG + 'api/cyr';
+export const API_FORMULARIO_BTN_ARREPENT = PAG + 'api/btn-arrepent';
 /** Comercios->Donde comprar **/
-export const API_COMERCIOS = 'http://localhost:3000/api/comercios';
+export const API_COMERCIOS = PAG + 'api/comercios';
 
 /** Variables de la tarjeta **/
-export const API_VARIABLES_TARJ = 'http://localhost:3000/api/variables_tarj';
-export const API_PREST_PARAM = 'http://localhost:3000/api/prest_param';
+export const API_VARIABLES_TARJ = PAG + 'api/variables_tarj';
+export const API_PREST_PARAM = PAG + 'api/prest_param';
 
 /** PAQUETES inicio**/
-export const API_PAQUETES_PARAM = 'http://localhost:3000/api/paquetes/paq_param';
+export const API_PAQUETES_PARAM = PAG + 'api/paquetes/paq_param';

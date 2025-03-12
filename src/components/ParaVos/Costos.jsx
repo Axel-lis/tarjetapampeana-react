@@ -136,7 +136,7 @@ const Costos = () => {
                   </li>
                   <li>
                     <a
-                      href="/assets/contrato/NOTA_compressed.pdf"
+                      href="/contrato/NOTA.pdf"
                       target="_blank"
                       className="text-blue-500 hover:underline"
                     >
@@ -145,12 +145,20 @@ const Costos = () => {
                   </li>
                   <li>
                     <a
-                      href="/assets/contrato/aumento-comisiones.pdf"
+                      href="/contrato/Nota de aumento con comparativos.pdf"
                       target="_blank"
                       className="text-blue-500 hover:underline"
                     >
                       24/04/2024 - Notificación aumento de comisiones a aplicarse en Agosto 2024
                     </a>
+                  </li>
+                  <li>
+                    <a href="/contrato/Comparativos de costos y comisiones.pdf"  target="_blank"
+                      className="text-blue-500 hover:underline"> 01/01/2025 - Notificación Comparativos de costos y comisiones</a>
+                  </li>
+                  <li>
+                    <a href="/contrato/aumento-comparativo.pdf"  target="_blank"
+                      className="text-blue-500 hover:underline">01/01/2025 - Notificación Nota de aumento con comparativos</a>
                   </li>
                 </ul>
               </div>

@@ -227,24 +227,32 @@ const DefensaConsumidor = () => {
                           (***) Las comisiones y cargos informados se encuentran sujetos a modificaciones de conformidad
                           a la normativa aplicable.
                         </li>
-                        <li>
-                          <a
-                            href="/assets/contrato/NOTA_compressed.pdf"
-                            target="_blank"
-                            className="text-blue-500 hover:underline"
-                          >
-                            30/10/2024 - Notificación Aumento de Cargos y Comisiones a aplicarse en Febrero
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/assets/contrato/aumento-comisiones.pdf"
-                            target="_blank"
-                            className="text-blue-500 hover:underline"
-                          >
-                            24/04/2024 - Notificación aumento de comisiones a aplicarse en Agosto 2024
-                          </a>
-                        </li>
+                         <li>
+                      <a
+                        href="/contrato/NOTA.pdf"
+                        target="_blank"
+                        className="text-blue-500 hover:underline"
+                      >
+                        30/10/2024 - Notificación Aumento de Cargos y Comisiones a aplicarse en Febrero
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/contrato/Nota de aumento con comparativos.pdf"
+                        target="_blank"
+                        className="text-blue-500 hover:underline"
+                      >
+                        24/04/2024 - Notificación aumento de comisiones a aplicarse en Agosto 2024
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/contrato/Comparativos de costos y comisiones.pdf"  target="_blank"
+                        className="text-blue-500 hover:underline"> 01/01/2025 - Notificación Comparativos de costos y comisiones</a>
+                    </li>
+                    <li>
+                      <a href="/contrato/aumento-comparativo.pdf"  target="_blank"
+                        className="text-blue-500 hover:underline">01/01/2025 - Notificación Nota de aumento con comparativos</a>
+                    </li>
                       </ul>
                     </div>
                   </div>

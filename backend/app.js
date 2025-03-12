@@ -10,7 +10,9 @@ import prestParamRouter from './routes/prestParam.js';
 import cyrRouter from './routes/cyr.js';
 import btnArrepentRouter from './routes/btnArrepent.js';
 import paquetesRouter from './routes/paquetes.js';
-
+import csvVariablesTarj from './routes/csvVariablesTarj.js';
+import csvPrestParam from './routes/csvPrestParam.js';
+import csvPaqParam from './routes/csvPaqParam.js';
 const app = express();
 
 // Configuraciones generales
@@ -28,12 +30,20 @@ app.use('/api/prestamos', prestamosRouter);
 app.use('/api/comercios', dondeComprar);
 app.use('/api/btn-arrepent', btnArrepentRouter);
 app.use('/api/paquetes', paquetesRouter);
+app.use('/api', csvVariablesTarj);
+app.use('/api', csvPrestParam);
+app.use('/api', csvPaqParam);
 
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   next.createError(err.message);
   res.status(err.status || 500).json({ error: err.message || 'Error interno del servidor' });
+  res.header('Access-Control-Allow-Origin', 'https://tarjetapampeana.com.ar/paginanueva/dist');
+    res.header('Access-Control-Allow-Origin', 'https://tarjetapampeana.com.ar/');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
 });
 
 export default app;
