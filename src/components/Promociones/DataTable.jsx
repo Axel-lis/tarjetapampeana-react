@@ -220,21 +220,7 @@ const DataTable = () => {
           ))}
         </select>
       </div>
-        {/* Select de Rubro */}
-        <div className="min-w-[150px]">
-          <select
-            value={filters.rubro || ''}
-            onChange={(e) => handleFilterChange('rubro', e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
-          >
-            <option value="">Selecciona un rubro</option>
-            {rubros.map((rubro, index) => (
-              <option key={index} value={rubro}>
-                {rubro}
-              </option>
-            ))}
-          </select>
-        </div>
+        
         {/* Select de Localidad */}
         <div className="min-w-[150px]">
           <select
@@ -246,6 +232,21 @@ const DataTable = () => {
             {localidades.map((loc) => (
               <option key={loc.id} value={loc.nombre}>
                 {loc.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
+        {/* Select de Rubro */}
+        <div className="min-w-[150px]">
+          <select
+            value={filters.rubro || ''}
+            onChange={(e) => handleFilterChange('rubro', e.target.value)}
+            className="w-full px-3 py-2 border rounded-md"
+          >
+            <option value="">Selecciona un rubro</option>
+            {rubros.map((rubro, index) => (
+              <option key={index} value={rubro}>
+                {rubro}
               </option>
             ))}
           </select>

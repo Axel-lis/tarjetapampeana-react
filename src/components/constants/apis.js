@@ -4,8 +4,8 @@ var PAG = 'https://testing.tarjetapampeana.com.ar/';
 export const API_PROMOCIONES_NOMBRES = PAG + 'api/promociones/promociones-nombres';
 export const API_PROMOCIONES_RUBROS = PAG + 'api/promociones/rubros';
 export const API_PROMOCIONES_BUSCAR = PAG + 'api/promociones';
-export const API_PROMOCIONES_PROVINCIAS =  'http://localhost:3000/api/provincias';
-export const API_PROMOCIONES_LOCALIDADES = 'http://localhost:3000/api/localidades';
+export const API_PROMOCIONES_PROVINCIAS =  PAG + 'api/provincias';
+export const API_PROMOCIONES_LOCALIDADES =  PAG + 'api/localidades';
 /**  FORMULARIOS **/
 export const API_FORMULARIOS = PAG + 'api/formularios/send-email';
 export const API_FORMULARIO_BAJA = PAG + 'api/formularios/baja-tarjeta';
