@@ -47,7 +47,7 @@ const PaginaPrincipal = () => {
     {
       icono: <FaMobileAlt className="text-purple-500" />,
       texto: 'Conocé nuestra app',
-      action: () => console.log('Conocé nuestra app'),
+      action: () =>window.open('https://play.google.com/store/apps/details?id=com.pampeana.mobile&hl=es_AR&pli=1', '_blank'),
     },
   ];
 

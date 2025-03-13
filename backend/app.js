@@ -13,6 +13,8 @@ import paquetesRouter from './routes/paquetes.js';
 import csvVariablesTarj from './routes/csvVariablesTarj.js';
 import csvPrestParam from './routes/csvPrestParam.js';
 import csvPaqParam from './routes/csvPaqParam.js';
+import provinciasRoutes from './routes/provinciasRoutes.js';
+import localidadesRouter from './routes/localidadesRouter.js';
 const app = express();
 
 // Configuraciones generales
@@ -33,11 +35,12 @@ app.use('/api/paquetes', paquetesRouter);
 app.use('/api', csvVariablesTarj);
 app.use('/api', csvPrestParam);
 app.use('/api', csvPaqParam);
-
+app.use('/api', provinciasRoutes);
+app.use('/api/localidades', localidadesRouter);
 // Middleware para manejar errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  next.createError(err.message);
+
   res.status(err.status || 500).json({ error: err.message || 'Error interno del servidor' });
   res.header('Access-Control-Allow-Origin', 'https://tarjetapampeana.com.ar/paginanueva/dist');
     res.header('Access-Control-Allow-Origin', 'https://tarjetapampeana.com.ar/');

@@ -17,7 +17,7 @@ const Costos = () => {
         const response = await fetch(API_VARIABLES_TARJ);
         const data = await response.json();
         setTarjetasData(data);
-        console.log('Tarjetas Data:', data); // Verifica la respuesta de la API
+       // console.log('Tarjetas Data:', data); // Verifica la respuesta de la API
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -28,7 +28,7 @@ const Costos = () => {
         const response = await fetch(API_PREST_PARAM);
         const data = await response.json();
         setPrestamosData(data);
-        console.log('Prestamos Data:', data); // Verifica la respuesta de la API
+        //console.log('Prestamos Data:', data); // Verifica la respuesta de la API
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -136,7 +136,7 @@ const Costos = () => {
                   </li>
                   <li>
                     <a
-                      href="/contrato/NOTA.pdf"
+                      href="/contrato/AUMENTO FEBRERO 2025.pdf"
                       target="_blank"
                       className="text-blue-500 hover:underline"
                     >
@@ -145,7 +145,7 @@ const Costos = () => {
                   </li>
                   <li>
                     <a
-                      href="/contrato/Nota de aumento con comparativos.pdf"
+                      href="/contrato/AUMENTO AGOSTO 2024.pdf"
                       target="_blank"
                       className="text-blue-500 hover:underline"
                     >

@@ -12,7 +12,7 @@ const DefensaConsumidor = () => {
         const response = await fetch(API_VARIABLES_TARJ);
         const data = await response.json();
         setTarjetasData(data);
-        console.log('Tarjetas Data:', data); // Verifica la respuesta de la API
+       // console.log('Tarjetas Data:', data); // Verifica la respuesta de la API
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -23,7 +23,7 @@ const DefensaConsumidor = () => {
         const response = await fetch(API_PREST_PARAM);
         const data = await response.json();
         setPrestamosData(data);
-        console.log('Prestamos Data:', data); // Verifica la respuesta de la API
+       // console.log('Prestamos Data:', data); // Verifica la respuesta de la API
       } catch (error) {
         console.error('Error fetching data:', error);
       }

@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 import { FiChevronLeft, FiChevronRight, FiSearch } from 'react-icons/fi';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
-import { API_PROMOCIONES_NOMBRES, API_PROMOCIONES_RUBROS, API_PROMOCIONES_BUSCAR } from '../constants/apis';
+import { 
+  API_PROMOCIONES_NOMBRES, 
+  API_PROMOCIONES_RUBROS, 
+  API_PROMOCIONES_BUSCAR,
+  API_PROMOCIONES_PROVINCIAS,
+  API_PROMOCIONES_LOCALIDADES
+} from '../constants/apis';
 
 const DataTable = () => {
   const [data, setData] = useState([]);
@@ -16,7 +22,8 @@ const DataTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [promociones, setPromociones] = useState([]);
   const [rubros, setRubros] = useState([]);
-  const [userLocation, setUserLocation] = useState(null);
+  const [provincias, setProvincias] = useState([]);
+  const [localidades, setLocalidades] = useState([]);
 
   const columns = [
     {
@@ -56,13 +63,38 @@ const DataTable = () => {
     },
   ];
 
+  // Actualiza los filtros y reinicia el pageIndex
   const handleFilterChange = (column, value) => {
-    console.log(`Filter change - ${column}: ${value}`);
     setFilters((prev) => ({
       ...prev,
       [column]: value,
     }));
     setPageIndex(0);
+  };
+
+  // Obtiene las localidades según la provincia seleccionada
+  const fetchLocalidades = async (provinciaId) => {
+    try {
+      const response = await axios.get(`${API_PROMOCIONES_LOCALIDADES}/${provinciaId}`);
+      // Se asume que las localidades vienen en response.data.data
+      setLocalidades(response.data.data);
+    } catch (error) {
+      console.error("Error fetching localidades:", error);
+      setLocalidades([]);
+    }
+  };
+
+  // Al seleccionar una provincia se actualiza el filtro y se llama a la API para obtener las localidades
+  const handleProvinciaChange = async (e) => {
+    const provinciaId = e.target.value;
+    handleFilterChange('provincia', provinciaId);
+    if (provinciaId) {
+      await fetchLocalidades(provinciaId);
+    } else {
+      // Si se limpia la provincia, también se limpia el select de localidades
+      setLocalidades([]);
+      handleFilterChange('localidad', '');
+    }
   };
 
   const fetchData = async () => {
@@ -74,13 +106,7 @@ const DataTable = () => {
         ...filters,
         search: searchTerm,
       });
-
-      console.log('Fetching data with query params:', queryParams.toString());
-
       const response = await axios.get(`${API_PROMOCIONES_BUSCAR}/buscar-promociones?${queryParams}`);
-
-      console.log('Response data:', response.data);
-
       setData(response.data.data);
       setTotalPages(response.data.totalPages);
       setTotalItems(response.data.totalItems);
@@ -93,23 +119,22 @@ const DataTable = () => {
     }
   };
 
-  // Usar debounce para optimizar la búsqueda
+  // Debounce para optimizar la búsqueda
   const debouncedSearch = debounce(() => {
     fetchData();
   }, 500);
 
-  // Efecto para realizar la búsqueda
+  // Ejecuta la búsqueda al cambiar las dependencias
   useEffect(() => {
     debouncedSearch();
     return () => debouncedSearch.cancel();
   }, [pageIndex, pageSize, filters, searchTerm]);
 
-  // Efecto para cargar promociones y rubros en el select
+  // Carga promociones, rubros y provincias al montar el componente
   useEffect(() => {
     const fetchPromociones = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_NOMBRES);
-        console.log('Fetched promociones:', response.data);
         setPromociones(response.data.aaData);
       } catch (error) {
         console.error('Error fetching promociones:', error);
@@ -119,53 +144,26 @@ const DataTable = () => {
     const fetchRubros = async () => {
       try {
         const response = await axios.get(API_PROMOCIONES_RUBROS);
-        console.log('Fetched rubros:', response.data);
         setRubros(response.data);
       } catch (error) {
         console.error('Error fetching rubros:', error);
       }
     };
 
+    const fetchProvincias = async () => {
+      try {
+        const response = await axios.get(API_PROMOCIONES_PROVINCIAS);
+        // Se asume que las provincias vienen en response.data.data
+        setProvincias(response.data.data);
+      } catch (error) {
+        console.error('Error fetching provincias:', error);
+      }
+    };
+
     fetchPromociones();
     fetchRubros();
+    fetchProvincias();
   }, []);
-
-  // Efecto para obtener la ubicación del usuario
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-         // console.log('User location:', position.coords);
-          setUserLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error('Error getting user location:', error);
-        }
-      );
-    }
-  }, []);
-
-  // Efecto para obtener la localidad mediante reverse geocoding con LocationIQ
-  useEffect(() => {
-    if (userLocation) {
-      const { latitude, longitude } = userLocation;
-      axios
-        .get(`https://us1.locationiq.com/v1/reverse.php?key=pk.b7d27b4ec9c04c0ff8d2a5ff989f4ad5&lat=${latitude}&lon=${longitude}&format=json`)
-        .then(response => {
-          const address = response.data.address;
-          //console.log('Reverse geocoding address:', address);
-          const localidad = address.city || address.town || address.village || '';
-          //console.log('Localidad obtenida:', localidad);
-          handleFilterChange('localidad', localidad);
-        })
-        .catch(error => {
-          console.error('Error fetching reverse geocoding data:', error);
-        });
-    }
-  }, [userLocation]);
 
   if (loading) {
     return (
@@ -194,11 +192,12 @@ const DataTable = () => {
   return (
     <div className="p-4 bg-gray-200 rounded-lg shadow-lg">
       <div className="mb-4 flex flex-wrap gap-4 items-center">
+        {/* Input de búsqueda */}
         <div className="flex-1 min-w-[200px]">
           <div className="relative">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Buscar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 border rounded-md"
@@ -206,20 +205,22 @@ const DataTable = () => {
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
         </div>
-        <div className="min-w-[150px]">
-          <select
-            value={filters.promocion || ''}
-            onChange={(e) => handleFilterChange('promocion', e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
-          >
-            <option value="">Selecciona una promoción</option>
-            {promociones.map((promo, index) => (
-              <option key={index} value={promo.nompro}>
-                {promo.nompro}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Select de Provincia (carga las localidades) */}
+      <div className="min-w-[150px]">
+        <select
+          value={filters.provincia || ''}
+          onChange={handleProvinciaChange}
+          className="w-full px-3 py-2 border rounded-md"
+        >
+          <option value="">Todas las provincias</option>
+          {provincias.map((prov) => (
+            <option key={prov.id} value={prov.id}>
+              {prov.nombre}
+            </option>
+          ))}
+        </select>
+      </div>
+        {/* Select de Rubro */}
         <div className="min-w-[150px]">
           <select
             value={filters.rubro || ''}
@@ -230,6 +231,21 @@ const DataTable = () => {
             {rubros.map((rubro, index) => (
               <option key={index} value={rubro}>
                 {rubro}
+              </option>
+            ))}
+          </select>
+        </div>
+        {/* Select de Localidad */}
+        <div className="min-w-[150px]">
+          <select
+            value={filters.localidad || ''}
+            onChange={(e) => handleFilterChange('localidad', e.target.value)}
+            className="w-full px-3 py-2 border rounded-md"
+          >
+            <option value="">Selecciona una localidad</option>
+            {localidades.map((loc) => (
+              <option key={loc.id} value={loc.nombre}>
+                {loc.nombre}
               </option>
             ))}
           </select>
@@ -264,7 +280,9 @@ const DataTable = () => {
                     className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                     role="cell"
                   >
-                    {column.cell ? column.cell({ getValue: () => row[column.accessorKey] }) : row[column.accessorKey]}
+                    {column.cell
+                      ? column.cell({ getValue: () => row[column.accessorKey] })
+                      : row[column.accessorKey]}
                   </td>
                 ))}
               </tr>

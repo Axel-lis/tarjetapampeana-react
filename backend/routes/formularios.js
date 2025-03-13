@@ -101,10 +101,10 @@ router.post('/baja-tarjeta', limiter, async (req, res) => {
   } = req.body;
 
   const mailOptions = {
-    from: '"Consulta desde página web" <no-responder@tarjetapampeana.com.ar>',
-    to: 'axelliscovsky@outlook.com.ar',
-    cc: ['axelliscovsky@outlook.com.ar'],
-    replyTo: 'clientes@tarjetapampeana.com.ar',
+       from: '"Consulta desde página web" <no-responder@tarjetapampeana.com.ar>',
+      to: 'clientes@tarjetapampeana.com.ar',
+      cc: ['mchapado@yahoo.com.ar', 'comercial@tarjetapampeana.com.ar', 'administracion@tarjetapampeana.com.ar'],
+      replyTo: 'clientes@tarjetapampeana.com.ar',
     subject: `Solicitud de comercio: ${nombre} ${apellido}`,
     html: `
       Nombre y Apellido: ${nombre} ${apellido} <br>
